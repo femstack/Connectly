@@ -1,0 +1,400 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connectly — Followers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ===== Navbar ===== -->
+   {{>header}}
+
+    <!-- ===== Followers Page ===== -->
+    <main class="connections-page">
+      <div class="connections-container">
+        <div class="connections-header">
+          <h1>Connections</h1>
+          <p>Manage your followers, following, and friends.</p>
+        </div>
+
+        <div class="connections-stats">
+          <a href="followers.html" class="conn-stat-card active">
+            <span class="conn-stat-num">856</span>
+            <span class="conn-stat-label">Followers</span>
+          </a>
+          <a href="followers.html" class="conn-stat-card">
+            <span class="conn-stat-num">423</span>
+            <span class="conn-stat-label">Following</span>
+          </a>
+          <a href="followers.html" class="conn-stat-card">
+            <span class="conn-stat-num">1,247</span>
+            <span class="conn-stat-label">Friends</span>
+          </a>
+        </div>
+
+        <div class="conn-tabs-bar">
+          <button
+            class="feed-tab active conn-tab-btn"
+            type="button"
+            data-tab="followers"
+          >Followers</button>
+          <button
+            class="feed-tab conn-tab-btn"
+            type="button"
+            data-tab="following"
+          >Following</button>
+          <button
+            class="feed-tab conn-tab-btn"
+            type="button"
+            data-tab="friends"
+          >Friends</button>
+          <div class="conn-search-box">
+            <span class="nav-search-icon">&#128269;</span>
+            <input
+              type="text"
+              placeholder="Search connections..."
+              class="conn-search-input"
+            />
+          </div>
+        </div>
+
+        <!-- Followers Tab Panel -->
+        <div class="conn-tab-panel active" id="panel-followers">
+          <div class="conn-grid">
+            <div class="conn-card">
+              <div class="suggest-avatar post-avatar-2">MK</div>
+              <div class="conn-card-info">
+                <a href="profile.html" class="conn-name">Maya Kapoor</a>
+                <span class="conn-meta">@mayakapoor &middot; Photographer</span>
+              </div>
+              <div class="conn-card-actions">
+                <button class="btn-primary conn-btn" type="button">Follow Back</button>
+                <button
+                  class="conn-icon-btn"
+                  type="button"
+                  aria-label="Remove"
+                >&#10005;</button>
+              </div>
+            </div>
+            <div class="conn-card">
+              <div class="suggest-avatar post-avatar-3">JT</div>
+              <div class="conn-card-info">
+                <a href="profile.html" class="conn-name">Jordan Tate</a>
+                <span class="conn-meta">@jordantate &middot; UI Designer</span>
+              </div>
+              <div class="conn-card-actions">
+                <button
+                  class="btn-outline conn-btn"
+                  type="button"
+                >Following</button>
+                <button
+                  class="conn-icon-btn"
+                  type="button"
+                  aria-label="Remove"
+                >&#10005;</button>
+              </div>
+            </div>
+            <div class="conn-card">
+              <div class="suggest-avatar post-avatar-4">RL</div>
+              <div class="conn-card-info">
+                <a href="profile.html" class="conn-name">Riley Lee</a>
+                <span class="conn-meta">@rileylee &middot; Software Engineer</span>
+              </div>
+              <div class="conn-card-actions">
+                <button class="btn-primary conn-btn" type="button">Follow Back</button>
+                <button
+                  class="conn-icon-btn"
+                  type="button"
+                  aria-label="Remove"
+                >&#10005;</button>
+              </div>
+            </div>
+            <div class="conn-card">
+              <div class="suggest-avatar post-avatar-5">EW</div>
+              <div class="conn-card-info">
+                <a href="profile.html" class="conn-name">Emma Wilson</a>
+                <span class="conn-meta">@emmawilson &middot; Content Creator</span>
+              </div>
+              <div class="conn-card-actions">
+                <button
+                  class="btn-outline conn-btn"
+                  type="button"
+                >Following</button>
+                <button
+                  class="conn-icon-btn"
+                  type="button"
+                  aria-label="Remove"
+                >&#10005;</button>
+              </div>
+            </div>
+            <div class="conn-card">
+              <div class="suggest-avatar post-avatar-6">CM</div>
+              <div class="conn-card-info">
+                <a href="profile.html" class="conn-name">Carlos Mendez</a>
+                <span class="conn-meta">@carlosmendez &middot; Fitness Coach</span>
+              </div>
+              <div class="conn-card-actions">
+                <button class="btn-primary conn-btn" type="button">Follow Back</button>
+                <button
+                  class="conn-icon-btn"
+                  type="button"
+                  aria-label="Remove"
+                >&#10005;</button>
+              </div>
+            </div>
+            <div class="conn-card">
+              <div class="suggest-avatar">AS</div>
+              <div class="conn-card-info">
+                <a href="profile.html" class="conn-name">Alex Silva</a>
+                <span class="conn-meta">@alexsilva &middot; Product Manager</span>
+              </div>
+              <div class="conn-card-actions">
+                <button
+                  class="btn-outline conn-btn"
+                  type="button"
+                >Following</button>
+                <button
+                  class="conn-icon-btn"
+                  type="button"
+                  aria-label="Remove"
+                >&#10005;</button>
+              </div>
+            </div>
+            <div class="conn-card">
+              <div class="suggest-avatar post-avatar-3">SC</div>
+              <div class="conn-card-info">
+                <a href="profile.html" class="conn-name">Sophie Chen</a>
+                <span class="conn-meta">@sophiechen &middot; Data Analyst</span>
+              </div>
+              <div class="conn-card-actions">
+                <button class="btn-primary conn-btn" type="button">Follow Back</button>
+                <button
+                  class="conn-icon-btn"
+                  type="button"
+                  aria-label="Remove"
+                >&#10005;</button>
+              </div>
+            </div>
+            <div class="conn-card">
+              <div class="suggest-avatar post-avatar-4">DK</div>
+              <div class="conn-card-info">
+                <a href="profile.html" class="conn-name">David Kim</a>
+                <span class="conn-meta">@davidkim &middot; Musician</span>
+              </div>
+              <div class="conn-card-actions">
+                <button class="btn-primary conn-btn" type="button">Follow Back</button>
+                <button
+                  class="conn-icon-btn"
+                  type="button"
+                  aria-label="Remove"
+                >&#10005;</button>
+              </div>
+            </div>
+            <div class="conn-card">
+              <div class="suggest-avatar post-avatar-5">NB</div>
+              <div class="conn-card-info">
+                <a href="profile.html" class="conn-name">Nina Brooks</a>
+                <span class="conn-meta">@ninabrooks &middot; Writer</span>
+              </div>
+              <div class="conn-card-actions">
+                <button
+                  class="btn-outline conn-btn"
+                  type="button"
+                >Following</button>
+                <button
+                  class="conn-icon-btn"
+                  type="button"
+                  aria-label="Remove"
+                >&#10005;</button>
+              </div>
+            </div>
+            <div class="conn-card">
+              <div class="suggest-avatar post-avatar-6">TB</div>
+              <div class="conn-card-info">
+                <a href="profile.html" class="conn-name">Tom Baker</a>
+                <span class="conn-meta">@tombaker &middot; Chef</span>
+              </div>
+              <div class="conn-card-actions">
+                <button class="btn-primary conn-btn" type="button">Follow Back</button>
+                <button
+                  class="conn-icon-btn"
+                  type="button"
+                  aria-label="Remove"
+                >&#10005;</button>
+              </div>
+            </div>
+          </div>
+          <div class="load-more-wrap">
+            <button class="load-more-btn" type="button">Load more followers</button>
+          </div>
+        </div>
+
+        <!-- Following Tab Panel -->
+        <div class="conn-tab-panel" id="panel-following">
+          <div class="conn-grid">
+            <div class="conn-card">
+              <div class="suggest-avatar post-avatar-2">MK</div>
+              <div class="conn-card-info">
+                <a href="profile.html" class="conn-name">Maya Kapoor</a>
+                <span class="conn-meta">@mayakapoor &middot; Photographer</span>
+              </div>
+              <div class="conn-card-actions">
+                <button
+                  class="btn-outline conn-btn"
+                  type="button"
+                >Following</button>
+                <button
+                  class="conn-icon-btn"
+                  type="button"
+                  aria-label="Unfollow"
+                >&#10005;</button>
+              </div>
+            </div>
+            <div class="conn-card">
+              <div class="suggest-avatar post-avatar-3">JT</div>
+              <div class="conn-card-info">
+                <a href="profile.html" class="conn-name">Jordan Tate</a>
+                <span class="conn-meta">@jordantate &middot; UI Designer</span>
+              </div>
+              <div class="conn-card-actions">
+                <button
+                  class="btn-outline conn-btn"
+                  type="button"
+                >Following</button>
+                <button
+                  class="conn-icon-btn"
+                  type="button"
+                  aria-label="Unfollow"
+                >&#10005;</button>
+              </div>
+            </div>
+            <div class="conn-card">
+              <div class="suggest-avatar post-avatar-5">EW</div>
+              <div class="conn-card-info">
+                <a href="profile.html" class="conn-name">Emma Wilson</a>
+                <span class="conn-meta">@emmawilson &middot; Content Creator</span>
+              </div>
+              <div class="conn-card-actions">
+                <button
+                  class="btn-outline conn-btn"
+                  type="button"
+                >Following</button>
+                <button
+                  class="conn-icon-btn"
+                  type="button"
+                  aria-label="Unfollow"
+                >&#10005;</button>
+              </div>
+            </div>
+            <div class="conn-card">
+              <div class="suggest-avatar">AS</div>
+              <div class="conn-card-info">
+                <a href="profile.html" class="conn-name">Alex Silva</a>
+                <span class="conn-meta">@alexsilva &middot; Product Manager</span>
+              </div>
+              <div class="conn-card-actions">
+                <button
+                  class="btn-outline conn-btn"
+                  type="button"
+                >Following</button>
+                <button
+                  class="conn-icon-btn"
+                  type="button"
+                  aria-label="Unfollow"
+                >&#10005;</button>
+              </div>
+            </div>
+            <div class="conn-card">
+              <div class="suggest-avatar post-avatar-5">NB</div>
+              <div class="conn-card-info">
+                <a href="profile.html" class="conn-name">Nina Brooks</a>
+                <span class="conn-meta">@ninabrooks &middot; Writer</span>
+              </div>
+              <div class="conn-card-actions">
+                <button
+                  class="btn-outline conn-btn"
+                  type="button"
+                >Following</button>
+                <button
+                  class="conn-icon-btn"
+                  type="button"
+                  aria-label="Unfollow"
+                >&#10005;</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Friends Tab Panel -->
+        <div class="conn-tab-panel" id="panel-friends">
+          <div class="conn-grid">
+            <div class="conn-card">
+              <div class="suggest-avatar post-avatar-3">JT</div>
+              <div class="conn-card-info">
+                <a href="profile.html" class="conn-name">Jordan Tate</a>
+                <span class="conn-meta">@jordantate &middot; Friends since 2024</span>
+              </div>
+              <div class="conn-card-actions">
+                <button
+                  class="btn-outline conn-btn"
+                  type="button"
+                >Friends</button>
+                <a
+                  href="chat-details.html"
+                  class="conn-icon-btn"
+                  aria-label="Message"
+                >&#9993;</a>
+              </div>
+            </div>
+            <div class="conn-card">
+              <div class="suggest-avatar post-avatar-2">MK</div>
+              <div class="conn-card-info">
+                <a href="profile.html" class="conn-name">Maya Kapoor</a>
+                <span class="conn-meta">@mayakapoor &middot; Friends since 2023</span>
+              </div>
+              <div class="conn-card-actions">
+                <button
+                  class="btn-outline conn-btn"
+                  type="button"
+                >Friends</button>
+                <a
+                  href="chat-details.html"
+                  class="conn-icon-btn"
+                  aria-label="Message"
+                >&#9993;</a>
+              </div>
+            </div>
+            <div class="conn-card">
+              <div class="suggest-avatar post-avatar-5">EW</div>
+              <div class="conn-card-info">
+                <a href="profile.html" class="conn-name">Emma Wilson</a>
+                <span class="conn-meta">@emmawilson &middot; Friends since 2025</span>
+              </div>
+              <div class="conn-card-actions">
+                <button
+                  class="btn-outline conn-btn"
+                  type="button"
+                >Friends</button>
+                <a
+                  href="chat-details.html"
+                  class="conn-icon-btn"
+                  aria-label="Message"
+                >&#9993;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    {{>footer}}
+    <script src="js/main.js"></script>
+  </body>
+</html>

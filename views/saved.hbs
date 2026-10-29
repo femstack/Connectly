@@ -1,0 +1,240 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connectly — Saved Posts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ===== Navbar ===== -->
+    {{>header}}
+
+    <!-- ===== Saved Posts Page ===== -->
+    <main class="saved-page">
+      <div class="saved-container">
+        <div class="page-header">
+          <h1>Saved Posts</h1>
+          <p>Posts you've bookmarked for later reading.</p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs" id="savedFilters">
+          <button
+            class="filter-tab active"
+            data-filter="all"
+            type="button"
+          >All</button>
+          <button
+            class="filter-tab"
+            data-filter="design"
+            type="button"
+          >Design</button>
+          <button
+            class="filter-tab"
+            data-filter="travel"
+            type="button"
+          >Travel</button>
+          <button
+            class="filter-tab"
+            data-filter="tech"
+            type="button"
+          >Technology</button>
+          <button
+            class="filter-tab"
+            data-filter="food"
+            type="button"
+          >Food</button>
+        </div>
+
+        <!-- Saved Posts List -->
+        <div class="saved-posts-grid" id="savedPostsGrid">
+          <!-- Saved Post 1 -->
+          <article class="post-card saved-post-card" data-category="design">
+            <div class="post-header">
+              <div class="post-avatar">AS</div>
+              <div class="post-meta">
+                <a href="profile.html" class="post-author">Alex Silva</a>
+                <span class="post-username">@alexsilva</span>
+                <span class="post-time">2 hours ago</span>
+              </div>
+              <span class="saved-tag">Design</span>
+            </div>
+            <div class="post-content">
+              <p>My top 5 design principles for building products people love:
+                1. Clarity over cleverness 2. Consistency builds trust 3.
+                Feedback at every step 4. Accessibility is not Optional 5. Less,
+                but better.</p>
+            </div>
+            <div class="post-actions">
+              <span class="post-action"><span>&#10084;</span> 24 Likes</span>
+              <span class="post-action"><span>&#128172;</span> 8 Comments</span>
+              <button class="post-action js-remove-save" type="button">
+                <span>&#128278;</span>
+                Remove Bookmark
+              </button>
+            </div>
+          </article>
+
+          <!-- Saved Post 2 -->
+          <article class="post-card saved-post-card" data-category="travel">
+            <div class="post-header">
+              <div class="post-avatar post-avatar-2">MK</div>
+              <div class="post-meta">
+                <a href="profile.html" class="post-author">Maya Kapoor</a>
+                <span class="post-username">@mayakapoor</span>
+                <span class="post-time">5 hours ago</span>
+              </div>
+              <span class="saved-tag">Travel</span>
+            </div>
+            <div class="post-content">
+              <p>10 lessons from 10 years of hiking. #1: The best views come
+                after the hardest climbs. Nature has a way of putting everything
+                into perspective. Here's my complete guide to planning your
+                first multi-day trek.</p>
+            </div>
+            <div class="post-actions">
+              <span class="post-action"><span>&#10084;</span> 56 Likes</span>
+              <span class="post-action"><span>&#128172;</span>
+                15 Comments</span>
+              <button class="post-action js-remove-save" type="button">
+                <span>&#128278;</span>
+                Remove Bookmark
+              </button>
+            </div>
+          </article>
+
+          <!-- Saved Post 3 -->
+          <article class="post-card saved-post-card" data-category="tech">
+            <div class="post-header">
+              <div class="post-avatar post-avatar-3">JT</div>
+              <div class="post-meta">
+                <a href="profile.html" class="post-author">Jordan Tate</a>
+                <span class="post-username">@jordantate</span>
+                <span class="post-time">Yesterday</span>
+              </div>
+              <span class="saved-tag">Technology</span>
+            </div>
+            <div class="post-content">
+              <p>I just migrated my entire portfolio from a traditional CMS to a
+                headless setup with static generation. Page load times dropped
+                from 3.2s to 0.4s. Here's the full breakdown of what I learned.</p>
+            </div>
+            <div class="post-actions">
+              <span class="post-action"><span>&#10084;</span> 112 Likes</span>
+              <span class="post-action"><span>&#128172;</span>
+                32 Comments</span>
+              <button class="post-action js-remove-save" type="button">
+                <span>&#128278;</span>
+                Remove Bookmark
+              </button>
+            </div>
+          </article>
+
+          <!-- Saved Post 4 -->
+          <article class="post-card saved-post-card" data-category="food">
+            <div class="post-header">
+              <div class="post-avatar post-avatar-4">RL</div>
+              <div class="post-meta">
+                <a href="profile.html" class="post-author">Riley Lee</a>
+                <span class="post-username">@rileylee</span>
+                <span class="post-time">2 days ago</span>
+              </div>
+              <span class="saved-tag">Food</span>
+            </div>
+            <div class="post-content">
+              <p>After 6 months of experimenting with pour-over coffee, I've
+                finally found the perfect ratio: 1:16 coffee to water, 30 second
+                bloom, total brew time 3 minutes. Game changer. Here's my full
+                setup and technique guide.</p>
+            </div>
+            <div class="post-actions">
+              <span class="post-action"><span>&#10084;</span> 38 Likes</span>
+              <span class="post-action"><span>&#128172;</span>
+                21 Comments</span>
+              <button class="post-action js-remove-save" type="button">
+                <span>&#128278;</span>
+                Remove Bookmark
+              </button>
+            </div>
+          </article>
+
+          <!-- Saved Post 5 -->
+          <article class="post-card saved-post-card" data-category="design">
+            <div class="post-header">
+              <div class="post-avatar post-avatar-2">MK</div>
+              <div class="post-meta">
+                <a href="profile.html" class="post-author">Maya Kapoor</a>
+                <span class="post-username">@mayakapoor</span>
+                <span class="post-time">3 days ago</span>
+              </div>
+              <span class="saved-tag">Design</span>
+            </div>
+            <div class="post-content">
+              <p>The best color palettes don't just look good — they
+                communicate. I analyzed 50 award-winning websites and found that
+                80% use a maximum of 3 primary colors. Here's my full analysis
+                with swatches and takeaways.</p>
+            </div>
+            <div class="post-actions">
+              <span class="post-action"><span>&#10084;</span> 89 Likes</span>
+              <span class="post-action"><span>&#128172;</span>
+                17 Comments</span>
+              <button class="post-action js-remove-save" type="button">
+                <span>&#128278;</span>
+                Remove Bookmark
+              </button>
+            </div>
+          </article>
+
+          <!-- Saved Post 6 -->
+          <article class="post-card saved-post-card" data-category="tech">
+            <div class="post-header">
+              <div class="post-avatar">AS</div>
+              <div class="post-meta">
+                <a href="profile.html" class="post-author">Alex Silva</a>
+                <span class="post-username">@alexsilva</span>
+                <span class="post-time">5 days ago</span>
+              </div>
+              <span class="saved-tag">Technology</span>
+            </div>
+            <div class="post-content">
+              <p>Stop building your own auth system. Seriously. Use established
+                providers, focus on your product. I made this mistake on three
+                projects before learning. Here's why auth is the last thing you
+                should roll your own solution for.</p>
+            </div>
+            <div class="post-actions">
+              <span class="post-action"><span>&#10084;</span> 167 Likes</span>
+              <span class="post-action"><span>&#128172;</span>
+                44 Comments</span>
+              <button class="post-action js-remove-save" type="button">
+                <span>&#128278;</span>
+                Remove Bookmark
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <!-- Empty State (hidden by default, shown when all posts removed) -->
+        <div class="empty-state hidden" id="emptyState">
+          <div class="empty-icon">&#128218;</div>
+          <h2>No Saved Posts Yet</h2>
+          <p>When you bookmark posts from your feed, they'll appear here for
+            easy access later.</p>
+          <a href="feed.html" class="btn-primary">Browse Feed</a>
+        </div>
+      </div>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    {{>footer}}
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

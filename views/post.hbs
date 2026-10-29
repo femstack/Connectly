@@ -1,0 +1,415 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{pageTitle}}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <!-- ===== Navbar ===== -->
+    {{>header}}
+
+    <!-- ===== Post Detail Page ===== -->
+    <main class="post-detail-page">
+      <div class="post-detail-container">
+        <a href="/feed" class="pd-back-link">&#8592; Back to Feed</a>
+
+        <div class="post-detail-layout">
+          <!-- Main Post Column -->
+          <div class="pd-main">
+            <article class="post-card-full">
+              <div class="post-header">
+                <div class="post-avatar">{{getInitials post.author.fullname}}</div>
+                <div class="post-header-info">
+                  <div class="post-header-row">
+                    <a href="/profile/{{post._id}}" class="post-author">{{post.author.fullname}}</a>
+                    <span class="post-username">@{{post.author.username}}</span>
+                    <span class="post-audience-tag">&middot; {{post.audience}}</span>
+                  </div>
+                  <span class="post-time">{{timeAgo post.createdAt}}</span>
+                </div>
+                <button
+                  class="post-options-btn"
+                  type="button"
+                  aria-label="Post options"
+                >&#8943;</button>
+                <div class="post-options-menu">
+                  <button type="button" class="opt-save">&#128190; Save post</button>
+                  <button type="button" class="opt-copy">&#128279; Copy link</button>
+                  <button type="button" class="opt-hide">&#128065; Hide post</button>
+                  <div class="post-options-divider"></div>
+                  <button type="button" class="opt-report danger">&#9873; Report
+                    post</button>
+                </div>
+              </div>
+              <div class="post-body">
+                {{#if post.content}}
+                <p>
+                 {{post.content}}
+                </p>
+               {{/if}}
+              </div>
+              <div class="post-image var-1">
+                 {{#if post.mediaUrl}}
+              <div class="post-image var-1">
+                {{#if (eq post.mediaType "image")}}
+                <img src="{{post.mediaUrl}}" alt="Post Media">
+                {{/if}}
+
+                {{#if (eq post.mediaType "video")}}
+                <video controls>
+                  <source src="{{post.mediaUrl}}" type="video/mp4">
+                </video>
+                {{/if}}
+              </div>
+              {{/if}}
+              </div>
+              <div class="post-stats-row">
+                <div class="post-stats-likes">
+                  <span class="post-like-icons">
+                    <span class="post-like-icon heart">&#10084;</span>
+                    <span class="post-like-icon thumbs">&#128077;</span>
+                  </span>
+                  <span class="like-count">{{post.likeCount}} likes</span>
+                </div>
+                <span class="comment-count-text">{{post.commentCount}} comments &middot; 0 shares</span>
+              </div>
+              <div class="post-actions-bar">
+                <form action="/post/{{post._id}}/like" method="post">
+                  <button class="action-btn like-btn" type="submit">
+                 &#10084; {{#if post.isliked}}Unliked{{else}}{{/if}}
+                  Like
+                </button>
+                </form>
+                <button class="action-btn comment-btn" type="button">
+                  <span class="action-icon">&#128172;</span>
+                  Comment
+                </button>
+                <button class="action-btn share-btn" type="button">
+                  <span class="action-icon">&#128279;</span>
+                  Share
+                </button>
+               <form action="/post/{{post._id}}/save" method="POST">
+  <button class="action-btn save-btn" type="submit">
+    <span class="action-icon">&#128190;</span>
+    {{#if post.isSaved}}
+      Unsave
+    {{else}}
+      Save
+    {{/if}}
+  </button>
+</form>
+              </div>
+              <div class="comments-section open">
+                <div class="comments-section-header">
+                  <h3>{{post.commentCount}} Comments</h3>
+                  <select class="comment-sort-select">
+                    <option >Most relevant</option>
+                    <option>Newest first</option>
+                    <option>Oldest first</option>
+                  </select>
+                </div>
+                <div class="comment-list">
+                  {{#each post.comment}} 
+                  <div class="comment-item">
+                    <div class="comment-avatar post-avatar-2">{{getInitials author.fullname}}</div>
+                    <div class="comment-body">
+                      <div class="comment-meta">
+                        <span class="comment-author">{{author.fullname}}</span>
+                        <span class="comment-time">{{timeAgo createdAt}}</span>
+                      </div>
+                      <p class="comment-text">{{text}}</p>
+                      <div class="comment-actions">
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Like</button>
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Reply</button>
+                      </div>
+                    </div>
+                  </div>
+                  {{else}} 
+                  <p>
+                    No Comments yet. Be the first to comment
+                  </p>
+                  {{/each}}
+                  {{!-- <div class="comment-item">
+                    <div class="comment-avatar post-avatar-3">JT</div>
+                    <div class="comment-body">
+                      <div class="comment-meta">
+                        <span class="comment-author">Jordan Tate</span>
+                        <span class="comment-time">45 min ago</span>
+                      </div>
+                      <p class="comment-text">Adding this to my reading list
+                        right now. Thanks for the recommendation!</p>
+                      <div class="comment-actions">
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Like</button>
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Reply</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comment-item">
+                    <div class="comment-avatar post-avatar-4">RL</div>
+                    <div class="comment-body">
+                      <div class="comment-meta">
+                        <span class="comment-author">Riley Lee</span>
+                        <span class="comment-time">30 min ago</span>
+                      </div>
+                      <p class="comment-text">"Designing for the Web" by Andy
+                        Clarke was a game-changer for me. Highly recommend that
+                        one too!</p>
+                      <div class="comment-actions">
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Like</button>
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Reply</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comment-item">
+                    <div class="comment-avatar post-avatar-5">EW</div>
+                    <div class="comment-body">
+                      <div class="comment-meta">
+                        <span class="comment-author">Emma Wilson</span>
+                        <span class="comment-time">20 min ago</span>
+                      </div>
+                      <p class="comment-text">The chapter on design tokens alone
+                        is worth the purchase. Such a practical approach.</p>
+                      <div class="comment-actions">
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Like</button>
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Reply</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comment-item">
+                    <div class="comment-avatar post-avatar-6">CM</div>
+                    <div class="comment-body">
+                      <div class="comment-meta">
+                        <span class="comment-author">Carlos Mendez</span>
+                        <span class="comment-time">15 min ago</span>
+                      </div>
+                      <p class="comment-text">Has anyone read "Refactoring UI"?
+                        How does it compare? Looking for my next read.</p>
+                      <div class="comment-actions">
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Like</button>
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Reply</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comment-item">
+                    <div class="comment-avatar">AS</div>
+                    <div class="comment-body">
+                      <div class="comment-meta">
+                        <span class="comment-author">Alex Silva</span>
+                        <span class="comment-time">10 min ago</span>
+                      </div>
+                      <p class="comment-text">@Carlos "Refactoring UI" is more
+                        visual, this one is more systems-thinking. Both are
+                        great for different reasons!</p>
+                      <div class="comment-actions">
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Like</button>
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Reply</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comment-item">
+                    <div class="comment-avatar post-avatar-3">JT</div>
+                    <div class="comment-body">
+                      <div class="comment-meta">
+                        <span class="comment-author">Jordan Tate</span>
+                        <span class="comment-time">5 min ago</span>
+                      </div>
+                      <p class="comment-text">Just ordered it! Can't wait to
+                        dive in this weekend.</p>
+                      <div class="comment-actions">
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Like</button>
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Reply</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comment-item">
+                    <div class="comment-avatar post-avatar-2">MK</div>
+                    <div class="comment-body">
+                      <div class="comment-meta">
+                        <span class="comment-author">Maya Kapoor</span>
+                        <span class="comment-time">2 min ago</span>
+                      </div>
+                      <p class="comment-text">Would love a follow-up post with
+                        your key takeaways!</p>
+                      <div class="comment-actions">
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Like</button>
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Reply</button>
+                      </div>
+                    </div>
+                  </div> --}}
+                </div>
+                <form class="comment-form" method="post" action="/post/{{post._id}}/comment">
+                  <div
+                    class="comment-avatar"
+                    style="background: linear-gradient(135deg, var(--primary), var(--accent));"
+                  >{{getInitials currentuser.fullname}}</div>
+                  <input
+                    type="text"
+                    name="text"
+                    class="comment-input"
+                    placeholder="Write a comment..."
+                    maxlength="2000"
+                    required
+                  />
+                  <button type="submit" class="comment-submit">Post</button>
+                </form>
+              </div>
+            </article>
+          </div>
+
+          <!-- Sidebar -->
+          <aside class="pd-sidebar">
+            <div class="sidebar-card">
+              <h3>Post Details</h3>
+              <div class="pd-info-list">
+                <div class="pd-info-row">
+                  <span class="pd-info-label">&#128338; Posted</span>
+                  <span class="pd-info-value">{{timeAgo post.createdAt}}</span>
+                </div>
+                <div class="pd-info-row">
+                  <span class="pd-info-label">&#127760; Audience</span>
+                  <span class="pd-info-value">{{post.audience}}</span>
+                </div>
+                <div class="pd-info-row">
+                  <span class="pd-info-label">&#128065; Views</span>
+                  <span class="pd-info-value">0</span>
+                </div>
+                <div class="pd-info-row">
+                  <span class="pd-info-label">&#10084; Likes</span>
+                  <span class="pd-info-value">{{post.likeCount}}</span>
+                </div>
+                <div class="pd-info-row">
+                  <span class="pd-info-label">&#128172; Comments</span>
+                  <span class="pd-info-value">{{post.commentCount}}</span>
+                </div>
+                <div class="pd-info-row">
+                  <span class="pd-info-label">&#128279; Save</span>
+                  <span class="pd-info-value">{{post.saveCount}}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="sidebar-card">
+              <h3>Related Posts</h3>
+              <div class="pd-related-list">
+                <a href="/post/{{_id}}" class="pd-related-item">
+                  <div class="pd-related-icon">&#128214;</div>
+                  <div class="pd-related-info">
+                    <span class="pd-related-title">10 design books every
+                      developer should read</span>
+                    <span class="pd-related-meta">Jordan Tate &middot; 89 likes</span>
+                  </div>
+                </a>
+                <a href="/post/{{_id}}" class="pd-related-item">
+                  <div class="pd-related-icon">&#127912;</div>
+                  <div class="pd-related-info">
+                    <span class="pd-related-title">Building a design system from
+                      scratch</span>
+                    <span class="pd-related-meta">Emma Wilson &middot; 145 likes</span>
+                  </div>
+                </a>
+                <a href="/post/{{_id}}" class="pd-related-item">
+                  <div class="pd-related-icon">&#128221;</div>
+                  <div class="pd-related-info">
+                    <span class="pd-related-title">Design tokens: the complete
+                      guide</span>
+                    <span class="pd-related-meta">Carlos Mendez &middot; 67
+                      likes</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="sidebar-card">
+              <h3>People Who Engaged</h3>
+              <div class="pd-engaged-list">
+                <div class="suggest-item">
+                  <div class="suggest-avatar post-avatar-2">MK</div>
+                  <div class="suggest-info">
+                    <div class="suggest-name">Maya Kapoor</div>
+                    <div class="suggest-meta">Liked &amp; commented</div>
+                  </div>
+                  <button class="suggest-btn" type="button">Follow</button>
+                </div>
+                <div class="suggest-item">
+                  <div class="suggest-avatar post-avatar-3">JT</div>
+                  <div class="suggest-info">
+                    <div class="suggest-name">Jordan Tate</div>
+                    <div class="suggest-meta">Liked &amp; commented</div>
+                  </div>
+                  <button class="suggest-btn" type="button">Follow</button>
+                </div>
+                <div class="suggest-item">
+                  <div class="suggest-avatar post-avatar-6">CM</div>
+                  <div class="suggest-info">
+                    <div class="suggest-name">Carlos Mendez</div>
+                    <div class="suggest-meta">Liked</div>
+                  </div>
+                  <button class="suggest-btn" type="button">Follow</button>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </main>
+
+    <!-- ===== Footer ===== -->
+   {{>footer}}
+    <script src="js/main.js"></script>
+  </body>
+</html>

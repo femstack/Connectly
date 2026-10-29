@@ -1,0 +1,97 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connectly — Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <!-- ===== Navbar ===== -->
+    {{>header}}
+
+    <!-- ===== Login Form ===== -->
+    <main class="form-page">
+      <div class="form-card">
+        <h1>Welcome Back</h1>
+        <p class="form-subtitle">Log in to continue to Connectly.</p>
+
+        <form method="post" action="/login" id="loginForm" class="auth-form">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="you@example.com"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="password-field">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+              />
+              <button
+                type="button"
+                class="toggle-password"
+                aria-label="Show password"
+              >
+                Show
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary btn-block">Login</button>
+        </form>
+
+        <div class="form-feedback" id="formFeedback"></div>
+
+        <p class="form-footer">
+          Don't have an account?
+          <a href="/register">Register here</a>
+        </p>
+        <p class="form-footer">
+          <a href="i/ndex">&larr; Back to Home</a>
+        </p>
+      </div>
+    </main>
+
+    <!-- ===== Footer ===== -->
+   {{>footer}}
+
+    <script src="js/main.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+  const success = "{{success}}".trim();
+  const error = "{{error}}".trim();
+
+  if (success) {
+    Swal.fire({
+      title: "Success!",
+      text: success,
+      icon: "success"
+    });
+  } else if (error) {
+    Swal.fire({
+      title: "Error!",
+      text: error,
+      icon: "error"
+    });
+  }
+  </script>
+  </body>
+</html>

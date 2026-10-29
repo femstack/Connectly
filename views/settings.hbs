@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connectly — Settings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ===== Navbar ===== -->
+    {{>header}}
+
+    <!-- ===== Settings Page ===== -->
+    <main class="settings-page">
+      <div class="settings-container">
+        <div class="settings-header">
+          <h1>Settings</h1>
+          <p>Manage your account and preferences.</p>
+        </div>
+
+        <!-- Profile Settings -->
+        <section class="settings-card">
+          <h2>Profile Settings</h2>
+          <form action="/settings/profile" method="POST" class="settings-form">
+            <div class="form-group">
+              <label for="fullName">Full Name</label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                value="Jane Doe"
+              />
+            </div>
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                value="janedoe"
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value="jane.doe@example.com"
+              />
+            </div>
+            <div class="form-group">
+              <label for="bio">Bio</label>
+              <textarea id="bio" name="bio" rows="3">
+Design enthusiast &amp; coffee lover. Exploring the intersection of technology and creativity.</textarea
+              >
+            </div>
+            <button type="submit" class="btn-primary">Save Changes</button>
+          </form>
+        </section>
+
+        <!-- Password Settings -->
+        <section class="settings-card">
+          <h2>Password Settings</h2>
+          <form action="/settings/password" method="POST" class="settings-form">
+            <div class="form-group">
+              <label for="currentPassword">Current Password</label>
+              <input
+                type="password"
+                id="currentPassword"
+                name="currentPassword"
+                placeholder="Enter your current password"
+              />
+            </div>
+            <div class="form-group">
+              <label for="newPassword">New Password</label>
+              <input
+                type="password"
+                id="newPassword"
+                name="newPassword"
+                placeholder="Enter your new password"
+              />
+            </div>
+            <div class="form-group">
+              <label for="confirmNewPassword">Confirm New Password</label>
+              <input
+                type="password"
+                id="confirmNewPassword"
+                name="confirmNewPassword"
+                placeholder="Re-enter your new password"
+              />
+            </div>
+            <button type="submit" class="btn-primary">Update Password</button>
+          </form>
+        </section>
+
+        <!-- Notification Preferences -->
+        <section class="settings-card">
+          <h2>Notification Preferences</h2>
+          <form
+            action="/settings/notifications"
+            method="POST"
+            class="settings-form"
+          >
+            <div class="toggle-group">
+              <div class="toggle-info">
+                <strong>Email Notifications</strong>
+                <p>Receive updates about your account via email.</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" name="emailNotifications" checked />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="toggle-group">
+              <div class="toggle-info">
+                <strong>New Followers</strong>
+                <p>Get notified when someone starts following you.</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" name="newFollowers" checked />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="toggle-group">
+              <div class="toggle-info">
+                <strong>Comments &amp; Replies</strong>
+                <p>Get notified when someone comments on your posts.</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" name="comments" checked />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <div class="toggle-group">
+              <div class="toggle-info">
+                <strong>Likes</strong>
+                <p>Get notified when someone likes your posts.</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" name="likes" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <button type="submit" class="btn-primary">Save Preferences</button>
+          </form>
+        </section>
+
+        <!-- Logout -->
+        <section class="settings-card settings-danger">
+          <h2>Account</h2>
+          <p>Ready to leave? You can log out of your account below.</p>
+          <a href="login.html" class="btn-outline btn-danger-logout">Logout</a>
+        </section>
+      </div>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    {{>footer}}
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

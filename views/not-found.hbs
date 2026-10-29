@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connectly — Page Not Found</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <!-- ===== Navbar ===== -->
+    {{>header}}
+
+    <!-- ===== 404 Not Found Page ===== -->
+    <main class="not-found-page">
+      <div class="not-found-content">
+        <div class="not-found-visual">
+          <span class="not-found-number">4</span>
+          <span class="not-found-icon">&#129309;</span>
+          <span class="not-found-number">4</span>
+        </div>
+        <h1>Oops! This page wandered off.</h1>
+        <p class="not-found-message">
+          The page you're looking for doesn't exist, may have been moved, or the link
+          you followed might be broken. Don't worry — let's get you back on track.
+        </p>
+
+        <form class="not-found-search" id="notFoundSearchForm" role="search">
+          <label for="notFoundSearch" class="sr-only">Search Connectly</label>
+          <input
+            type="search"
+            id="notFoundSearch"
+            name="search"
+            placeholder="Search for people, posts, or pages..."
+            aria-label="Search Connectly"
+          />
+          <button type="submit" class="btn-primary">
+            <span>&#128269;</span> Search
+          </button>
+        </form>
+
+        <div class="not-found-links">
+          <a href="/" class="btn-primary">Go to Home</a>
+          <a href="/feed" class="btn-outline">Browse Feed</a>
+          <a href="/contact" class="btn-outline">Contact Support</a>
+        </div>
+
+        <div class="not-found-help">
+          <p>Or explore these popular destinations:</p>
+          <ul>
+            <li><a href="/about">About Connectly</a></li>
+            <li><a href="/login">Log in to your account</a></li>
+            <li><a href="/register">Create a new account</a></li>
+            {{!-- <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li> --}}
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    {{>footer}}
+
+    <script src="js/main.js"></script>
+
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+  const success = "{{success}}".trim();
+  const error = "{{error}}".trim();
+
+  if (success) {
+    Swal.fire({
+      title: "Success!",
+      text: success,
+      icon: "success"
+    });
+  } else if (error) {
+    Swal.fire({
+      title: "Error!",
+      text: error,
+      icon: "error"
+    });
+  }
+</script>
+  </body>
+</html>

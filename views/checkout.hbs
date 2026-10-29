@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{pageTitle}}</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+{{>header}}
+
+<main class="checkout-page">
+  <div class="checkout-container">
+    <div class="checkout-back">
+      <a href="/premium">&larr; Back to Premium</a>
+    </div>
+
+    <div class="checkout-header">
+      <span class="premium-badge">&#11088; Connectly Premium</span>
+      <h1>Checkout</h1>
+      <p>Review your plan and complete your payment securely through Paystack.</p>
+    </div>
+
+    {{#if paymentError}}
+      <div class="checkout-error-banner">
+        <span class="checkout-error-icon">&#9888;</span>
+        <span>{{paymentError}}</span>
+      </div>
+    {{/if}}
+
+    <div class="checkout-layout">
+      <!-- Order Summary -->
+      <div class="checkout-summary">
+        <div class="checkout-card">
+          <h2>Order Summary</h2>
+          <div class="checkout-plan-row">
+            <div class="checkout-plan-info">
+              <strong>{{premiumPlanName}}</strong>
+              <span>Annual membership</span>
+            </div>
+            <div class="checkout-plan-price">&#8358;{{premiumPrice}}</div>
+          </div>
+
+          <div class="checkout-benefits">
+            <h3>What is included:</h3>
+            <ul class="checkout-benefit-list">
+              <li><span class="cmp-icon">&#10003;</span> Premium profile badge</li>
+              <li><span class="cmp-icon">&#10003;</span> Exclusive profile themes</li>
+              <li><span class="cmp-icon">&#10003;</span> Advanced profile customization</li>
+              <li><span class="cmp-icon">&#10003;</span> Priority support</li>
+              <li><span class="cmp-icon">&#10003;</span> Early access to new features</li>
+            </ul>
+          </div>
+
+          <div class="checkout-total-row">
+            <span>Total</span>
+            <strong>&#8358;{{premiumPrice}} {{premiumCurrency}}</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Form -->
+      <div class="checkout-payment">
+        <div class="checkout-card">
+          <h2>Payment Details</h2>
+
+          <div class="checkout-account-info">
+            <span class="checkout-account-label">Account email</span>
+            <span class="checkout-account-email">{{userEmail}}</span>
+          </div>
+
+          <div class="checkout-secure-notice">
+            <span class="checkout-secure-icon">&#128274;</span>
+            <div>
+              <strong>Secure payment</strong>
+              <p>
+                You will be redirected to Paystack to complete your payment.
+                We never see or store your card details.
+              </p>
+            </div>
+          </div>
+
+          <form action="/checkout" method="POST" class="checkout-form" id="checkoutForm">
+            <button type="submit" class="btn-primary btn-lg btn-block" id="checkoutSubmitBtn">
+              &#128179; Pay with Paystack
+            </button>
+          </form>
+
+          <div class="checkout-form-footer">
+            <a href="/premium">&larr; Return to Premium page</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+{{>footer}}
+
+{{>header}}
+
+<main class="checkout-page">
+  <div class="checkout-container">
+    <div class="checkout-back">
+      <a href="/premium">&larr; Back to Premium</a>
+    </div>
+
+    <div class="checkout-header">
+      <span class="premium-badge">&#11088; Connectly Premium</span>
+      <h1>Checkout</h1>
+      <p>Review your plan and complete your payment securely through Paystack.</p>
+    </div>
+
+    {{#if paymentError}}
+      <div class="checkout-error-banner">
+        <span class="checkout-error-icon">&#9888;</span>
+        <span>{{paymentError}}</span>
+      </div>
+    {{/if}}
+
+    <div class="checkout-layout">
+      <!-- Order Summary -->
+      <div class="checkout-summary">
+        <div class="checkout-card">
+          <h2>Order Summary</h2>
+          <div class="checkout-plan-row">
+            <div class="checkout-plan-info">
+              <strong>{{premiumPlanName}}</strong>
+              <span>Annual membership</span>
+            </div>
+            <div class="checkout-plan-price">&#8358;{{premiumPrice}}</div>
+          </div>
+
+          <div class="checkout-benefits">
+            <h3>What is included:</h3>
+            <ul class="checkout-benefit-list">
+              <li><span class="cmp-icon">&#10003;</span> Premium profile badge</li>
+              <li><span class="cmp-icon">&#10003;</span> Exclusive profile themes</li>
+              <li><span class="cmp-icon">&#10003;</span> Advanced profile customization</li>
+              <li><span class="cmp-icon">&#10003;</span> Priority support</li>
+              <li><span class="cmp-icon">&#10003;</span> Early access to new features</li>
+            </ul>
+          </div>
+
+          <div class="checkout-total-row">
+            <span>Total</span>
+            <strong>&#8358;{{premiumPrice}} {{premiumCurrency}}</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Form -->
+      <div class="checkout-payment">
+        <div class="checkout-card">
+          <h2>Payment Details</h2>
+
+          <div class="checkout-account-info">
+            <span class="checkout-account-label">Account email</span>
+            <span class="checkout-account-email">{{userEmail}}</span>
+          </div>
+
+          <div class="checkout-secure-notice">
+            <span class="checkout-secure-icon">&#128274;</span>
+            <div>
+              <strong>Secure payment</strong>
+              <p>
+                You will be redirected to Paystack to complete your payment.
+                We never see or store your card details.
+              </p>
+            </div>
+          </div>
+
+          <form action="/checkout" method="POST" class="checkout-form" id="checkoutForm">
+            <button type="submit" class="btn-primary btn-lg btn-block" id="checkoutSubmitBtn">
+              &#128179; Pay with Paystack
+            </button>
+          </form>
+
+          <div class="checkout-form-footer">
+            <a href="/premium">&larr; Return to Premium page</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+{{>footer}}
+
+    <script src="js/main.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+  const success = "{{success}}".trim();
+  const error = "{{error}}".trim();
+
+  if (success) {
+    Swal.fire({
+      title: "Success!",
+      text: success,
+      icon: "success"
+    });
+  } else if (error) {
+    Swal.fire({
+      title: "Error!",
+      text: error,
+      icon: "error"
+    });
+  }
+  </script>
+</body>
+</html>

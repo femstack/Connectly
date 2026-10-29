@@ -1,0 +1,552 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connectly — Profile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <!-- ===== Navbar ===== -->
+    {{>header}}
+
+    <!-- ===== Profile Page ===== -->
+   
+    <main class="profile-page">
+      <!-- Profile Header -->
+      <div class="profile-header">
+        <div class="profile-cover">
+          <img src=" {{#if user.coverphoto}} {{user.coverphoto}} {{else}}https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlQ3Ihl2ts7Q8lnpw8f2H8zYUd0k3FdfaJ6CjQ8DEHCcc4mfPGwe2zX3k&s {{/if}}" alt="Cover-pic">
+        </div>
+        <div class="profile-avatar">
+          <div class="avatar-placeholder">
+           {{#if user.profilephoto}} <img src="{{user.profilephoto}}" alt=""> {{else}}  {{getInitials user.fullname}} {{/if}}
+           </div>
+        </div>
+        <h1>{{user.fullname}}</h1>
+        <p class="profile-username">@{{user.username}}</p>
+        <p class="profile-bio">
+          {{user.bio}}
+        </p>
+
+        <div class="profile-stats-bar">
+          <div class="profile-stat">
+            <span class="profile-stat-num">{{postCount}}</span>
+            <span class="profile-stat-label">Posts</span>
+          </div>
+          <div class="profile-stat">
+            <span class="profile-stat-num">0</span>
+            <span class="profile-stat-label">Followers</span>
+          </div>
+          <div class="profile-stat">
+            <span class="profile-stat-num">0</span>
+            <span class="profile-stat-label">Following</span>
+          </div>
+        </div>
+
+        <div class="profile-actions">
+          <button class="btn-primary" id="profileFollowBtn">Follow</button>
+          {{#if isOwner}}
+          <a href="/edit-profile">
+            <button class="btn-outline" id="profileEditBtn">Edit Profile</button>
+          </a>
+           {{/if}}
+          <a href="/dashboard" class="btn-outline">Dashboard</a>
+        </div>
+      </div>
+
+      <!-- Info Cards -->
+      <div class="profile-info" style="margin-bottom: var(--space-4);">
+        <div class="info-card">
+          <span class="info-label">Location</span>
+          <span class="info-value">{{user.location}}</span>
+        </div>
+        <div class="info-card">
+          <span class="info-label">Joined</span>
+          <span class="info-value">{{timeAgo user.createdAt}}</span>
+        </div>
+        <div class="info-card">
+          <span class="info-label">Website</span>
+          <span class="info-value">{{user.website}}</span>
+        </div>
+        <div class="info-card">
+          <span class="info-label">Gender</span>
+          <span class="info-value">{{user.gender}}</span>
+        </div>
+        
+      </div>
+
+      <!-- Profile Tabs -->
+      <div class="profile-tabs">
+        <button
+          class="profile-tab active"
+          data-tab="posts"
+          type="button"
+        >Posts</button>
+        <button
+          class="profile-tab"
+          data-tab="about"
+          type="button"
+        >About</button>
+        <button
+          class="profile-tab"
+          data-tab="saved"
+          type="button"
+        >Saved</button>
+      </div>
+
+      <!-- Tab: Posts -->
+      <div class="profile-tab-content active" data-tab="posts">
+        {{#if posts.length}}
+         <div class="profile-posts-list" id="feedPostsContainer">
+          {{#each posts}}
+          <article class="post-card-full">
+            <div class="post-header">
+              <div class="post-avatar">
+                {{#if author.profilephoto}} <img src="{{author.profilephoto}}" alt=""> {{else}}  {{getInitials currentuser.fullname}} {{/if}}
+              </div>
+              <div class="post-header-info">
+                <div class="post-header-row">
+                  <a href="/profile/{{post._id}}" class="post-author">{{author.fullname}}</a>
+                  <span class="post-username">@{{author.username}}</span>
+                  <span class="post-audience-tag"> &middot; {{audience}}</span>
+                </div>
+                <span class="post-time">{{timeAgo createdAt}}</span>
+              </div>
+              <button
+                class="post-options-btn"
+                type="button"
+                aria-label="Post options"
+              >&#8943;</button>
+              <div class="post-options-menu">
+                <button type="button" class="opt-save">&#128190; Save post</button>
+                <button type="button" class="opt-copy">&#128279; Copy link</button>
+                <button type="button" class="opt-hide">&#128065; Hide post</button>
+                <div class="post-options-divider"></div>
+                <button type="button" class="opt-report danger">&#9873; Report
+                  post</button>
+              </div>
+            </div>
+            <div class="post-body">
+                {{#if content}}
+                <p>
+                 {{content}}
+                </p>
+               {{/if}}
+              </div>
+            <div class="post-image var-1">
+                 {{#if mediaUrl}}
+              <div class="post-image var-1">
+                {{#if (eq mediaType "image")}}
+                <img src="{{mediaUrl}}" alt="Post Media">
+                {{/if}}
+
+                {{#if (eq mediaType "video")}}
+                <video controls>
+                  <source src="{{mediaUrl}}" type="video/mp4">
+                </video>
+                {{/if}}
+              </div>
+              {{/if}}
+              </div>
+            <div class="post-stats-row">
+              <div class="post-stats-likes">
+                <span class="post-like-icons">
+                  <span class="post-like-icon heart">&#10084;</span>
+                  <span class="post-like-icon thumbs">&#128077;</span>
+                </span>
+                <span class="like-count">{{likes.length}}</span>
+              </div>
+              <span class="comment-count-text">{{comment.length}} comments &middot; 8 shares</span>
+            </div>
+            <div class="post-actions-bar">
+              <button class="action-btn like-btn" type="button">
+                <span class="action-icon">&#10084;</span>
+                Like
+              </button>
+              <button class="action-btn comment-btn" type="button">
+                <span class="action-icon">&#128172;</span>
+                Comment
+              </button>
+              <button class="action-btn share-btn" type="button">
+                <span class="action-icon">&#128279;</span>
+                Share
+              </button>
+              <button class="action-btn save-btn" type="button">
+                <span class="action-icon">&#128190;</span>
+                Save
+              </button>
+            </div>
+            <div class="comments-section">
+              <div class="comment-list">
+                <div class="comment-empty">No comments yet. Be the first to
+                  comment!</div>
+              </div>
+              <form class="comment-form">
+                <div
+                  class="comment-avatar"
+                  style="background: linear-gradient(135deg, var(--primary), var(--accent));"
+                >{{getInitials user.fullname}}</div>
+                <input
+                  type="text"
+                  class="comment-input"
+                  placeholder="Write a comment..."
+                />
+                <button type="submit" class="comment-submit">Post</button>
+              </form>
+            </div>
+          </article>
+           {{/each}}
+
+          {{!-- <article class="post-card-full">
+            <div class="post-header">
+              <div class="post-avatar">JD</div>
+              <div class="post-header-info">
+                <div class="post-header-row">
+                  <a href="profile.html" class="post-author">Jane Doe</a>
+                  <span class="post-username">@janedoe</span>
+                  <span class="post-audience-tag"> &middot; Friends</span>
+                </div>
+                <span class="post-time">1 day ago</span>
+              </div>
+              <button
+                class="post-options-btn"
+                type="button"
+                aria-label="Post options"
+              >&#8943;</button>
+              <div class="post-options-menu">
+                <button type="button" class="opt-save">&#128190; Save post</button>
+                <button type="button" class="opt-copy">&#128279; Copy link</button>
+                <button type="button" class="opt-hide">&#128065; Hide post</button>
+                <div class="post-options-divider"></div>
+                <button type="button" class="opt-report danger">&#9873; Report
+                  post</button>
+              </div>
+            </div>
+            <div class="post-body">
+              <p>Spent the morning at my favorite coffee shop sketching
+                wireframes. There's something about being in a different
+                environment that sparks creativity. What's your go-to spot for
+                getting work done?</p>
+            </div>
+            <div class="post-stats-row">
+              <div class="post-stats-likes">
+                <span class="post-like-icons">
+                  <span class="post-like-icon heart">&#10084;</span>
+                  <span class="post-like-icon thumbs">&#128077;</span>
+                </span>
+                <span class="like-count">67</span>
+              </div>
+              <span class="comment-count-text">15 comments &middot; 2 shares</span>
+            </div>
+            <div class="post-actions-bar">
+              <button class="action-btn like-btn" type="button">
+                <span class="action-icon">&#10084;</span>
+                Like
+              </button>
+              <button class="action-btn comment-btn" type="button">
+                <span class="action-icon">&#128172;</span>
+                Comment
+              </button>
+              <button class="action-btn share-btn" type="button">
+                <span class="action-icon">&#128279;</span>
+                Share
+              </button>
+              <button class="action-btn save-btn" type="button">
+                <span class="action-icon">&#128190;</span>
+                Save
+              </button>
+            </div>
+            <div class="comments-section">
+              <div class="comment-list">
+                <div class="comment-empty">No comments yet. Be the first to
+                  comment!</div>
+              </div>
+              <form class="comment-form">
+                <div
+                  class="comment-avatar"
+                  style="background: linear-gradient(135deg, var(--primary), var(--accent));"
+                >JD</div>
+                <input
+                  type="text"
+                  class="comment-input"
+                  placeholder="Write a comment..."
+                />
+                <button type="submit" class="comment-submit">Post</button>
+              </form>
+            </div>
+          </article>
+
+          <article class="post-card-full">
+            <div class="post-header">
+              <div class="post-avatar">JD</div>
+              <div class="post-header-info">
+                <div class="post-header-row">
+                  <a href="profile.html" class="post-author">Jane Doe</a>
+                  <span class="post-username">@janedoe</span>
+                  <span class="post-audience-tag"> &middot; Public</span>
+                </div>
+                <span class="post-time">3 days ago</span>
+              </div>
+              <button
+                class="post-options-btn"
+                type="button"
+                aria-label="Post options"
+              >&#8943;</button>
+              <div class="post-options-menu">
+                <button type="button" class="opt-save">&#128190; Save post</button>
+                <button type="button" class="opt-copy">&#128279; Copy link</button>
+                <button type="button" class="opt-hide">&#128065; Hide post</button>
+                <div class="post-options-divider"></div>
+                <button type="button" class="opt-report danger">&#9873; Report
+                  post</button>
+              </div>
+            </div>
+            <div class="post-body">
+              <p>Hot take: the best user interfaces are the ones you don't
+                notice. When a design feels effortless, that's when you know
+                someone put in the hard work. Design is about removing friction,
+                not adding features.</p>
+            </div>
+            <div class="post-stats-row">
+              <div class="post-stats-likes">
+                <span class="post-like-icons">
+                  <span class="post-like-icon heart">&#10084;</span>
+                  <span class="post-like-icon thumbs">&#128077;</span>
+                </span>
+                <span class="like-count">312</span>
+              </div>
+              <span class="comment-count-text">48 comments &middot; 21 shares</span>
+            </div>
+            <div class="post-actions-bar">
+              <button class="action-btn like-btn" type="button">
+                <span class="action-icon">&#10084;</span>
+                Like
+              </button>
+              <button class="action-btn comment-btn" type="button">
+                <span class="action-icon">&#128172;</span>
+                Comment
+              </button>
+              <button class="action-btn share-btn" type="button">
+                <span class="action-icon">&#128279;</span>
+                Share
+              </button>
+              <button class="action-btn save-btn" type="button">
+                <span class="action-icon">&#128190;</span>
+                Save
+              </button>
+            </div>
+            <div class="comments-section">
+              <div class="comment-list">
+                <div class="comment-item">
+                  <div class="comment-avatar post-avatar-2">MK</div>
+                  <div class="comment-body">
+                    <div class="comment-meta">
+                      <span class="comment-author">Maya Kapoor</span>
+                      <span class="comment-time">2 days ago</span>
+                    </div>
+                    <p class="comment-text">100% agree! The invisible design is
+                      the hardest to achieve but the most rewarding.</p>
+                    <div class="comment-actions">
+                      <button class="comment-action" type="button">Like</button>
+                      <button
+                        class="comment-action"
+                        type="button"
+                      >Reply</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <form class="comment-form">
+                <div
+                  class="comment-avatar"
+                  style="background: linear-gradient(135deg, var(--primary), var(--accent));"
+                >JD</div>
+                <input
+                  type="text"
+                  class="comment-input"
+                  placeholder="Write a comment..."
+                />
+                <button type="submit" class="comment-submit">Post</button>
+              </form>
+            </div>
+          </article> --}}
+        </div>
+        {{else}}
+    <div class="feed-empty">
+      <div class="feed-empty-icon">&#128221;</div>
+      <h3>No Post yet</h3>
+      <p>This User hasn't shared any Post</p>
+    </div>
+    {{/if}}
+      </div>
+
+      <!-- Tab: About -->
+      <div class="profile-tab-content" data-tab="about">
+        <div class="profile-about-section">
+          <div class="about-block">
+            <h3>About Me</h3>
+            <p>
+              I'm a product designer with over 8 years of experience building
+              digital products that people love. I specialize in user experience
+              design, design systems, and data visualization. When I'm not
+              designing, you'll find me hiking with my dog, experimenting with
+              pour-over coffee, or writing about design on my blog.
+            </p>
+          </div>
+          <div class="about-block">
+            <h3>Skills &amp; Interests</h3>
+            <div class="interest-tags">
+              <span class="interest-tag">UI/UX Design</span>
+              <span class="interest-tag">Design Systems</span>
+              <span class="interest-tag">Figma</span>
+              <span class="interest-tag">Prototyping</span>
+              <span class="interest-tag">Data Viz</span>
+              <span class="interest-tag">Coffee</span>
+              <span class="interest-tag">Hiking</span>
+              <span class="interest-tag">Photography</span>
+            </div>
+          </div>
+          <div class="about-block">
+            <h3>Experience</h3>
+            <p>
+              <strong>Senior Product Designer</strong>
+              at TechCorp &mdash; 2022 to Present. Leading design for the
+              analytics dashboard team. Built a design system used across 12
+              product teams.
+            </p>
+            <br />
+            <p>
+              <strong>Product Designer</strong>
+              at StartupCo &mdash; 2019 to 2022. Designed the onboarding flow
+              that increased user activation by 40%. Shipped 15+ features from
+              concept to launch.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Saved -->
+      <div class="profile-tab-content" data-tab="saved">
+        <div class="profile-posts-list">
+          <article class="post-card-full">
+            <div class="post-header">
+              <div class="post-avatar post-avatar-3">JT</div>
+              <div class="post-header-info">
+                <div class="post-header-row">
+                  <a href="profile.html" class="post-author">Jordan Tate</a>
+                  <span class="post-username">@jordantate</span>
+                  <span class="post-audience-tag"> &middot; Public</span>
+                </div>
+                <span class="post-time">5 days ago</span>
+              </div>
+              <button
+                class="post-options-btn"
+                type="button"
+                aria-label="Post options"
+              >&#8943;</button>
+              <div class="post-options-menu">
+                <button type="button" class="opt-save">&#128190; Save post</button>
+                <button type="button" class="opt-copy">&#128279; Copy link</button>
+                <button type="button" class="opt-hide">&#128065; Hide post</button>
+                <div class="post-options-divider"></div>
+                <button type="button" class="opt-report danger">&#9873; Report
+                  post</button>
+              </div>
+            </div>
+            <div class="post-body">
+              <p>Just published a new case study on how we redesigned our mobile
+                onboarding flow. The results exceeded our expectations &mdash;
+                45% increase in completion rate. Check it out!</p>
+            </div>
+            <div class="post-stats-row">
+              <div class="post-stats-likes">
+                <span class="post-like-icons">
+                  <span class="post-like-icon heart">&#10084;</span>
+                  <span class="post-like-icon thumbs">&#128077;</span>
+                </span>
+                <span class="like-count">521</span>
+              </div>
+              <span class="comment-count-text">87 comments &middot; 34 shares</span>
+            </div>
+            <div class="post-actions-bar">
+              <button class="action-btn like-btn" type="button">
+                <span class="action-icon">&#10084;</span>
+                Like
+              </button>
+              <button class="action-btn comment-btn" type="button">
+                <span class="action-icon">&#128172;</span>
+                Comment
+              </button>
+              <button class="action-btn share-btn" type="button">
+                <span class="action-icon">&#128279;</span>
+                Share
+              </button>
+              <button class="action-btn save-btn saved" type="button">
+                <span class="action-icon">&#2B50;</span>
+                Saved
+              </button>
+            </div>
+            <div class="comments-section">
+              <div class="comment-list">
+                <div class="comment-empty">No comments yet. Be the first to
+                  comment!</div>
+              </div>
+              <form class="comment-form">
+                <div
+                  class="comment-avatar"
+                  style="background: linear-gradient(135deg, var(--primary), var(--accent));"
+                >JD</div>
+                <input
+                  type="text"
+                  class="comment-input"
+                  placeholder="Write a comment..."
+                />
+                <button type="submit" class="comment-submit">Post</button>
+              </form>
+            </div>
+          </article>
+
+          <div class="feed-empty">
+            <div class="feed-empty-icon">&#128218;</div>
+            <h3>That's all your saved posts</h3>
+            <p>Posts you save will appear here so you can easily find them
+              later.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+
+    <!-- ===== Footer ===== -->
+   {{>footer}}
+
+    <script src="js/main.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+  const success = "{{success}}".trim();
+  const error = "{{error}}".trim();
+
+  if (success) {
+    Swal.fire({
+      title: "Success!",
+      text: success,
+      icon: "success"
+    });
+  } else if (error) {
+    Swal.fire({
+      title: "Error!",
+      text: error,
+      icon: "error"
+    });
+  }
+  </script>
+  </body>
+</html>

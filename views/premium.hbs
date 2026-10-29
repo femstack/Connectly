@@ -1,0 +1,183 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{pageTitle}}</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    {{>header}}
+<main class="premium-page">
+  <!-- Hero -->
+  <section class="premium-hero">
+    <div class="premium-hero-content">
+      <span class="premium-badge">&#11088; Connectly Premium</span>
+      <h1>Upgrade your Connectly experience</h1>
+      <p>
+        Connectly Premium gives you the tools to stand out and express yourself
+        with exclusive profile themes, a verified-style premium badge, and deeper
+        profile customization.
+      </p>
+      <div class="premium-hero-price">
+        <span class="premium-price-amount">&#8358;{{premiumPrice}}</span>
+        <span class="premium-price-period">/ year</span>
+      </div>
+      {{#if currentuser}}
+        {{#if isPremium}}
+          <div class="premium-status-banner premium-status-active">
+            <span class="premium-status-icon">&#10003;</span>
+            <div>
+              <strong>You are a Premium member.</strong>
+              {{#if premiumExpiry}}
+                <span>Your membership is active until {{premiumExpiry}}.</span>
+              {{/if}}
+            </div>
+          </div>
+          <a href="/payment-history" class="btn-outline btn-lg">View Payment History</a>
+        {{else}}
+          <div class="premium-hero-buttons">
+            <a href="/checkout" class="btn-primary btn-lg">Upgrade to Premium</a>
+            <a href="/payment-history" class="btn-outline btn-lg">Payment History</a>
+          </div>
+        {{/if}}
+      {{else}}
+        <div class="premium-status-banner premium-status-info">
+          <span class="premium-status-icon">&#128274;</span>
+          <div>
+            <strong>You need to be signed in to purchase Premium.</strong>
+            <span>Please log in or create an account to continue.</span>
+          </div>
+        </div>
+        <div class="premium-hero-buttons">
+          <a href="/login" class="btn-primary btn-lg">Login to Upgrade</a>
+          <a href="/register" class="btn-outline btn-lg">Create Account</a>
+        </div>
+      {{/if}}
+    </div>
+  </section>
+
+  <!-- Free vs Premium Comparison -->
+  <section class="premium-section">
+    <div class="section-header">
+      <h2>Free vs Premium</h2>
+      <p>See what changes when you go Premium.</p>
+    </div>
+
+    <div class="premium-comparison">
+      <div class="premium-comparison-col premium-comparison-free">
+        <div class="premium-comparison-head">
+          <h3>Free</h3>
+          <span class="premium-comparison-price">&#8358;0</span>
+        </div>
+        <ul class="premium-comparison-list">
+          <li class="included"><span class="cmp-icon">&#10003;</span> Create posts and comments</li>
+          <li class="included"><span class="cmp-icon">&#10003;</span> Follow and connect with people</li>
+          <li class="included"><span class="cmp-icon">&#10003;</span> Basic profile customization</li>
+          <li class="excluded"><span class="cmp-icon">&#10007;</span> Premium profile badge</li>
+          <li class="excluded"><span class="cmp-icon">&#10007;</span> Exclusive profile themes</li>
+          <li class="excluded"><span class="cmp-icon">&#10007;</span> Advanced profile customization</li>
+          <li class="excluded"><span class="cmp-icon">&#10007;</span> Priority support</li>
+        </ul>
+      </div>
+
+      <div class="premium-comparison-col premium-comparison-pro">
+        <div class="premium-comparison-head">
+          <span class="premium-comparison-tag">Recommended</span>
+          <h3>Connectly Premium</h3>
+          <span class="premium-comparison-price">&#8358;{{premiumPrice}}<small>/year</small></span>
+        </div>
+        <ul class="premium-comparison-list">
+          <li class="included"><span class="cmp-icon">&#10003;</span> Everything in Free</li>
+          <li class="included"><span class="cmp-icon">&#10003;</span> Premium profile badge</li>
+          <li class="included"><span class="cmp-icon">&#10003;</span> Exclusive profile themes</li>
+          <li class="included"><span class="cmp-icon">&#10003;</span> Advanced profile customization</li>
+          <li class="included"><span class="cmp-icon">&#10003;</span> Priority support</li>
+          <li class="included"><span class="cmp-icon">&#10003;</span> Early access to new features</li>
+        </ul>
+        {{#if currentuser}}
+          {{#unless isPremium}}
+            <a href="/checkout" class="btn-primary btn-block">Upgrade to Premium</a>
+          {{else}}
+            <div class="premium-comparison-active-tag">You are already Premium</div>
+          {{/unless}}
+        {{else}}
+          <a href="/login" class="btn-primary btn-block">Login to Upgrade</a>
+        {{/if}}
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits -->
+  <section class="premium-section premium-benefits-section">
+    <div class="section-header">
+      <h2>What you get with Premium</h2>
+      <p>Real benefits that enhance your profile and presence on Connectly.</p>
+    </div>
+
+    <div class="premium-features-grid">
+      <div class="premium-feature-card">
+        <div class="premium-feature-icon">&#11088;</div>
+        <h3>Premium Profile Badge</h3>
+        <p>A distinctive badge on your profile and posts so everyone knows you are a Premium member.</p>
+      </div>
+      <div class="premium-feature-card">
+        <div class="premium-feature-icon">&#127912;</div>
+        <h3>Exclusive Profile Themes</h3>
+        <p>Choose from a collection of exclusive themes to personalize how your profile looks.</p>
+      </div>
+      <div class="premium-feature-card">
+        <div class="premium-feature-icon">&#9881;</div>
+        <h3>Advanced Profile Customization</h3>
+        <p>Customize your cover, layout, and profile details with more control than the free plan.</p>
+      </div>
+      <div class="premium-feature-card">
+        <div class="premium-feature-icon">&#128222;</div>
+        <h3>Priority Support</h3>
+        <p>Get faster responses from our support team whenever you need help with your account.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="premium-cta">
+    <div class="premium-cta-content">
+      <h2>Ready to go Premium?</h2>
+      <p>Secure payment powered by Paystack. Cancel anytime.</p>
+      {{#if currentuser}}
+        {{#if isPremium}}
+          <a href="/payment-history" class="btn-primary btn-lg">View Payment History</a>
+        {{else}}
+          <a href="/checkout" class="btn-primary btn-lg">Upgrade to Premium</a>
+        {{/if}}
+      {{else}}
+        <a href="/login" class="btn-primary btn-lg">Login to Get Started</a>
+      {{/if}}
+    </div>
+  </section>
+</main>
+
+{{>footer}}
+    <script src="js/main.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+  const success = "{{success}}".trim();
+  const error = "{{error}}".trim();
+
+  if (success) {
+    Swal.fire({
+      title: "Success!",
+      text: success,
+      icon: "success"
+    });
+  } else if (error) {
+    Swal.fire({
+      title: "Error!",
+      text: error,
+      icon: "error"
+    });
+  }
+  </script>
+  </body>
+</html>

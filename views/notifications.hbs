@@ -1,0 +1,212 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connectly — Notifications</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ===== Navbar ===== -->
+   {{>header}}
+
+    <!-- ===== Notifications Page ===== -->
+    <main class="notifications-page">
+      <div class="notifications-container">
+        <div class="page-header">
+          <h1>Notifications</h1>
+          <p>You have
+            <strong id="unreadCount">7</strong>
+            unread notifications.</p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs" id="notifFilters">
+          <button
+            class="filter-tab active"
+            data-filter="all"
+            type="button"
+          >All</button>
+          <button
+            class="filter-tab"
+            data-filter="like"
+            type="button"
+          >Likes</button>
+          <button
+            class="filter-tab"
+            data-filter="comment"
+            type="button"
+          >Comments</button>
+          <button
+            class="filter-tab"
+            data-filter="mention"
+            type="button"
+          >Mentions</button>
+          <button class="filter-tab" data-filter="friend" type="button">Friend
+            Requests</button>
+          <button
+            class="filter-tab"
+            data-filter="follow"
+            type="button"
+          >Follows</button>
+        </div>
+
+        <!-- Mark All Read -->
+        <div class="notif-actions-bar">
+          <button class="btn-outline btn-sm js-mark-all" type="button">Mark all
+            as read</button>
+        </div>
+
+        <!-- Notifications List -->
+        <div class="notifications-list" id="notificationsList">
+          <!-- Unread: Like -->
+          <div class="notif-item unread" data-type="like">
+            <div class="notif-avatar avatar-placeholder post-avatar">AS</div>
+            <div class="notif-content">
+              <p><a href="profile.html">Alex Silva</a>
+                liked your post "Just finished reading an incredible book..."</p>
+              <span class="notif-time">5 min ago</span>
+            </div>
+            <span class="unread-dot" aria-label="Unread"></span>
+          </div>
+          <!-- Unread: Comment -->
+          <div class="notif-item unread" data-type="comment">
+            <div class="notif-avatar avatar-placeholder post-avatar-2">MK</div>
+            <div class="notif-content">
+              <p><a href="profile.html">Maya Kapoor</a>
+                commented: "This looks amazing! Where did you go hiking?"</p>
+              <span class="notif-time">20 min ago</span>
+            </div>
+            <span class="unread-dot" aria-label="Unread"></span>
+          </div>
+          <!-- Unread: Friend Request -->
+          <div class="notif-item unread" data-type="friend">
+            <div class="notif-avatar avatar-placeholder post-avatar-3">EM</div>
+            <div class="notif-content">
+              <p><a href="profile.html">Emma Martinez</a>
+                sent you a friend request.</p>
+              <div class="notif-buttons">
+                <button
+                  class="btn-primary btn-sm js-accept"
+                  type="button"
+                >Accept</button>
+                <button
+                  class="btn-outline btn-sm btn-danger js-reject"
+                  type="button"
+                >Reject</button>
+              </div>
+              <span class="notif-time">1 hr ago</span>
+            </div>
+            <span class="unread-dot" aria-label="Unread"></span>
+          </div>
+          <!-- Unread: Mention -->
+          <div class="notif-item unread" data-type="mention">
+            <div class="notif-avatar avatar-placeholder post-avatar-4">JT</div>
+            <div class="notif-content">
+              <p><a href="profile.html">Jordan Tate</a>
+                mentioned you in a comment: "Thanks @janedoe for the amazing
+                feedback!"</p>
+              <span class="notif-time">2 hrs ago</span>
+            </div>
+            <span class="unread-dot" aria-label="Unread"></span>
+          </div>
+          <!-- Unread: Follow -->
+          <div class="notif-item unread" data-type="follow">
+            <div class="notif-avatar avatar-placeholder post-avatar-2">DH</div>
+            <div class="notif-content">
+              <p><a href="profile.html">Daniel Hayes</a>
+                started following you.</p>
+              <span class="notif-time">3 hrs ago</span>
+            </div>
+            <span class="unread-dot" aria-label="Unread"></span>
+          </div>
+          <!-- Unread: Like -->
+          <div class="notif-item unread" data-type="like">
+            <div class="notif-avatar avatar-placeholder">RL</div>
+            <div class="notif-content">
+              <p><a href="profile.html">Riley Lee</a>
+                and 3 others liked your post "Coffee or tea?"</p>
+              <span class="notif-time">5 hrs ago</span>
+            </div>
+            <span class="unread-dot" aria-label="Unread"></span>
+          </div>
+          <!-- Unread: Comment -->
+          <div class="notif-item unread" data-type="comment">
+            <div class="notif-avatar avatar-placeholder post-avatar-3">SK</div>
+            <div class="notif-content">
+              <p><a href="profile.html">Sophie Kim</a>
+                commented on your photo: "Beautiful shot!"</p>
+              <span class="notif-time">6 hrs ago</span>
+            </div>
+            <span class="unread-dot" aria-label="Unread"></span>
+          </div>
+
+          <!-- Read: Like -->
+          <div class="notif-item" data-type="like">
+            <div class="notif-avatar avatar-placeholder post-avatar-4">RW</div>
+            <div class="notif-content">
+              <p><a href="profile.html">Ryan Walker</a>
+                liked your comment on "Design systems are the future."</p>
+              <span class="notif-time">Yesterday</span>
+            </div>
+          </div>
+          <!-- Read: Follow -->
+          <div class="notif-item" data-type="follow">
+            <div class="notif-avatar avatar-placeholder post-avatar-2">OL</div>
+            <div class="notif-content">
+              <p><a href="profile.html">Olivia Lee</a>
+                started following you.</p>
+              <span class="notif-time">2 days ago</span>
+            </div>
+          </div>
+          <!-- Read: Friend Request Accepted -->
+          <div class="notif-item" data-type="friend">
+            <div class="notif-avatar avatar-placeholder post-avatar">SR</div>
+            <div class="notif-content">
+              <p><a href="profile.html">Sam Reed</a>
+                accepted your friend request. You are now friends!</p>
+              <span class="notif-time">3 days ago</span>
+            </div>
+          </div>
+          <!-- Read: Mention -->
+          <div class="notif-item" data-type="mention">
+            <div class="notif-avatar avatar-placeholder post-avatar-3">JT</div>
+            <div class="notif-content">
+              <p><a href="profile.html">Jordan Tate</a>
+                mentioned you in a post about portfolio design.</p>
+              <span class="notif-time">4 days ago</span>
+            </div>
+          </div>
+          <!-- Read: Comment -->
+          <div class="notif-item" data-type="comment">
+            <div class="notif-avatar avatar-placeholder post-avatar-2">MK</div>
+            <div class="notif-content">
+              <p><a href="profile.html">Maya Kapoor</a>
+                replied to your comment: "Totally agree with you!"</p>
+              <span class="notif-time">5 days ago</span>
+            </div>
+          </div>
+          <!-- Read: Like -->
+          <div class="notif-item" data-type="like">
+            <div class="notif-avatar avatar-placeholder post-avatar-4">RL</div>
+            <div class="notif-content">
+              <p><a href="profile.html">Riley Lee</a>
+                liked your photo from the design conference.</p>
+              <span class="notif-time">1 week ago</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ===== Footer ===== -->
+  {{>footer}}
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

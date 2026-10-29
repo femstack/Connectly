@@ -1,0 +1,238 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connectly — Chat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ===== Navbar ===== -->
+    {{>header}}
+
+    <!-- ===== Chat Details Page ===== -->
+    <main class="chat-page">
+      <div class="chat-container">
+        <!-- Chat List Sidebar -->
+        <aside class="chat-sidebar" id="chatSidebar">
+          <div class="chat-sidebar-header">
+            <h2>Messages</h2>
+            <button
+              class="chat-new-btn"
+              type="button"
+              aria-label="New message"
+            >&#9999;</button>
+          </div>
+          <div class="chat-search-box">
+            <span class="nav-search-icon">&#128269;</span>
+            <input
+              type="text"
+              placeholder="Search conversations..."
+              class="chat-search-input"
+            />
+          </div>
+          <div class="chat-list">
+            <div class="chat-list-item active">
+              <div class="suggest-avatar post-avatar-3">JT</div>
+              <div class="chat-list-info">
+                <div class="chat-list-top">
+                  <strong>Jordan Tate</strong>
+                  <span class="chat-list-time">2m</span>
+                </div>
+                <span class="chat-list-preview">That sounds amazing! Can you
+                  send me the link?</span>
+              </div>
+              <span class="chat-list-unread">2</span>
+            </div>
+            <div class="chat-list-item">
+              <div class="suggest-avatar post-avatar-2">MK</div>
+              <div class="chat-list-info">
+                <div class="chat-list-top">
+                  <strong>Maya Kapoor</strong>
+                  <span class="chat-list-time">1h</span>
+                </div>
+                <span class="chat-list-preview">The photos turned out great!
+                  Thanks for sharing</span>
+              </div>
+            </div>
+            <div class="chat-list-item">
+              <div class="suggest-avatar post-avatar-5">EW</div>
+              <div class="chat-list-info">
+                <div class="chat-list-top">
+                  <strong>Emma Wilson</strong>
+                  <span class="chat-list-time">3h</span>
+                </div>
+                <span class="chat-list-preview">Are you going to the meetup next
+                  week?</span>
+              </div>
+            </div>
+            <div class="chat-list-item">
+              <div class="suggest-avatar post-avatar-6">CM</div>
+              <div class="chat-list-info">
+                <div class="chat-list-top">
+                  <strong>Carlos Mendez</strong>
+                  <span class="chat-list-time">1d</span>
+                </div>
+                <span class="chat-list-preview">Hey! Great to connect at the
+                  conference</span>
+              </div>
+            </div>
+            <div class="chat-list-item">
+              <div class="suggest-avatar post-avatar-4">RL</div>
+              <div class="chat-list-info">
+                <div class="chat-list-top">
+                  <strong>Riley Lee</strong>
+                  <span class="chat-list-time">2d</span>
+                </div>
+                <span class="chat-list-preview">Did you see that new CSS
+                  framework? Pretty cool</span>
+              </div>
+            </div>
+            <div class="chat-list-item">
+              <div class="suggest-avatar">AS</div>
+              <div class="chat-list-info">
+                <div class="chat-list-top">
+                  <strong>Alex Silva</strong>
+                  <span class="chat-list-time">3d</span>
+                </div>
+                <span class="chat-list-preview">Thanks for the book
+                  recommendation!</span>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Chat Main Area -->
+        <div class="chat-main" id="chatMain">
+          <!-- Chat Header -->
+          <div class="chat-header">
+            <button
+              class="chat-back-btn"
+              id="chatBackBtn"
+              type="button"
+              aria-label="Back"
+            >&#8592;</button>
+            <div class="suggest-avatar post-avatar-3">JT</div>
+            <div class="chat-header-info">
+              <strong>Jordan Tate</strong>
+              <span class="chat-header-status">&#128994; Active now</span>
+            </div>
+            <div class="chat-header-actions">
+              <button
+                class="chat-header-icon"
+                type="button"
+                aria-label="Call"
+              >&#128222;</button>
+              <button
+                class="chat-header-icon"
+                type="button"
+                aria-label="Video"
+              >&#127909;</button>
+              <button
+                class="chat-header-icon"
+                type="button"
+                aria-label="Info"
+              >&#9432;</button>
+            </div>
+          </div>
+
+          <!-- Messages -->
+          <div class="chat-messages" id="chatMessages">
+            <div class="chat-date-divider">
+              <span>Today</span>
+            </div>
+            <div class="chat-msg received">
+              <div class="suggest-avatar post-avatar-3 chat-msg-avatar">JT</div>
+              <div class="chat-msg-bubble">
+                <p>Hey Jane! I saw your post about CSS Grid. That's so cool!</p>
+              </div>
+            </div>
+            <div class="chat-msg received">
+              <div class="suggest-avatar post-avatar-3 chat-msg-avatar">JT</div>
+              <div class="chat-msg-bubble">
+                <p>Would you be interested in doing a guest talk at our design
+                  meetup?</p>
+              </div>
+            </div>
+            <div class="chat-msg sent">
+              <div class="chat-msg-bubble">
+                <p>Hi Jordan! Thanks so much, I'd love to!</p>
+              </div>
+            </div>
+            <div class="chat-msg sent">
+              <div class="chat-msg-bubble">
+                <p>When were you thinking? I'm pretty flexible next week.</p>
+              </div>
+            </div>
+            <div class="chat-msg received">
+              <div class="suggest-avatar post-avatar-3 chat-msg-avatar">JT</div>
+              <div class="chat-msg-bubble">
+                <p>Awesome! How about October 12th at 6 PM? It'll be at the
+                  Downtown Library.</p>
+              </div>
+            </div>
+            <div class="chat-msg received">
+              <div class="suggest-avatar post-avatar-3 chat-msg-avatar">JT</div>
+              <div class="chat-msg-bubble">
+                <p>That sounds amazing! Can you send me the link?</p>
+              </div>
+            </div>
+            <div class="chat-msg sent">
+              <div class="chat-msg-bubble">
+                <p>October 12th works perfectly. I'll start prepping a talk on
+                  practical CSS Grid patterns.</p>
+              </div>
+            </div>
+            <div class="chat-msg sent">
+              <div class="chat-msg-bubble">
+                <p>Here's the event page: connectly.com/events/web-design-meetup</p>
+              </div>
+            </div>
+            <div class="chat-typing" id="chatTyping">
+              <div class="suggest-avatar post-avatar-3 chat-msg-avatar">JT</div>
+              <div class="chat-typing-bubble">
+                <span class="chat-typing-dot"></span>
+                <span class="chat-typing-dot"></span>
+                <span class="chat-typing-dot"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Message Input -->
+          <form class="chat-input-area" id="chatForm">
+            <button
+              class="chat-input-attach"
+              type="button"
+              aria-label="Attach"
+            >&#128206;</button>
+            <input
+              type="text"
+              id="chatInput"
+              class="chat-input-field"
+              placeholder="Type a message..."
+            />
+            <button
+              class="chat-input-emoji"
+              type="button"
+              aria-label="Emoji"
+            >&#128516;</button>
+            <button
+              type="submit"
+              class="chat-send-btn"
+              aria-label="Send"
+            >&#10148;</button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <!-- ===== Footer ===== -->
+   {{>footer}}
+    <script src="js/main.js"></script>
+  </body>
+</html>

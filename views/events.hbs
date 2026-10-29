@@ -1,0 +1,305 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connectly — Events</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ===== Navbar ===== -->
+ {{>header}}
+
+    <!-- ===== Events Page ===== -->
+    <main class="events-page">
+      <div class="events-container">
+        <div class="events-header">
+          <div class="events-header-text">
+            <h1>Events</h1>
+            <p>Discover events near you and connect with people who share your
+              interests.</p>
+          </div>
+          <a href="#" class="btn-primary">+ Create Event</a>
+        </div>
+
+        <div class="events-filters">
+          <button
+            class="feed-tab active"
+            type="button"
+            data-efilter="upcoming"
+          >Upcoming</button>
+          <button class="feed-tab" type="button" data-efilter="attending">My
+            Events</button>
+          <button class="feed-tab" type="button" data-efilter="past">Past Events</button>
+        </div>
+
+        <!-- Upcoming Panel -->
+        <div class="events-tab-panel active" id="epanel-upcoming">
+          <div class="event-featured-card">
+            <div class="event-featured-cover">
+              <span class="event-featured-icon">&#127881;</span>
+            </div>
+            <div class="event-featured-body">
+              <span class="event-featured-badge">Featured Event</span>
+              <h2>Tech Conference 2026</h2>
+              <p class="event-featured-desc">Join industry leaders for a full
+                day of talks, workshops, and networking. Topics include AI, web
+                development, design systems, and the future of social platforms.</p>
+              <div class="event-featured-meta">
+                <span class="event-meta-item">&#128197; October 25, 2026</span>
+                <span class="event-meta-item">&#128336; 9:00 AM - 6:00 PM</span>
+                <span class="event-meta-item">&#128205; Convention Center,
+                  Downtown</span>
+                <span class="event-meta-item">&#128101; 1,200 attending</span>
+              </div>
+              <div class="event-featured-actions">
+                <button class="btn-primary event-rsvp-btn" type="button">Attend
+                  Event</button>
+                <a href="#" class="btn-outline">Details</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="events-grid">
+            <div class="event-detail-card">
+              <div class="event-detail-date"><span
+                  class="event-date-day"
+                >12</span><span class="event-date-month">Oct</span></div>
+              <div class="event-detail-body">
+                <h3>Web Design Meetup</h3>
+                <div class="event-detail-meta">
+                  <span class="event-meta-item">&#128336; 6:00 PM</span>
+                  <span class="event-meta-item">&#128205; Downtown Library</span>
+                </div>
+                <p class="event-detail-desc">Monthly meetup for web designers to
+                  share projects, discuss trends, and network. All skill levels
+                  welcome!</p>
+                <div class="event-detail-footer">
+                  <span class="event-attendees">&#128101; 87 attending</span>
+                  <button
+                    class="btn-primary btn-sm event-rsvp-btn"
+                    type="button"
+                  >RSVP</button>
+                </div>
+              </div>
+            </div>
+            <div class="event-detail-card">
+              <div class="event-detail-date"><span
+                  class="event-date-day"
+                >18</span><span class="event-date-month">Oct</span></div>
+              <div class="event-detail-body">
+                <h3>Photography Workshop</h3>
+                <div class="event-detail-meta">
+                  <span class="event-meta-item">&#128336; 10:00 AM</span>
+                  <span class="event-meta-item">&#128205; Creative Studio</span>
+                </div>
+                <p class="event-detail-desc">Hands-on workshop covering portrait
+                  lighting, composition, and editing techniques. Bring your
+                  camera!</p>
+                <div class="event-detail-footer">
+                  <span class="event-attendees">&#128101; 45 attending</span>
+                  <button
+                    class="btn-primary btn-sm event-rsvp-btn"
+                    type="button"
+                  >RSVP</button>
+                </div>
+              </div>
+            </div>
+            <div class="event-detail-card">
+              <div class="event-detail-date"><span
+                  class="event-date-day"
+                >22</span><span class="event-date-month">Oct</span></div>
+              <div class="event-detail-body">
+                <h3>Coding Bootcamp Info Session</h3>
+                <div class="event-detail-meta">
+                  <span class="event-meta-item">&#128336; 7:00 PM</span>
+                  <span class="event-meta-item">&#128205; Online (Zoom)</span>
+                </div>
+                <p class="event-detail-desc">Learn about our 12-week coding
+                  bootcamp. Meet instructors, see student projects, and get your
+                  questions answered.</p>
+                <div class="event-detail-footer">
+                  <span class="event-attendees">&#128101; 230 attending</span>
+                  <button
+                    class="btn-primary btn-sm event-rsvp-btn"
+                    type="button"
+                  >RSVP</button>
+                </div>
+              </div>
+            </div>
+            <div class="event-detail-card">
+              <div class="event-detail-date"><span
+                  class="event-date-day"
+                >25</span><span class="event-date-month">Oct</span></div>
+              <div class="event-detail-body">
+                <h3>Tech Conference 2026</h3>
+                <div class="event-detail-meta">
+                  <span class="event-meta-item">&#128336; 9:00 AM</span>
+                  <span class="event-meta-item">&#128205; Convention Center</span>
+                </div>
+                <p class="event-detail-desc">Full-day conference featuring talks
+                  on AI, web development, design systems, and the future of
+                  social platforms.</p>
+                <div class="event-detail-footer">
+                  <span class="event-attendees">&#128101; 1,200 attending</span>
+                  <button
+                    class="btn-primary btn-sm event-rsvp-btn"
+                    type="button"
+                  >RSVP</button>
+                </div>
+              </div>
+            </div>
+            <div class="event-detail-card">
+              <div class="event-detail-date"><span
+                  class="event-date-day"
+                >30</span><span class="event-date-month">Oct</span></div>
+              <div class="event-detail-body">
+                <h3>Halloween Costume Party</h3>
+                <div class="event-detail-meta">
+                  <span class="event-meta-item">&#128336; 8:00 PM</span>
+                  <span class="event-meta-item">&#128205; The Rooftop Lounge</span>
+                </div>
+                <p class="event-detail-desc">Connectly's annual Halloween bash!
+                  Costumes encouraged. Prizes for best dressed, food, drinks,
+                  and music.</p>
+                <div class="event-detail-footer">
+                  <span class="event-attendees">&#128101; 340 attending</span>
+                  <button
+                    class="btn-primary btn-sm event-rsvp-btn"
+                    type="button"
+                  >RSVP</button>
+                </div>
+              </div>
+            </div>
+            <div class="event-detail-card">
+              <div class="event-detail-date"><span
+                  class="event-date-day"
+                >05</span><span class="event-date-month">Nov</span></div>
+              <div class="event-detail-body">
+                <h3>Open Mic Night</h3>
+                <div class="event-detail-meta">
+                  <span class="event-meta-item">&#128336; 7:30 PM</span>
+                  <span class="event-meta-item">&#128205; Community Arts Hall</span>
+                </div>
+                <p class="event-detail-desc">Music, poetry, comedy, and
+                  storytelling. Sign up to perform or just come enjoy the show
+                  and support local talent.</p>
+                <div class="event-detail-footer">
+                  <span class="event-attendees">&#128101; 65 attending</span>
+                  <button
+                    class="btn-primary btn-sm event-rsvp-btn"
+                    type="button"
+                  >RSVP</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- My Events Panel -->
+        <div class="events-tab-panel" id="epanel-attending">
+          <div class="events-grid">
+            <div class="event-detail-card">
+              <div class="event-detail-date"><span
+                  class="event-date-day"
+                >12</span><span class="event-date-month">Oct</span></div>
+              <div class="event-detail-body">
+                <h3>Web Design Meetup</h3>
+                <div class="event-detail-meta">
+                  <span class="event-meta-item">&#128336; 6:00 PM</span>
+                  <span class="event-meta-item">&#128205; Downtown Library</span>
+                </div>
+                <p class="event-detail-desc">Monthly meetup for web designers to
+                  share projects, discuss trends, and network.</p>
+                <div class="event-detail-footer">
+                  <span class="event-attendees event-going">&#10003; You're
+                    attending</span>
+                  <button
+                    class="btn-outline btn-sm event-rsvp-btn"
+                    type="button"
+                  >Cancel RSVP</button>
+                </div>
+              </div>
+            </div>
+            <div class="event-detail-card">
+              <div class="event-detail-date"><span
+                  class="event-date-day"
+                >25</span><span class="event-date-month">Oct</span></div>
+              <div class="event-detail-body">
+                <h3>Tech Conference 2026</h3>
+                <div class="event-detail-meta">
+                  <span class="event-meta-item">&#128336; 9:00 AM</span>
+                  <span class="event-meta-item">&#128205; Convention Center</span>
+                </div>
+                <p class="event-detail-desc">Full-day conference featuring talks
+                  on AI, web development, design systems, and the future of
+                  social platforms.</p>
+                <div class="event-detail-footer">
+                  <span class="event-attendees event-going">&#10003; You're
+                    attending</span>
+                  <button
+                    class="btn-outline btn-sm event-rsvp-btn"
+                    type="button"
+                  >Cancel RSVP</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Past Events Panel -->
+        <div class="events-tab-panel" id="epanel-past">
+          <div class="events-grid">
+            <div class="event-detail-card event-past">
+              <div class="event-detail-date"><span
+                  class="event-date-day"
+                >28</span><span class="event-date-month">Sep</span></div>
+              <div class="event-detail-body">
+                <h3>Startup Pitch Night</h3>
+                <div class="event-detail-meta">
+                  <span class="event-meta-item">&#128336; 6:30 PM</span>
+                  <span class="event-meta-item">&#128205; Innovation Hub</span>
+                </div>
+                <p class="event-detail-desc">10 startups pitched their ideas to
+                  a panel of investors. Great energy and inspiring
+                  presentations!</p>
+                <div class="event-detail-footer">
+                  <span class="event-attendees">&#128101; 180 attended</span>
+                  <span class="event-past-badge">Past Event</span>
+                </div>
+              </div>
+            </div>
+            <div class="event-detail-card event-past">
+              <div class="event-detail-date"><span
+                  class="event-date-day"
+                >15</span><span class="event-date-month">Sep</span></div>
+              <div class="event-detail-body">
+                <h3>UX Research Panel</h3>
+                <div class="event-detail-meta">
+                  <span class="event-meta-item">&#128336; 7:00 PM</span>
+                  <span class="event-meta-item">&#128205; Online (Zoom)</span>
+                </div>
+                <p class="event-detail-desc">Panel discussion with UX
+                  researchers from leading tech companies sharing their
+                  methodologies and insights.</p>
+                <div class="event-detail-footer">
+                  <span class="event-attendees">&#128101; 420 attended</span>
+                  <span class="event-past-badge">Past Event</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    {{>footer}}
+    <script src="js/main.js"></script>
+  </body>
+</html>

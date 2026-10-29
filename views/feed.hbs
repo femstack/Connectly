@@ -1,0 +1,1008 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connectly — Feed</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <!-- ===== Navbar ===== -->
+   {{>header}}
+    <!-- ===== Full Feed Page ===== -->
+    <main class="feed-full">
+      <div class="feed-layout">
+        <!-- ===== Left Sidebar ===== -->
+        <aside class="feed-sidebar-left">
+          <!-- Profile Summary -->
+          <div class="sidebar-card">
+            <div class="sidebar-profile">
+              
+              <div class="avatar-placeholder">{{#if currentuser.profilephoto}} <img src="{{currentuser.profilephoto}}" alt=""> {{else}}  {{getInitials currentuser.fullname}} {{/if}}</div>
+              <h3>{{currentuser.fullname}}</h3>
+              <p class="sidebar-username">@{{currentuser.username}}</p>
+              <div class="sidebar-profile-stats">
+                <div class="sidebar-stat">
+                  <span class="sidebar-stat-num">{{userPostCount}}</span>
+                  <span class="sidebar-stat-label">Posts</span>
+                </div>
+                <div class="sidebar-stat">
+                  <span class="sidebar-stat-num">1.2K</span>
+                  <span class="sidebar-stat-label">Friends</span>
+                </div>
+                <div class="sidebar-stat">
+                  <span class="sidebar-stat-num">856</span>
+                  <span class="sidebar-stat-label">Followers</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation Shortcuts -->
+          <div class="sidebar-card">
+            <nav class="sidebar-nav">
+              <a href="/feed" class="active">
+                <span class="sidebar-nav-icon">&#128240;</span>
+                News Feed
+              </a>
+              <a href="/dashboard">
+                <span class="sidebar-nav-icon">&#128202;</span>
+                Dashboard
+              </a>
+              <a href="/profile/{{currentuser._id}}">
+                <span class="sidebar-nav-icon">&#128100;</span>
+                My Profile
+              </a>
+              <a href="#">
+                <span class="sidebar-nav-icon">&#128101;</span>
+                Friends
+              </a>
+              <a href="#">
+                <span class="sidebar-nav-icon">&#9993;</span>
+                Messages
+                <span
+                  class="nav-badge"
+                  style="position:relative;top:0;right:0;margin-left:auto;"
+                >3</span>
+              </a>
+              <a href="#">
+                <span class="sidebar-nav-icon">&#128276;</span>
+                Notifications
+                <span
+                  class="nav-badge"
+                  style="position:relative;top:0;right:0;margin-left:auto;"
+                >5</span>
+              </a>
+              <a href="#">
+                <span class="sidebar-nav-icon">&#128190;</span>
+                Saved Posts
+              </a>
+              <a href="/settings">
+                <span class="sidebar-nav-icon">&#9881;</span>
+                Settings
+              </a>
+            </nav>
+          </div>
+        </aside>
+
+        <!-- ===== Center Feed Column ===== -->
+        <section class="feed-main">
+          <!-- Feed Header + Tabs -->
+          <div class="feed-main-header">
+            <h1>Your Feed</h1>
+            <div class="feed-tabs">
+              <button class="feed-tab active" type="button">All</button>
+              <button class="feed-tab" type="button">Friends</button>
+              <button class="feed-tab" type="button">Recent</button>
+              <button class="feed-tab" type="button">Trending</button>
+            </div>
+          </div>
+
+          <!-- Stories Row -->
+          <div class="stories-row">
+            <div class="story-item story-add">
+              <div class="story-ring story-add">
+                <div class="story-ring-inner">+</div>
+              </div>
+              <span class="story-name">Add Story</span>
+            </div>
+            <div class="story-item">
+              <div class="story-ring">
+                <div class="story-ring-inner">
+                  <div class="avatar-placeholder">AS</div>
+                </div>
+              </div>
+              <span class="story-name">Alex Silva</span>
+            </div>
+            <div class="story-item">
+              <div class="story-ring">
+                <div class="story-ring-inner">
+                  <div class="avatar-placeholder post-avatar-2">MK</div>
+                </div>
+              </div>
+              <span class="story-name">Maya Kapoor</span>
+            </div>
+            <div class="story-item">
+              <div class="story-ring">
+                <div class="story-ring-inner">
+                  <div class="avatar-placeholder post-avatar-3">JT</div>
+                </div>
+              </div>
+              <span class="story-name">Jordan Tate</span>
+            </div>
+            <div class="story-item">
+              <div class="story-ring">
+                <div class="story-ring-inner">
+                  <div class="avatar-placeholder post-avatar-4">RL</div>
+                </div>
+              </div>
+              <span class="story-name">Riley Lee</span>
+            </div>
+            <div class="story-item">
+              <div class="story-ring">
+                <div class="story-ring-inner">
+                  <div class="avatar-placeholder post-avatar-5">EW</div>
+                </div>
+              </div>
+              <span class="story-name">Emma Wilson</span>
+            </div>
+            <div class="story-item">
+              <div class="story-ring">
+                <div class="story-ring-inner">
+                  <div class="avatar-placeholder post-avatar-6">CM</div>
+                </div>
+              </div>
+              <span class="story-name">Carlos Mendez</span>
+            </div>
+          </div>
+
+          <!-- Post Composer -->
+          <div class="post-composer">
+            <div class="composer-top">
+              <div class="composer-avatar">JD</div>
+              <textarea
+                class="composer-textarea"
+                id="composerTextarea"
+                placeholder="What's on your mind, Jane?"
+                maxlength="500"
+              ></textarea>
+            </div>
+
+            <div class="composer-attached" id="composerAttached">
+              <span>&#128247; photo_selected.jpg</span>
+              <button
+                class="remove-attach"
+                id="composerRemoveAttach"
+                type="button"
+              >&times;</button>
+            </div>
+
+            <div class="composer-bottom">
+              <div class="composer-tools">
+                <button
+                  class="composer-tool"
+                  id="composerAttachBtn"
+                  type="button"
+                >
+                  <span class="composer-tool-icon">&#128247;</span>
+                  Photo
+                </button>
+                <button
+                  class="composer-tool"
+                  type="button"
+                  onclick="return false;"
+                >
+                  <span class="composer-tool-icon">&#127909;</span>
+                  Video
+                </button>
+                <button
+                  class="composer-tool"
+                  type="button"
+                  onclick="return false;"
+                >
+                  <span class="composer-tool-icon">&#128526;</span>
+                  Feeling
+                </button>
+              </div>
+              <div class="composer-audience">
+                <select class="audience-select" id="composerAudience">
+                  <option value="Public">&#127760; Public</option>
+                  <option value="Friends">&#128101; Friends</option>
+                  <option value="Only Me">&#128274; Only Me</option>
+                </select>
+                <button
+                  class="btn-primary composer-submit"
+                  id="composerPostBtn"
+                  type="button"
+                >
+                  Post
+                </button>
+              </div>
+            </div>
+
+            <div class="composer-feedback" id="composerFeedback"></div>
+          </div>
+
+          <!-- Feed Posts -->
+          <div id="feedPostsContainer">
+            <!-- Post 1 -->
+            {{#if posts.length}}
+
+            {{#each posts}}
+            <article class="post-card-full">
+              <div class="post-header">
+                <div class="post-avatar">{{#if author.profilephoto}} <img src="{{ author.profilephoto}}" alt=""> {{else}}  {{getInitials author.fullname}} {{/if}}</div>
+                <div class="post-header-info">
+                  <div class="post-header-row">
+                    <a href="/profile/{{author._id}}" class="post-author">{{author.fullname}}</a>
+                    <span class="post-username">@{{author.username}}</span>
+                    <span class="post-audience-tag">&middot; {{audience}}</span>
+                  </div>
+                  <span class="post-time">{{timeAgo createdAt}}</span>
+                </div>
+                <button
+                  class="post-options-btn"
+                  type="button"
+                  aria-label="Post options"
+                >&#8943;</button>
+                <div class="post-options-menu">
+                  <button type="button" class="opt-save">&#128190; Save post</button>
+                  <button type="button" class="opt-copy">&#128279; Copy link</button>
+                  <button type="button" class="opt-hide">&#128065; Hide post</button>
+                  <div class="post-options-divider"></div>
+                  <button type="button" class="opt-report danger">&#9873; Report
+                    post</button>
+                </div>
+              </div>
+              <a href="/post/{{_id}}">
+                <div class="post-body">
+               {{#if content}}
+                <p>
+                 {{content}}
+                </p>
+               {{/if}}
+              </div>
+                {{#if mediaUrl}}
+              <div class="post-image var-1">
+                {{#if (eq mediaType "image")}}
+                <img src="{{mediaUrl}}" alt="Post Media">
+                {{/if}}
+
+                {{#if (eq mediaType "video")}}
+                <video controls>
+                  <source src="{{mediaUrl}}" type="video/mp4">
+                </video>
+                {{/if}}
+              </div>
+              {{/if}}
+              </a>
+              <div class="post-stats-row">
+                <div class="post-stats-likes">
+                  <span class="post-like-icons">
+                    <span class="post-like-icon heart">&#10084;</span>
+                    <span class="post-like-icon thumbs">&#128077;</span>
+                  </span>
+                  <span class="like-count">{{likeCount}}</span>
+                </div>
+                <span class="comment-count-text">{{comment.length}} comment &middot; 5 shares</span>
+              </div>
+              <div class="post-actions-bar">
+                <button class="action-btn like-btn {{#if isLiked}}liked{{/if}}" type="button" data-post-id="{{_id}}" >
+                  <span class="action-icon">&#10084;</span>
+                  {{#if isLiked}}liked{{else}}Like{{/if}}
+                </button>
+                <button class="action-btn comment-btn" type="button">
+                  <span class="action-icon">&#128172;</span>
+                  Comment
+                </button>
+                <button class="action-btn share-btn" type="button" >
+                  <span class="action-icon">&#128279;</span>
+                  Share
+                </button>
+                <button class="action-btn save-btn {{#if isSaved}} Saved{{/if}}" type="button" data-post-id="{{_id}}">
+                  <span class="action-icon">&#128190;</span>
+                  {{#if isSaved}} Saved {{else}}Save {{/if}}
+                </button>
+              </div>
+              <div class="comments-section">
+                <div class="comment-list">
+                  {{#each post.comment}}
+                  <div class="comment-item">
+                    <div class="comment-avatar post-avatar-2">{{initials}}</div>
+                    <div class="comment-body">
+                      <div class="comment-meta">
+                        <span class="comment-author">{{author.name}}</span>
+                        <span class="comment-time">{{timeAgo}}</span>
+                      </div>
+                      <p class="comment-text">{{text}}</p>
+                      <div class="comment-actions">
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Like</button>
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Reply</button>
+                      </div>
+                    </div>
+                  </div>
+                  {{/each}}
+                  {{!-- <div class="comment-item">
+                    <div class="comment-avatar post-avatar-3">JT</div>
+                    <div class="comment-body">
+                      <div class="comment-meta">
+                        <span class="comment-author">Jordan Tate</span>
+                        <span class="comment-time">45 min ago</span>
+                      </div>
+                      <p class="comment-text">Adding this to my reading list
+                        right now. Thanks for the recommendation!</p>
+                      <div class="comment-actions">
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Like</button>
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Reply</button>
+                      </div>
+                    </div>
+                  </div> --}}
+                </div>
+                <form class="comment-form" method="post" action="/posts/{{_id}}/comment" >
+                  <div
+                    class="comment-avatar"
+                    style="background: linear-gradient(135deg, var(--primary), var(--accent));"
+                  >{{initials}}</div>
+                  <input
+                    type="text"
+                    name="text"
+                    class="comment-input"
+                    placeholder="Write a comment..."
+                  />
+
+                  <input
+                    type="hidden"
+                    name="returnTo"
+                    value="/feed"
+                    placeholder="Write a comment..."
+                  />
+
+                  <button type="submit" class="comment-submit">Post</button>
+                </form>
+              </div>
+            </article>
+            {{/each}}
+
+            {{else}}
+            <h3>No Post Yet</h3>
+            {{/if}}
+
+            <!-- Post 2 -->
+            {{!-- <article class="post-card-full">
+              <div class="post-header">
+                <div class="post-avatar post-avatar-2">MK</div>
+                <div class="post-header-info">
+                  <div class="post-header-row">
+                    <a href="/profile" class="post-author">Maya Kapoor</a>
+                    <span class="post-username">@mayakapoor</span>
+                    <span class="post-audience-tag">&middot; Friends</span>
+                  </div>
+                  <span class="post-time">5 hours ago</span>
+                </div>
+                <button
+                  class="post-options-btn"
+                  type="button"
+                  aria-label="Post options"
+                >&#8943;</button>
+                <div class="post-options-menu">
+                  <button type="button" class="opt-save">&#128190; Save post</button>
+                  <button type="button" class="opt-copy">&#128279; Copy link</button>
+                  <button type="button" class="opt-hide">&#128065; Hide post</button>
+                  <div class="post-options-divider"></div>
+                  <button type="button" class="opt-report danger">&#9873; Report
+                    post</button>
+                </div>
+              </div>
+              <div class="post-body">
+                <p>
+                  Spent the weekend hiking in the mountains and the views were
+                  absolutely breathtaking. Nature really is the best reset
+                  button. Where's your favorite place to unplug?
+                </p>
+              </div>
+              <div class="post-image var-2">
+                <span class="post-image-icon">&#127956;</span>
+              </div>
+              <div class="post-stats-row">
+                <div class="post-stats-likes">
+                  <span class="post-like-icons">
+                    <span class="post-like-icon heart">&#10084;</span>
+                    <span class="post-like-icon thumbs">&#128077;</span>
+                    <span class="post-like-icon celebrate">&#127881;</span>
+                  </span>
+                  <span class="like-count">56</span>
+                </div>
+                <span class="comment-count-text">15 comments &middot; 12 shares</span>
+              </div>
+              <div class="post-actions-bar">
+                <button class="action-btn like-btn" type="button">
+                  <span class="action-icon">&#10084;</span>
+                  Like
+                </button>
+                <button class="action-btn comment-btn" type="button">
+                  <span class="action-icon">&#128172;</span>
+                  Comment
+                </button>
+                <button class="action-btn share-btn" type="button">
+                  <span class="action-icon">&#128279;</span>
+                  Share
+                </button>
+                <button class="action-btn save-btn" type="button">
+                  <span class="action-icon">&#128190;</span>
+                  Save
+                </button>
+              </div>
+              <div class="comments-section">
+                <div class="comment-list">
+                  <div class="comment-item">
+                    <div class="comment-avatar post-avatar-4">RL</div>
+                    <div class="comment-body">
+                      <div class="comment-meta">
+                        <span class="comment-author">Riley Lee</span>
+                        <span class="comment-time">3 hours ago</span>
+                      </div>
+                      <p class="comment-text">These photos are stunning! I need
+                        to plan a trip like this soon.</p>
+                      <div class="comment-actions">
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Like</button>
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Reply</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comment-item">
+                    <div class="comment-avatar post-avatar-5">EW</div>
+                    <div class="comment-body">
+                      <div class="comment-meta">
+                        <span class="comment-author">Emma Wilson</span>
+                        <span class="comment-time">2 hours ago</span>
+                      </div>
+                      <p class="comment-text">My favorite spot is the lake
+                        district. Nothing beats that quiet morning mist on the
+                        water.</p>
+                      <div class="comment-actions">
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Like</button>
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Reply</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <form class="comment-form">
+                  <div
+                    class="comment-avatar"
+                    style="background: linear-gradient(135deg, var(--primary), var(--accent));"
+                  >JD</div>
+                  <input
+                    type="text"
+                    class="comment-input"
+                    placeholder="Write a comment..."
+                  />
+                  <button type="submit" class="comment-submit">Post</button>
+                </form>
+              </div>
+            </article>
+
+            <!-- Post 3 -->
+            <article class="post-card-full">
+              <div class="post-header">
+                <div class="post-avatar post-avatar-3">JT</div>
+                <div class="post-header-info">
+                  <div class="post-header-row">
+                    <a href="profile.html" class="post-author">Jordan Tate</a>
+                    <span class="post-username">@jordantate</span>
+                    <span class="post-audience-tag">&middot; Public</span>
+                  </div>
+                  <span class="post-time">Yesterday</span>
+                </div>
+                <button
+                  class="post-options-btn"
+                  type="button"
+                  aria-label="Post options"
+                >&#8943;</button>
+                <div class="post-options-menu">
+                  <button type="button" class="opt-save">&#128190; Save post</button>
+                  <button type="button" class="opt-copy">&#128279; Copy link</button>
+                  <button type="button" class="opt-hide">&#128065; Hide post</button>
+                  <div class="post-options-divider"></div>
+                  <button type="button" class="opt-report danger">&#9873; Report
+                    post</button>
+                </div>
+              </div>
+              <div class="post-body">
+                <p>
+                  Excited to share that I just launched my new portfolio
+                  website. It's been a long journey but I'm really proud of how
+                  it turned out. Would love to hear your feedback! Link in the
+                  comments.
+                </p>
+              </div>
+              <div class="post-stats-row">
+                <div class="post-stats-likes">
+                  <span class="post-like-icons">
+                    <span class="post-like-icon heart">&#10084;</span>
+                    <span class="post-like-icon thumbs">&#128077;</span>
+                    <span class="post-like-icon celebrate">&#127881;</span>
+                  </span>
+                  <span class="like-count">112</span>
+                </div>
+                <span class="comment-count-text">32 comments &middot; 28 shares</span>
+              </div>
+              <div class="post-actions-bar">
+                <button class="action-btn like-btn" type="button">
+                  <span class="action-icon">&#10084;</span>
+                  Like
+                </button>
+                <button class="action-btn comment-btn" type="button">
+                  <span class="action-icon">&#128172;</span>
+                  Comment
+                </button>
+                <button class="action-btn share-btn" type="button">
+                  <span class="action-icon">&#128279;</span>
+                  Share
+                </button>
+                <button class="action-btn save-btn" type="button">
+                  <span class="action-icon">&#128190;</span>
+                  Save
+                </button>
+              </div>
+              <div class="comments-section">
+                <div class="comment-list">
+                  <div class="comment-item">
+                    <div class="comment-avatar">AS</div>
+                    <div class="comment-body">
+                      <div class="comment-meta">
+                        <span class="comment-author">Alex Silva</span>
+                        <span class="comment-time">20 hours ago</span>
+                      </div>
+                      <p class="comment-text">Congratulations! The site looks
+                        fantastic. Love the clean design and smooth animations.</p>
+                      <div class="comment-actions">
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Like</button>
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Reply</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comment-item">
+                    <div class="comment-avatar post-avatar-6">CM</div>
+                    <div class="comment-body">
+                      <div class="comment-meta">
+                        <span class="comment-author">Carlos Mendez</span>
+                        <span class="comment-time">18 hours ago</span>
+                      </div>
+                      <p class="comment-text">The typography choices are spot
+                        on. Really impressive work, Jordan!</p>
+                      <div class="comment-actions">
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Like</button>
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Reply</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comment-item">
+                    <div class="comment-avatar post-avatar-5">EW</div>
+                    <div class="comment-body">
+                      <div class="comment-meta">
+                        <span class="comment-author">Emma Wilson</span>
+                        <span class="comment-time">12 hours ago</span>
+                      </div>
+                      <p class="comment-text">Bookmarked! This is going to be
+                        great inspiration for my own portfolio redesign.</p>
+                      <div class="comment-actions">
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Like</button>
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Reply</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <form class="comment-form">
+                  <div
+                    class="comment-avatar"
+                    style="background: linear-gradient(135deg, var(--primary), var(--accent));"
+                  >JD</div>
+                  <input
+                    type="text"
+                    class="comment-input"
+                    placeholder="Write a comment..."
+                  />
+                  <button type="submit" class="comment-submit">Post</button>
+                </form>
+              </div>
+            </article>
+
+            <!-- Post 4 -->
+            <article class="post-card-full">
+              <div class="post-header">
+                <div class="post-avatar post-avatar-4">RL</div>
+                <div class="post-header-info">
+                  <div class="post-header-row">
+                    <a href="profile.html" class="post-author">Riley Lee</a>
+                    <span class="post-username">@rileylee</span>
+                    <span class="post-audience-tag">&middot; Public</span>
+                  </div>
+                  <span class="post-time">2 days ago</span>
+                </div>
+                <button
+                  class="post-options-btn"
+                  type="button"
+                  aria-label="Post options"
+                >&#8943;</button>
+                <div class="post-options-menu">
+                  <button type="button" class="opt-save">&#128190; Save post</button>
+                  <button type="button" class="opt-copy">&#128279; Copy link</button>
+                  <button type="button" class="opt-hide">&#128065; Hide post</button>
+                  <div class="post-options-divider"></div>
+                  <button type="button" class="opt-report danger">&#9873; Report
+                    post</button>
+                </div>
+              </div>
+              <div class="post-body">
+                <p>
+                  Coffee or tea? I've been trying to cut back on coffee but
+                  honestly nothing beats that morning brew. What's your go-to
+                  morning drink? Vote below!
+                </p>
+              </div>
+              <div class="post-stats-row">
+                <div class="post-stats-likes">
+                  <span class="post-like-icons">
+                    <span class="post-like-icon heart">&#10084;</span>
+                    <span class="post-like-icon thumbs">&#128077;</span>
+                  </span>
+                  <span class="like-count">38</span>
+                </div>
+                <span class="comment-count-text">21 comments &middot; 2 shares</span>
+              </div>
+              <div class="post-actions-bar">
+                <button class="action-btn like-btn" type="button">
+                  <span class="action-icon">&#10084;</span>
+                  Like
+                </button>
+                <button class="action-btn comment-btn" type="button">
+                  <span class="action-icon">&#128172;</span>
+                  Comment
+                </button>
+                <button class="action-btn share-btn" type="button">
+                  <span class="action-icon">&#128279;</span>
+                  Share
+                </button>
+                <button class="action-btn save-btn" type="button">
+                  <span class="action-icon">&#128190;</span>
+                  Save
+                </button>
+              </div>
+              <div class="comments-section">
+                <div class="comment-list">
+                  <div class="comment-item">
+                    <div class="comment-avatar post-avatar-2">MK</div>
+                    <div class="comment-body">
+                      <div class="comment-meta">
+                        <span class="comment-author">Maya Kapoor</span>
+                        <span class="comment-time">1 day ago</span>
+                      </div>
+                      <p class="comment-text">Team coffee all the way! I've
+                        tried switching to tea but it's just not the same.</p>
+                      <div class="comment-actions">
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Like</button>
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Reply</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="comment-item">
+                    <div class="comment-avatar post-avatar-3">JT</div>
+                    <div class="comment-body">
+                      <div class="comment-meta">
+                        <span class="comment-author">Jordan Tate</span>
+                        <span class="comment-time">1 day ago</span>
+                      </div>
+                      <p class="comment-text">Green tea in the morning, coffee
+                        in the afternoon. Best of both worlds!</p>
+                      <div class="comment-actions">
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Like</button>
+                        <button
+                          class="comment-action"
+                          type="button"
+                        >Reply</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <form class="comment-form">
+                  <div
+                    class="comment-avatar"
+                    style="background: linear-gradient(135deg, var(--primary), var(--accent));"
+                  >JD</div>
+                  <input
+                    type="text"
+                    class="comment-input"
+                    placeholder="Write a comment..."
+                  />
+                  <button type="submit" class="comment-submit">Post</button>
+                </form>
+              </div>
+            </article>
+
+            <!-- Post 5 -->
+            <article class="post-card-full">
+              <div class="post-header">
+                <div class="post-avatar post-avatar-5">EW</div>
+                <div class="post-header-info">
+                  <div class="post-header-row">
+                    <a href="profile.html" class="post-author">Emma Wilson</a>
+                    <span class="post-username">@emmawilson</span>
+                    <span class="post-audience-tag">&middot; Public</span>
+                  </div>
+                  <span class="post-time">3 days ago</span>
+                </div>
+                <button
+                  class="post-options-btn"
+                  type="button"
+                  aria-label="Post options"
+                >&#8943;</button>
+                <div class="post-options-menu">
+                  <button type="button" class="opt-save">&#128190; Save post</button>
+                  <button type="button" class="opt-copy">&#128279; Copy link</button>
+                  <button type="button" class="opt-hide">&#128065; Hide post</button>
+                  <div class="post-options-divider"></div>
+                  <button type="button" class="opt-report danger">&#9873; Report
+                    post</button>
+                </div>
+              </div>
+              <div class="post-body">
+                <p>
+                  Working from a cozy cafe today and it's the best productivity
+                  boost. Sometimes a change of scenery is all you need. What's
+                  your favorite remote work spot?
+                </p>
+              </div>
+              <div class="post-image var-4">
+                <span class="post-image-icon">&#9749;</span>
+              </div>
+              <div class="post-stats-row">
+                <div class="post-stats-likes">
+                  <span class="post-like-icons">
+                    <span class="post-like-icon heart">&#10084;</span>
+                    <span class="post-like-icon thumbs">&#128077;</span>
+                  </span>
+                  <span class="like-count">67</span>
+                </div>
+                <span class="comment-count-text">19 comments &middot; 8 shares</span>
+              </div>
+              <div class="post-actions-bar">
+                <button class="action-btn like-btn" type="button">
+                  <span class="action-icon">&#10084;</span>
+                  Like
+                </button>
+                <button class="action-btn comment-btn" type="button">
+                  <span class="action-icon">&#128172;</span>
+                  Comment
+                </button>
+                <button class="action-btn share-btn" type="button">
+                  <span class="action-icon">&#128279;</span>
+                  Share
+                </button>
+                <button class="action-btn save-btn" type="button">
+                  <span class="action-icon">&#128190;</span>
+                  Save
+                </button>
+              </div>
+              <div class="comments-section">
+                <div class="comment-list">
+                  <div class="comment-empty">No comments yet. Be the first to
+                    comment!</div>
+                </div>
+                <form class="comment-form">
+                  <div
+                    class="comment-avatar"
+                    style="background: linear-gradient(135deg, var(--primary), var(--accent));"
+                  >JD</div>
+                  <input
+                    type="text"
+                    class="comment-input"
+                    placeholder="Write a comment..."
+                  />
+                  <button type="submit" class="comment-submit">Post</button>
+                </form>
+              </div>
+            </article> --}}
+          </div>
+
+          <!-- Load More -->
+          <div class="load-more-wrap">
+            <button class="load-more-btn" id="loadMoreBtn" type="button">
+              Load more posts
+            </button>
+          </div>
+        </section>
+
+        <!-- ===== Right Sidebar ===== -->
+        <aside class="feed-sidebar-right">
+          <!-- Suggested Friends -->
+          <div class="sidebar-card">
+            <h3>Suggested Friends</h3>
+            <div class="sidebar-list">
+              <div class="suggest-item">
+                <div class="suggest-avatar post-avatar-5">EW</div>
+                <div class="suggest-info">
+                  <div class="suggest-name">Emma Wilson</div>
+                  <div class="suggest-meta">3 mutual friends</div>
+                </div>
+                <button class="suggest-btn" type="button">Follow</button>
+              </div>
+              <div class="suggest-item">
+                <div class="suggest-avatar post-avatar-6">CM</div>
+                <div class="suggest-info">
+                  <div class="suggest-name">Carlos Mendez</div>
+                  <div class="suggest-meta">5 mutual friends</div>
+                </div>
+                <button class="suggest-btn" type="button">Follow</button>
+              </div>
+              <div class="suggest-item">
+                <div class="suggest-avatar post-avatar-3">SC</div>
+                <div class="suggest-info">
+                  <div class="suggest-name">Sophie Chen</div>
+                  <div class="suggest-meta">2 mutual friends</div>
+                </div>
+                <button class="suggest-btn" type="button">Follow</button>
+              </div>
+              <div class="suggest-item">
+                <div class="suggest-avatar post-avatar-4">DK</div>
+                <div class="suggest-info">
+                  <div class="suggest-name">David Kim</div>
+                  <div class="suggest-meta">8 mutual friends</div>
+                </div>
+                <button class="suggest-btn" type="button">Follow</button>
+              </div>
+            </div>
+            <div class="suggest-footer">
+              <a href="#">See all suggestions</a>
+            </div>
+          </div>
+
+          <!-- Trending Topics -->
+          <div class="sidebar-card">
+            <h3>Trending Topics</h3>
+            <div class="trending-item">
+              <span class="trending-category">Technology</span>
+              <span class="trending-tag">#DesignSystems</span>
+              <span class="trending-count">2,847 posts</span>
+            </div>
+            <div class="trending-item">
+              <span class="trending-category">Lifestyle</span>
+              <span class="trending-tag">#RemoteWork</span>
+              <span class="trending-count">5,102 posts</span>
+            </div>
+            <div class="trending-item">
+              <span class="trending-category">Travel</span>
+              <span class="trending-tag">#MountainHiking</span>
+              <span class="trending-count">1,356 posts</span>
+            </div>
+            <div class="trending-item">
+              <span class="trending-category">Career</span>
+              <span class="trending-tag">#PortfolioLaunch</span>
+              <span class="trending-count">987 posts</span>
+            </div>
+            <div class="trending-item">
+              <span class="trending-category">Food &amp; Drink</span>
+              <span class="trending-tag">#MorningCoffee</span>
+              <span class="trending-count">3,421 posts</span>
+            </div>
+          </div>
+
+          <!-- Upcoming Events -->
+          <div class="sidebar-card">
+            <h3>Upcoming Events</h3>
+            <div class="event-item">
+              <div class="event-date">
+                <span class="event-date-day">12</span>
+                <span class="event-date-month">Oct</span>
+              </div>
+              <div class="event-info">
+                <div class="event-title">Web Design Meetup</div>
+                <div class="event-meta">6:00 PM &middot; Downtown Library</div>
+              </div>
+            </div>
+            <div class="event-item">
+              <div class="event-date">
+                <span class="event-date-day">18</span>
+                <span class="event-date-month">Oct</span>
+              </div>
+              <div class="event-info">
+                <div class="event-title">Photography Workshop</div>
+                <div class="event-meta">10:00 AM &middot; Creative Studio</div>
+              </div>
+            </div>
+            <div class="event-item">
+              <div class="event-date">
+                <span class="event-date-day">25</span>
+                <span class="event-date-month">Oct</span>
+              </div>
+              <div class="event-info">
+                <div class="event-title">Tech Conference 2026</div>
+                <div class="event-meta">9:00 AM &middot; Convention Center</div>
+              </div>
+            </div>
+            <div class="suggest-footer">
+              <a href="#">See all events</a>
+            </div>
+          </div>
+
+          <!-- Footer mini links -->
+          <div class="sidebar-card">
+            <div class="sidebar-list" style="padding: var(--space-2);">
+              <p
+                style="font-size:0.75rem;color:var(--neutral-400);line-height:1.6;"
+              >
+                Connectly &middot; About &middot; Help &middot; Privacy &middot;
+                Terms &middot; Cookies
+              </p>
+              <p
+                style="font-size:0.75rem;color:var(--neutral-400);margin-top:0.3rem;"
+              >
+                &copy; 2026 Connectly. All rights reserved.
+              </p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    {{>footer}}
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

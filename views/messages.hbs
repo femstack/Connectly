@@ -1,0 +1,244 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connectly — Messages</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ===== Navbar ===== -->
+   {{>header}}
+
+    <!-- ===== Messages Page ===== -->
+    <main class="messages-page">
+      <div class="messages-layout">
+        <!-- Conversation Sidebar -->
+        <aside class="message-sidebar">
+          <div class="message-search-bar">
+            <input
+              type="search"
+              id="messageSearch"
+              placeholder="Search conversations..."
+              aria-label="Search conversations"
+            />
+          </div>
+          <div class="conversation-list">
+            <!-- Active conversation -->
+            <a href="messages.html" class="conversation-item active">
+              <div class="conversation-avatar-wrap">
+                <div class="conversation-avatar avatar-placeholder">AS</div>
+                <span class="online-dot"></span>
+              </div>
+              <div class="conversation-info">
+                <strong>Alex Silva</strong>
+                <span class="conversation-preview">Hey, did you finish that
+                  design?</span>
+                <span class="conversation-time">2 min ago</span>
+              </div>
+              <span class="unread-badge">3</span>
+            </a>
+            <a href="messages.html" class="conversation-item">
+              <div class="conversation-avatar-wrap">
+                <div
+                  class="conversation-avatar avatar-placeholder post-avatar-2"
+                >MK</div>
+                <span class="online-dot"></span>
+              </div>
+              <div class="conversation-info">
+                <strong>Maya Kapoor</strong>
+                <span class="conversation-preview">The hike was amazing! You
+                  should...</span>
+                <span class="conversation-time">1 hr ago</span>
+              </div>
+              <span class="unread-badge">1</span>
+            </a>
+            <a href="messages.html" class="conversation-item">
+              <div class="conversation-avatar-wrap">
+                <div
+                  class="conversation-avatar avatar-placeholder post-avatar-3"
+                >JT</div>
+              </div>
+              <div class="conversation-info">
+                <strong>Jordan Tate</strong>
+                <span class="conversation-preview">Thanks for the feedback on my
+                  site!</span>
+                <span class="conversation-time">Yesterday</span>
+              </div>
+            </a>
+            <a href="messages.html" class="conversation-item">
+              <div class="conversation-avatar-wrap">
+                <div
+                  class="conversation-avatar avatar-placeholder post-avatar-4"
+                >RL</div>
+                <span class="online-dot"></span>
+              </div>
+              <div class="conversation-info">
+                <strong>Riley Lee</strong>
+                <span class="conversation-preview">I switched to matcha actually
+                  lol</span>
+                <span class="conversation-time">2 days ago</span>
+              </div>
+            </a>
+            <a href="messages.html" class="conversation-item">
+              <div class="conversation-avatar-wrap">
+                <div class="conversation-avatar avatar-placeholder">SR</div>
+              </div>
+              <div class="conversation-info">
+                <strong>Sam Reed</strong>
+                <span class="conversation-preview">Are we still on for Friday?</span>
+                <span class="conversation-time">3 days ago</span>
+              </div>
+            </a>
+            <a href="messages.html" class="conversation-item">
+              <div class="conversation-avatar-wrap">
+                <div
+                  class="conversation-avatar avatar-placeholder post-avatar-2"
+                >EM</div>
+              </div>
+              <div class="conversation-info">
+                <strong>Emma Martinez</strong>
+                <span class="conversation-preview">Nice to meet you too!</span>
+                <span class="conversation-time">1 week ago</span>
+              </div>
+            </a>
+          </div>
+        </aside>
+
+        <!-- Chat Panel -->
+        <section class="chat-panel">
+          <!-- Chat Header -->
+          <div class="chat-header">
+            <div class="chat-header-user">
+              <div class="conversation-avatar-wrap">
+                <div
+                  class="conversation-avatar avatar-placeholder chat-header-avatar"
+                >AS</div>
+                <span class="online-dot"></span>
+              </div>
+              <div>
+                <h2>Alex Silva</h2>
+                <span class="chat-status">Active now</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chat Messages -->
+          <div class="chat-messages">
+            <!-- Timestamp separator -->
+            <div class="chat-timestamp">Today</div>
+
+            <!-- Incoming -->
+            <div class="chat-message incoming">
+              <div
+                class="chat-message-avatar avatar-placeholder post-avatar"
+              >AS</div>
+              <div class="chat-message-bubble">
+                <p>Hey Jane! How's the design project coming along?</p>
+                <span class="chat-message-time">10:23 AM</span>
+              </div>
+            </div>
+
+            <!-- Outgoing -->
+            <div class="chat-message outgoing">
+              <div class="chat-message-bubble">
+                <p>Hey Alex! It's going really well actually. I just finished
+                  the wireframes for the mobile app.</p>
+                <span class="chat-message-time">10:25 AM</span>
+              </div>
+            </div>
+
+            <!-- Incoming -->
+            <div class="chat-message incoming">
+              <div
+                class="chat-message-avatar avatar-placeholder post-avatar"
+              >AS</div>
+              <div class="chat-message-bubble">
+                <p>That's awesome! Can you share them? I'd love to take a look.</p>
+                <span class="chat-message-time">10:26 AM</span>
+              </div>
+            </div>
+
+            <!-- Outgoing -->
+            <div class="chat-message outgoing">
+              <div class="chat-message-bubble">
+                <p>Of course! I'll send the Figma link over in a bit. Just need
+                  to clean up a few things first.</p>
+                <span class="chat-message-time">10:28 AM</span>
+              </div>
+            </div>
+
+            <!-- Incoming -->
+            <div class="chat-message incoming">
+              <div
+                class="chat-message-avatar avatar-placeholder post-avatar"
+              >AS</div>
+              <div class="chat-message-bubble">
+                <p>Take your time. Also, did you finish that book on design
+                  systems you mentioned?</p>
+                <span class="chat-message-time">10:30 AM</span>
+              </div>
+            </div>
+
+            <!-- Outgoing -->
+            <div class="chat-message outgoing">
+              <div class="chat-message-bubble">
+                <p>Yes! It was incredible. I'll write up a summary and share it.
+                  So many good takeaways about maintaining consistency at scale.</p>
+                <span class="chat-message-time">10:32 AM</span>
+              </div>
+            </div>
+
+            <!-- Incoming -->
+            <div class="chat-message incoming">
+              <div
+                class="chat-message-avatar avatar-placeholder post-avatar"
+              >AS</div>
+              <div class="chat-message-bubble">
+                <p>Hey, did you finish that design? No rush, just curious!</p>
+                <span class="chat-message-time">11:58 AM</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Message Input -->
+          <div class="chat-input-bar">
+            <form action="/messages/send" method="POST" class="chat-input-form">
+              <button
+                type="button"
+                class="chat-attach"
+                aria-label="Attach file"
+              >&#128206;</button>
+              <button
+                type="button"
+                class="chat-attach"
+                aria-label="Attach image"
+              >&#128247;</button>
+              <input
+                type="text"
+                name="message"
+                placeholder="Type a message..."
+                aria-label="Type a message"
+              />
+              <button
+                type="submit"
+                class="chat-send-btn"
+                aria-label="Send message"
+              >&#10148;</button>
+            </form>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    {{>footer}}
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

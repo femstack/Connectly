@@ -1,0 +1,251 @@
+{{!-- <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+{{>header}}
+
+<main class="payment-history-page">
+  <div class="payment-history-container">
+    <div class="payment-history-back">
+      <a href="/premium">&larr; Back to Premium</a>
+    </div>
+
+    <div class="payment-history-header">
+      <h1>Payment History</h1>
+      <p>A record of all your Connectly payment transactions.</p>
+    </div>
+
+    {{#if payments.length}}
+      <!-- Desktop Table -->
+      <div class="payment-history-table-wrap">
+        <table class="payment-history-table">
+          <thead>
+            <tr>
+              <th>Reference</th>
+              <th>Description</th>
+              <th>Amount</th>
+              <th>Status</th>
+              <th>Plan</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each payments}}
+              <tr>
+                <td data-label="Reference">
+                  <span class="ph-ref">{{this.reference}}</span>
+                </td>
+                <td data-label="Description">{{this.description}}</td>
+                <td data-label="Amount">
+                  &#8358;{{this.amount}} <span class="ph-currency">{{this.currency}}</span>
+                </td>
+                <td data-label="Status">
+                  <span class="payment-status-badge payment-status-{{this.statusClass}}">
+                    {{this.statusLabel}}
+                  </span>
+                </td>
+                <td data-label="Plan">{{this.plan}}</td>
+                <td data-label="Date">{{this.date}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Mobile Cards (shown on small screens via CSS) -->
+      <div class="payment-history-cards">
+        {{#each payments}}
+          <div class="payment-history-card payment-status-{{this.statusClass}}">
+            <div class="ph-card-top">
+              <span class="payment-status-badge payment-status-{{this.statusClass}}">
+                {{this.statusLabel}}
+              </span>
+              <span class="ph-card-amount">&#8358;{{this.amount}} {{this.currency}}</span>
+            </div>
+            <div class="ph-card-desc">{{this.description}}</div>
+            <div class="ph-card-ref">{{this.reference}}</div>
+            <div class="ph-card-meta">
+              <span>{{this.plan}}</span>
+              <span>{{this.date}}</span>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+
+      <!-- Pagination -->
+      {{#if pagination.showPagination}}
+        <div class="payment-history-pagination">
+          {{#if pagination.hasPrev}}
+            <a href="/payment-history?page={{pagination.prevPage}}" class="btn-outline btn-sm">&larr; Previous</a>
+          {{else}}
+            <span class="btn-outline btn-sm disabled">Previous</span>
+          {{/if}}
+          <span class="ph-page-info">Page {{pagination.currentPage}} of {{pagination.totalPages}}</span>
+          {{#if pagination.hasNext}}
+            <a href="/payment-history?page={{pagination.nextPage}}" class="btn-outline btn-sm">Next &rarr;</a>
+          {{else}}
+            <span class="btn-outline btn-sm disabled">Next</span>
+          {{/if}}
+        </div>
+      {{/if}}
+    {{else}}
+      <!-- Empty State -->
+      <div class="payment-history-empty">
+        <div class="payment-history-empty-icon">&#128230;</div>
+        <h3>No payment records yet</h3>
+        <p>You have not made any payments yet. When you upgrade to Premium, your transactions will appear here.</p>
+        <a href="/premium" class="btn-primary">Explore Premium</a>
+      </div>
+    {{/if}}
+  </div>
+</main>
+
+{{>footer}}
+    <script src="js/main.js"></script>
+  </body>
+</html> --}}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Payment History | Connectly</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    {{>header}}
+
+    <main class="payment-history-page">
+
+        <div class="payment-history-container">
+
+            <div class="payment-history-heading">
+
+                <div>
+                    <h1>Payment History</h1>
+
+                    <p>
+                        View your Connectly Premium transactions.
+                    </p>
+                </div>
+
+                <a href="/premium" class="btn-secondary">
+                    Back to Premium
+                </a>
+
+            </div>
+
+            <section class="payment-history-summary">
+
+                <div class="history-summary-card">
+                    <span>Total Transactions</span>
+                    <strong>{{totalPayments}}</strong>
+                </div>
+
+                <div class="history-summary-card">
+                    <span>Successful Payments</span>
+                    <strong>{{successfulPayments}}</strong>
+                </div>
+
+                {{!-- <div class="history-summary-card">
+                    <span>Total Paid</span>
+                    <strong>₦{{totalPaid}}</strong>
+                </div> --}}
+
+            </section>
+
+            {{#if payments.length}}
+
+                <div class="payment-table-wrapper">
+
+                    <table class="payment-history-table">
+
+                        <thead>
+                            <tr>
+                                <th>Plan</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Reference</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            {{#each payments}}
+
+                                <tr>
+
+                                    <td>
+                                        {{#if (eq plan "annual")}}
+                                            Annual Premium
+                                        {{else}}
+                                            {{plan}}
+                                        {{/if}}
+                                    </td>
+
+                                    <td>
+                                        ₦{{displayAmount}}
+                                    </td>
+
+                                    <td>
+                                        {{displayDate}}
+                                    </td>
+
+                                    <td class="payment-reference">
+                                        {{reference}}
+                                    </td>
+
+                                    <td>
+                                        <span class="payment-status status-{{status}}">
+                                            {{status}}
+                                        </span>
+                                    </td>
+
+                                </tr>
+
+                            {{/each}}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            {{else}}
+
+                <div class="empty-payment-history">
+
+                    <h2>No payments yet</h2>
+
+                    <p>
+                        Your Connectly payment transactions
+                        will appear here after you make a payment.
+                    </p>
+
+                    <a href="/checkout" class="btn-primary">
+                        Upgrade to Premium
+                    </a>
+
+                </div>
+
+            {{/if}}
+
+        </div>
+
+    </main>
+
+    {{>footer}}
+
+</body>
+</html>

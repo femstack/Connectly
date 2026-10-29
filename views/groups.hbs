@@ -1,0 +1,336 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connectly — Groups</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ===== Navbar ===== -->
+    {{>header}}
+
+    <!-- ===== Groups Page ===== -->
+    <main class="groups-page">
+      <div class="groups-container">
+        <div class="groups-header">
+          <div class="groups-header-text">
+            <h1>Groups</h1>
+            <p>Discover and join communities that match your interests.</p>
+          </div>
+          <a href="#" class="btn-primary">+ Create Group</a>
+        </div>
+
+        <div class="groups-filters">
+          <button
+            class="feed-tab active"
+            type="button"
+            data-gfilter="discover"
+          >Discover</button>
+          <button class="feed-tab" type="button" data-gfilter="joined">My Groups</button>
+          <button
+            class="feed-tab"
+            type="button"
+            data-gfilter="suggested"
+          >Suggested</button>
+          <div class="conn-search-box">
+            <span class="nav-search-icon">&#128269;</span>
+            <input
+              type="text"
+              placeholder="Search groups..."
+              class="conn-search-input"
+            />
+          </div>
+        </div>
+
+        <!-- Discover Panel -->
+        <div class="groups-tab-panel active" id="gpanel-discover">
+          <div class="groups-grid">
+            <div class="group-card">
+              <div class="group-cover group-cover-1"><span
+                  class="group-cover-icon"
+                >&#127912;</span></div>
+              <div class="group-card-body">
+                <h3>Design Enthusiasts</h3>
+                <p class="group-desc">A community for designers to share work,
+                  discuss trends, and support each other's creative journeys.</p>
+                <div class="group-meta-row">
+                  <span class="group-members">&#128101; 12,400 members</span>
+                  <span class="group-privacy">&#127760; Public</span>
+                </div>
+                <div class="group-card-actions">
+                  <button class="btn-primary join-group-btn" type="button">Join
+                    Group</button>
+                  <a href="#" class="btn-link">View</a>
+                </div>
+              </div>
+            </div>
+            <div class="group-card">
+              <div class="group-cover group-cover-2"><span
+                  class="group-cover-icon"
+                >&#128247;</span></div>
+              <div class="group-card-body">
+                <h3>Photography Club</h3>
+                <p class="group-desc">Share your shots, get feedback, and learn
+                  techniques from fellow photography lovers.</p>
+                <div class="group-meta-row">
+                  <span class="group-members">&#128101; 8,230 members</span>
+                  <span class="group-privacy">&#127760; Public</span>
+                </div>
+                <div class="group-card-actions">
+                  <button class="btn-primary join-group-btn" type="button">Join
+                    Group</button>
+                  <a href="#" class="btn-link">View</a>
+                </div>
+              </div>
+            </div>
+            <div class="group-card">
+              <div class="group-cover group-cover-3"><span
+                  class="group-cover-icon"
+                >&#128187;</span></div>
+              <div class="group-card-body">
+                <h3>Web Developers</h3>
+                <p class="group-desc">From HTML to full-stack, discuss
+                  frameworks, share projects, and solve coding challenges
+                  together.</p>
+                <div class="group-meta-row">
+                  <span class="group-members">&#128101; 23,100 members</span>
+                  <span class="group-privacy">&#127760; Public</span>
+                </div>
+                <div class="group-card-actions">
+                  <button
+                    class="btn-outline join-group-btn joined"
+                    type="button"
+                  >Joined</button>
+                  <a href="#" class="btn-link">View</a>
+                </div>
+              </div>
+            </div>
+            <div class="group-card">
+              <div class="group-cover group-cover-4"><span
+                  class="group-cover-icon"
+                >&#127942;</span></div>
+              <div class="group-card-body">
+                <h3>Fitness Motivation</h3>
+                <p class="group-desc">Share workout routines, nutrition tips,
+                  and keep each other accountable on your fitness journey.</p>
+                <div class="group-meta-row">
+                  <span class="group-members">&#128101; 15,600 members</span>
+                  <span class="group-privacy">&#128274; Private</span>
+                </div>
+                <div class="group-card-actions">
+                  <button
+                    class="btn-primary join-group-btn"
+                    type="button"
+                  >Request to Join</button>
+                  <a href="#" class="btn-link">View</a>
+                </div>
+              </div>
+            </div>
+            <div class="group-card">
+              <div class="group-cover group-cover-5"><span
+                  class="group-cover-icon"
+                >&#127908;</span></div>
+              <div class="group-card-body">
+                <h3>Travel Explorers</h3>
+                <p class="group-desc">Discover hidden gems, share travel
+                  stories, and find companions for your next adventure.</p>
+                <div class="group-meta-row">
+                  <span class="group-members">&#128101; 9,800 members</span>
+                  <span class="group-privacy">&#127760; Public</span>
+                </div>
+                <div class="group-card-actions">
+                  <button class="btn-primary join-group-btn" type="button">Join
+                    Group</button>
+                  <a href="#" class="btn-link">View</a>
+                </div>
+              </div>
+            </div>
+            <div class="group-card">
+              <div class="group-cover group-cover-6"><span
+                  class="group-cover-icon"
+                >&#127902;</span></div>
+              <div class="group-card-body">
+                <h3>Foodies &amp; Recipes</h3>
+                <p class="group-desc">Share recipes, restaurant recommendations,
+                  and cooking tips. From home cooks to professional chefs.</p>
+                <div class="group-meta-row">
+                  <span class="group-members">&#128101; 18,300 members</span>
+                  <span class="group-privacy">&#127760; Public</span>
+                </div>
+                <div class="group-card-actions">
+                  <button class="btn-primary join-group-btn" type="button">Join
+                    Group</button>
+                  <a href="#" class="btn-link">View</a>
+                </div>
+              </div>
+            </div>
+            <div class="group-card">
+              <div class="group-cover group-cover-1"><span
+                  class="group-cover-icon"
+                >&#127911;</span></div>
+              <div class="group-card-body">
+                <h3>Music Lovers</h3>
+                <p class="group-desc">Discuss albums, share playlists, and
+                  discover new artists across every genre imaginable.</p>
+                <div class="group-meta-row">
+                  <span class="group-members">&#128101; 7,500 members</span>
+                  <span class="group-privacy">&#127760; Public</span>
+                </div>
+                <div class="group-card-actions">
+                  <button class="btn-primary join-group-btn" type="button">Join
+                    Group</button>
+                  <a href="#" class="btn-link">View</a>
+                </div>
+              </div>
+            </div>
+            <div class="group-card">
+              <div class="group-cover group-cover-3"><span
+                  class="group-cover-icon"
+                >&#128218;</span></div>
+              <div class="group-card-body">
+                <h3>Book Club</h3>
+                <p class="group-desc">Monthly book picks, lively discussions,
+                  and reading challenges. All genres welcome!</p>
+                <div class="group-meta-row">
+                  <span class="group-members">&#128101; 5,200 members</span>
+                  <span class="group-privacy">&#128274; Private</span>
+                </div>
+                <div class="group-card-actions">
+                  <button
+                    class="btn-primary join-group-btn"
+                    type="button"
+                  >Request to Join</button>
+                  <a href="#" class="btn-link">View</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- My Groups Panel -->
+        <div class="groups-tab-panel" id="gpanel-joined">
+          <div class="groups-grid">
+            <div class="group-card">
+              <div class="group-cover group-cover-3"><span
+                  class="group-cover-icon"
+                >&#128187;</span></div>
+              <div class="group-card-body">
+                <h3>Web Developers</h3>
+                <p class="group-desc">From HTML to full-stack, discuss
+                  frameworks, share projects, and solve coding challenges
+                  together.</p>
+                <div class="group-meta-row">
+                  <span class="group-members">&#128101; 23,100 members</span>
+                  <span class="group-privacy">&#127760; Public</span>
+                </div>
+                <div class="group-card-actions">
+                  <button
+                    class="btn-outline join-group-btn joined"
+                    type="button"
+                  >Joined</button>
+                  <a href="#" class="btn-link">View</a>
+                </div>
+              </div>
+            </div>
+            <div class="group-card">
+              <div class="group-cover group-cover-1"><span
+                  class="group-cover-icon"
+                >&#127912;</span></div>
+              <div class="group-card-body">
+                <h3>Design Enthusiasts</h3>
+                <p class="group-desc">A community for designers to share work,
+                  discuss trends, and support each other's creative journeys.</p>
+                <div class="group-meta-row">
+                  <span class="group-members">&#128101; 12,400 members</span>
+                  <span class="group-privacy">&#127760; Public</span>
+                </div>
+                <div class="group-card-actions">
+                  <button
+                    class="btn-outline join-group-btn joined"
+                    type="button"
+                  >Joined</button>
+                  <a href="#" class="btn-link">View</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Suggested Panel -->
+        <div class="groups-tab-panel" id="gpanel-suggested">
+          <div class="groups-grid">
+            <div class="group-card">
+              <div class="group-cover group-cover-2"><span
+                  class="group-cover-icon"
+                >&#128247;</span></div>
+              <div class="group-card-body">
+                <h3>Photography Club</h3>
+                <p class="group-desc">Share your shots, get feedback, and learn
+                  techniques from fellow photography lovers.</p>
+                <div class="group-meta-row">
+                  <span class="group-members">&#128101; 8,230 members</span>
+                  <span class="group-privacy">&#127760; Public</span>
+                </div>
+                <div class="group-card-actions">
+                  <button class="btn-primary join-group-btn" type="button">Join
+                    Group</button>
+                  <a href="#" class="btn-link">View</a>
+                </div>
+              </div>
+            </div>
+            <div class="group-card">
+              <div class="group-cover group-cover-5"><span
+                  class="group-cover-icon"
+                >&#127908;</span></div>
+              <div class="group-card-body">
+                <h3>Travel Explorers</h3>
+                <p class="group-desc">Discover hidden gems, share travel
+                  stories, and find companions for your next adventure.</p>
+                <div class="group-meta-row">
+                  <span class="group-members">&#128101; 9,800 members</span>
+                  <span class="group-privacy">&#127760; Public</span>
+                </div>
+                <div class="group-card-actions">
+                  <button class="btn-primary join-group-btn" type="button">Join
+                    Group</button>
+                  <a href="#" class="btn-link">View</a>
+                </div>
+              </div>
+            </div>
+            <div class="group-card">
+              <div class="group-cover group-cover-4"><span
+                  class="group-cover-icon"
+                >&#127942;</span></div>
+              <div class="group-card-body">
+                <h3>Fitness Motivation</h3>
+                <p class="group-desc">Share workout routines, nutrition tips,
+                  and keep each other accountable on your fitness journey.</p>
+                <div class="group-meta-row">
+                  <span class="group-members">&#128101; 15,600 members</span>
+                  <span class="group-privacy">&#128274; Private</span>
+                </div>
+                <div class="group-card-actions">
+                  <button
+                    class="btn-primary join-group-btn"
+                    type="button"
+                  >Request to Join</button>
+                  <a href="#" class="btn-link">View</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    {{>footer}}
+    <script src="js/main.js"></script>
+  </body>
+</html>

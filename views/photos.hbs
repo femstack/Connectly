@@ -1,0 +1,138 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connectly — Photos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ===== Navbar ===== -->
+   {{>header}}
+
+    <!-- ===== Photos Page ===== -->
+    <main class="media-page">
+      <div class="media-container">
+        <div class="media-header">
+          <div class="media-header-text">
+            <h1>Photos</h1>
+            <p>All the photos you've shared and been tagged in.</p>
+          </div>
+          <a href="create-post.html" class="btn-primary">+ Upload Photo</a>
+        </div>
+
+        <div class="media-filters">
+          <button class="feed-tab active" type="button" data-pfilter="all">All
+            Photos</button>
+          <button class="feed-tab" type="button" data-pfilter="shared">Shared by
+            You</button>
+          <button
+            class="feed-tab"
+            type="button"
+            data-pfilter="tagged"
+          >Tagged</button>
+        </div>
+
+        <div class="media-stats-row">
+          <div class="media-stat-item"><span
+              class="media-stat-num"
+            >247</span><span class="media-stat-label">Total Photos</span></div>
+          <div class="media-stat-item"><span
+              class="media-stat-num"
+            >18</span><span class="media-stat-label">Albums</span></div>
+          <div class="media-stat-item"><span
+              class="media-stat-num"
+            >1.4K</span><span class="media-stat-label">Total Views</span></div>
+        </div>
+
+        <div class="photo-grid" id="photoGrid">
+          <div class="photo-grid-item photo-bg-1"><span
+              class="photo-grid-icon"
+            >&#128214;</span><div class="photo-grid-overlay"><span
+                class="photo-grid-title"
+              >Design Books</span><span class="photo-grid-meta">42 likes
+                &middot; 8 comments</span></div></div>
+          <div class="photo-grid-item photo-bg-2"><span
+              class="photo-grid-icon"
+            >&#127956;</span><div class="photo-grid-overlay"><span
+                class="photo-grid-title"
+              >Mountain Hike</span><span class="photo-grid-meta">56 likes
+                &middot; 15 comments</span></div></div>
+          <div class="photo-grid-item photo-bg-3"><span
+              class="photo-grid-icon"
+            >&#9749;</span><div class="photo-grid-overlay"><span
+                class="photo-grid-title"
+              >Cafe Morning</span><span class="photo-grid-meta">67 likes
+                &middot; 19 comments</span></div></div>
+          <div class="photo-grid-item photo-bg-4"><span
+              class="photo-grid-icon"
+            >&#127881;</span><div class="photo-grid-overlay"><span
+                class="photo-grid-title"
+              >Portfolio Launch</span><span class="photo-grid-meta">112 likes
+                &middot; 32 comments</span></div></div>
+          <div class="photo-grid-item photo-bg-5"><span
+              class="photo-grid-icon"
+            >&#127942;</span><div class="photo-grid-overlay"><span
+                class="photo-grid-title"
+              >Fitness Journey</span><span class="photo-grid-meta">89 likes
+                &middot; 24 comments</span></div></div>
+          <div class="photo-grid-item photo-bg-6"><span
+              class="photo-grid-icon"
+            >&#127908;</span><div class="photo-grid-overlay"><span
+                class="photo-grid-title"
+              >Travel Diaries</span><span class="photo-grid-meta">134 likes
+                &middot; 28 comments</span></div></div>
+          <div class="photo-grid-item photo-bg-1"><span
+              class="photo-grid-icon"
+            >&#127912;</span><div class="photo-grid-overlay"><span
+                class="photo-grid-title"
+              >Art Studio</span><span class="photo-grid-meta">45 likes &middot;
+                7 comments</span></div></div>
+          <div class="photo-grid-item photo-bg-3"><span
+              class="photo-grid-icon"
+            >&#127800;</span><div class="photo-grid-overlay"><span
+                class="photo-grid-title"
+              >Garden Walk</span><span class="photo-grid-meta">78 likes &middot;
+                12 comments</span></div></div>
+          <div class="photo-grid-item photo-bg-2"><span
+              class="photo-grid-icon"
+            >&#128247;</span><div class="photo-grid-overlay"><span
+                class="photo-grid-title"
+              >Sunset Series</span><span class="photo-grid-meta">203 likes
+                &middot; 41 comments</span></div></div>
+          <div class="photo-grid-item photo-bg-4"><span
+              class="photo-grid-icon"
+            >&#127902;</span><div class="photo-grid-overlay"><span
+                class="photo-grid-title"
+              >Brunch Vibes</span><span class="photo-grid-meta">92 likes
+                &middot; 16 comments</span></div></div>
+          <div class="photo-grid-item photo-bg-5"><span
+              class="photo-grid-icon"
+            >&#128187;</span><div class="photo-grid-overlay"><span
+                class="photo-grid-title"
+              >Workspace Setup</span><span class="photo-grid-meta">156 likes
+                &middot; 22 comments</span></div></div>
+          <div class="photo-grid-item photo-bg-6"><span
+              class="photo-grid-icon"
+            >&#127911;</span><div class="photo-grid-overlay"><span
+                class="photo-grid-title"
+              >Concert Night</span><span class="photo-grid-meta">187 likes
+                &middot; 35 comments</span></div></div>
+        </div>
+
+        <div class="load-more-wrap">
+          <button class="load-more-btn" type="button">Load more photos</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    {{>footer}}
+    <script src="js/main.js"></script>
+  </body>
+</html>

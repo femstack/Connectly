@@ -1,0 +1,461 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connectly — Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ===== Navbar ===== -->
+    {{>header}}
+
+    <!-- ===== Dashboard Page ===== -->
+    <main class="dashboard-page">
+      <div class="dashboard-layout">
+        <!-- ===== Dashboard Sidebar ===== -->
+        <aside class="dashboard-sidebar">
+          <div class="dash-profile-mini">
+            <div class="avatar-placeholder">JD</div>
+            <h3>Jane Doe</h3>
+            <div class="dash-mini-username">@janedoe</div>
+          </div>
+          <nav class="dash-nav">
+            <a href="dashboard.html" class="active">
+              <span class="dash-nav-icon">&#128202;</span>
+              Overview
+            </a>
+            <a href="feed.html">
+              <span class="dash-nav-icon">&#128196;</span>
+              My Posts
+            </a>
+            <a href="#analytics">
+              <span class="dash-nav-icon">&#128200;</span>
+              Analytics
+            </a>
+            <a href="#notifications">
+              <span class="dash-nav-icon">&#128276;</span>
+              Notifications
+            </a>
+            <a href="profile.html">
+              <span class="dash-nav-icon">&#128100;</span>
+              Profile Settings
+            </a>
+            <a href="#privacy">
+              <span class="dash-nav-icon">&#128274;</span>
+              Privacy
+            </a>
+            <a href="login.html" class="dash-logout">
+              <span class="dash-nav-icon">&#9211;</span>
+              Logout
+            </a>
+          </nav>
+        </aside>
+
+        <!-- ===== Dashboard Main ===== -->
+        <div class="dashboard-main">
+          <!-- Welcome Banner -->
+          <div class="dash-welcome">
+            <div class="dash-welcome-text">
+              <h1>Welcome back, Jane!</h1>
+              <p>Here's what's happening with your account today.</p>
+            </div>
+            <div class="dash-welcome-date">
+              <div class="date-day">Oct 08</div>
+              <div class="date-label">Thursday, 2026</div>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="dash-quick-actions">
+            <a href="feed.html" class="quick-action-card" id="dashCreatePost">
+              <div class="quick-action-icon qa-icon-blue">&#9999;</div>
+              <h4>Create Post</h4>
+              <p>Share something new</p>
+            </a>
+            <a href="profile.html" class="quick-action-card">
+              <div class="quick-action-icon qa-icon-green">&#128100;</div>
+              <h4>View Profile</h4>
+              <p>See your public page</p>
+            </a>
+            <a href="#analytics" class="quick-action-card">
+              <div class="quick-action-icon qa-icon-amber">&#128200;</div>
+              <h4>Analytics</h4>
+              <p>Track your growth</p>
+            </a>
+            <a href="#messages" class="quick-action-card">
+              <div class="quick-action-icon qa-icon-sky">&#128172;</div>
+              <h4>Messages</h4>
+              <p>3 new conversations</p>
+            </a>
+          </div>
+
+          <!-- Stats Grid -->
+          <div class="dash-stats-grid">
+            <div class="stat-card">
+              <div class="stat-card-header">
+                <div class="stat-card-icon stat-icon-blue">&#128172;</div>
+              </div>
+              <div class="stat-card-value" data-count="847">0</div>
+              <div class="stat-card-label">Total Posts</div>
+              <div class="stat-card-trend stat-trend-up">&#9650; 12% this month</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card-header">
+                <div class="stat-card-icon stat-icon-green">&#128101;</div>
+              </div>
+              <div
+                class="stat-card-value"
+                data-count="3240"
+                data-suffix=""
+              >0</div>
+              <div class="stat-card-label">Followers</div>
+              <div class="stat-card-trend stat-trend-up">&#9650; 8% this month</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card-header">
+                <div class="stat-card-icon stat-icon-amber">&#10084;</div>
+              </div>
+              <div class="stat-card-value" data-count="12450">0</div>
+              <div class="stat-card-label">Total Likes</div>
+              <div class="stat-card-trend stat-trend-up">&#9650; 23% this month</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card-header">
+                <div class="stat-card-icon stat-icon-pink">&#128172;</div>
+              </div>
+              <div class="stat-card-value" data-count="3210">0</div>
+              <div class="stat-card-label">Comments</div>
+              <div class="stat-card-trend stat-trend-down">&#9660; 3% this month</div>
+            </div>
+          </div>
+
+          <!-- Two Column: Activity + Sidebar -->
+          <div class="dash-two-col">
+            <!-- Left Column -->
+            <div class="dash-col">
+              <!-- Weekly Engagement Chart -->
+              <div class="dash-section">
+                <div class="dash-section-header">
+                  <h2>Weekly Engagement</h2>
+                  <a href="#analytics">View Details</a>
+                </div>
+                <div class="chart-container">
+                  <div class="chart-bars">
+                    <div class="chart-bar-col">
+                      <div class="chart-bar" data-height="45">
+                        <span class="chart-bar-value">248</span>
+                      </div>
+                    </div>
+                    <div class="chart-bar-col">
+                      <div class="chart-bar" data-height="62">
+                        <span class="chart-bar-value">342</span>
+                      </div>
+                    </div>
+                    <div class="chart-bar-col">
+                      <div class="chart-bar" data-height="38">
+                        <span class="chart-bar-value">210</span>
+                      </div>
+                    </div>
+                    <div class="chart-bar-col">
+                      <div class="chart-bar" data-height="78">
+                        <span class="chart-bar-value">430</span>
+                      </div>
+                    </div>
+                    <div class="chart-bar-col">
+                      <div class="chart-bar" data-height="90">
+                        <span class="chart-bar-value">497</span>
+                      </div>
+                    </div>
+                    <div class="chart-bar-col">
+                      <div class="chart-bar" data-height="55">
+                        <span class="chart-bar-value">304</span>
+                      </div>
+                    </div>
+                    <div class="chart-bar-col">
+                      <div class="chart-bar" data-height="70">
+                        <span class="chart-bar-value">386</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="chart-labels">
+                    <span class="chart-label">Mon</span>
+                    <span class="chart-label">Tue</span>
+                    <span class="chart-label">Wed</span>
+                    <span class="chart-label">Thu</span>
+                    <span class="chart-label">Fri</span>
+                    <span class="chart-label">Sat</span>
+                    <span class="chart-label">Sun</span>
+                  </div>
+                  <div class="chart-legend">
+                    <span class="chart-legend-dot"></span>
+                    <span>Engagement (likes + comments + shares)</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Recent Activity -->
+              <div class="dash-section">
+                <div class="dash-section-header">
+                  <h2>Recent Activity</h2>
+                  <a href="#activity">See All</a>
+                </div>
+                <div class="activity-list">
+                  <div class="activity-item">
+                    <div class="activity-icon heart">&#10084;</div>
+                    <div class="activity-content">
+                      <div class="activity-text"><strong>Maya Kapoor</strong>
+                        liked your post about the dashboard redesign</div>
+                      <div class="activity-time">15 minutes ago</div>
+                    </div>
+                  </div>
+                  <div class="activity-item">
+                    <div class="activity-icon comment">&#128172;</div>
+                    <div class="activity-content">
+                      <div class="activity-text"><strong>Jordan Tate</strong>
+                        commented on your post: "Love this approach!"</div>
+                      <div class="activity-time">1 hour ago</div>
+                    </div>
+                  </div>
+                  <div class="activity-item">
+                    <div class="activity-icon follow">&#129309;</div>
+                    <div class="activity-content">
+                      <div class="activity-text"><strong>Carlos Mendez</strong>
+                        started following you</div>
+                      <div class="activity-time">3 hours ago</div>
+                    </div>
+                  </div>
+                  <div class="activity-item">
+                    <div class="activity-icon share">&#128279;</div>
+                    <div class="activity-content">
+                      <div class="activity-text"><strong>Riley Lee</strong>
+                        shared your post about productivity tips</div>
+                      <div class="activity-time">6 hours ago</div>
+                    </div>
+                  </div>
+                  <div class="activity-item">
+                    <div class="activity-icon heart">&#10084;</div>
+                    <div class="activity-content">
+                      <div class="activity-text"><strong>Emma Wilson</strong>
+                        and 23 others liked your post</div>
+                      <div class="activity-time">12 hours ago</div>
+                    </div>
+                  </div>
+                  <div class="activity-item">
+                    <div class="activity-icon comment">&#128172;</div>
+                    <div class="activity-content">
+                      <div class="activity-text"><strong>Sophie Chen</strong>
+                        replied to your comment on the tech conference post</div>
+                      <div class="activity-time">1 day ago</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Recent Posts -->
+              <div class="dash-section">
+                <div class="dash-section-header">
+                  <h2>Your Recent Posts</h2>
+                  <a href="feed.html">Go to Feed</a>
+                </div>
+
+                <div class="dash-post-item">
+                  <div class="dash-post-header">
+                    <div class="post-avatar">JD</div>
+                    <div class="dash-post-meta">
+                      <span class="post-author">Jane Doe</span>
+                      <span class="post-time">2 hours ago &middot; Public</span>
+                    </div>
+                  </div>
+                  <p class="dash-post-text">Just wrapped up a major redesign of
+                    our product dashboard. So happy with how the data
+                    visualizations turned out.</p>
+                  <div class="dash-post-actions">
+                    <button class="action-btn like-btn" type="button">
+                      <span class="action-icon">&#10084;</span>
+                      <span class="like-count">142</span>
+                    </button>
+                    <button class="action-btn comment-btn" type="button">
+                      <span class="action-icon">&#128172;</span>
+                      23
+                    </button>
+                  </div>
+                </div>
+
+                <div class="dash-post-item">
+                  <div class="dash-post-header">
+                    <div class="post-avatar">JD</div>
+                    <div class="dash-post-meta">
+                      <span class="post-author">Jane Doe</span>
+                      <span class="post-time">1 day ago &middot; Friends</span>
+                    </div>
+                  </div>
+                  <p class="dash-post-text">Spent the morning at my favorite
+                    coffee shop sketching wireframes. There's something about
+                    being in a different environment that sparks creativity.</p>
+                  <div class="dash-post-actions">
+                    <button class="action-btn like-btn" type="button">
+                      <span class="action-icon">&#10084;</span>
+                      <span class="like-count">67</span>
+                    </button>
+                    <button class="action-btn comment-btn" type="button">
+                      <span class="action-icon">&#128172;</span>
+                      15
+                    </button>
+                  </div>
+                </div>
+
+                <div class="dash-post-item">
+                  <div class="dash-post-header">
+                    <div class="post-avatar">JD</div>
+                    <div class="dash-post-meta">
+                      <span class="post-author">Jane Doe</span>
+                      <span class="post-time">3 days ago &middot; Public</span>
+                    </div>
+                  </div>
+                  <p class="dash-post-text">Hot take: the best user interfaces
+                    are the ones you don't notice. When a design feels
+                    effortless, that's when you know someone put in the hard
+                    work.</p>
+                  <div class="dash-post-actions">
+                    <button class="action-btn like-btn" type="button">
+                      <span class="action-icon">&#10084;</span>
+                      <span class="like-count">312</span>
+                    </button>
+                    <button class="action-btn comment-btn" type="button">
+                      <span class="action-icon">&#128172;</span>
+                      48
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="dash-col">
+              <!-- Profile Completion -->
+              <div class="dash-section">
+                <div class="dash-section-header">
+                  <h2>Profile Completion</h2>
+                </div>
+                <div class="completion-progress">
+                  <div class="completion-bar">
+                    <div class="completion-fill" data-width="75"></div>
+                  </div>
+                  <div class="completion-info">
+                    <span>3 of 4 steps complete</span>
+                    <span class="completion-percent">75%</span>
+                  </div>
+                </div>
+                <div class="completion-tasks">
+                  <div class="completion-task done">
+                    <span class="completion-check done">&#10003;</span>
+                    Profile photo added
+                  </div>
+                  <div class="completion-task done">
+                    <span class="completion-check done">&#10003;</span>
+                    Bio written
+                  </div>
+                  <div class="completion-task done">
+                    <span class="completion-check done">&#10003;</span>
+                    Email verified
+                  </div>
+                  <div class="completion-task">
+                    <span class="completion-check pending">&#8226;</span>
+                    Connect a social account
+                  </div>
+                </div>
+              </div>
+
+              <!-- Notifications -->
+              <div class="dash-section">
+                <div class="dash-section-header">
+                  <h2>Notifications</h2>
+                  <a href="#notifications">See All</a>
+                </div>
+                <div class="dash-notif-list">
+                  <div class="dash-notif unread">
+                    <div class="dash-notif-avatar post-avatar-2">MK</div>
+                    <div class="dash-notif-text"><strong>Maya Kapoor</strong>
+                      liked your post</div>
+                    <span class="dash-notif-dot"></span>
+                    <span class="dash-notif-time">15m</span>
+                  </div>
+                  <div class="dash-notif unread">
+                    <div class="dash-notif-avatar post-avatar-3">JT</div>
+                    <div class="dash-notif-text"><strong>Jordan Tate</strong>
+                      commented on your post</div>
+                    <span class="dash-notif-dot"></span>
+                    <span class="dash-notif-time">1h</span>
+                  </div>
+                  <div class="dash-notif unread">
+                    <div class="dash-notif-avatar post-avatar-6">CM</div>
+                    <div class="dash-notif-text"><strong>Carlos Mendez</strong>
+                      started following you</div>
+                    <span class="dash-notif-dot"></span>
+                    <span class="dash-notif-time">3h</span>
+                  </div>
+                  <div class="dash-notif">
+                    <div class="dash-notif-avatar post-avatar-4">RL</div>
+                    <div class="dash-notif-text"><strong>Riley Lee</strong>
+                      shared your post</div>
+                    <span class="dash-notif-time">6h</span>
+                  </div>
+                  <div class="dash-notif">
+                    <div class="dash-notif-avatar post-avatar-5">EW</div>
+                    <div class="dash-notif-text"><strong>Emma Wilson</strong>
+                      mentioned you in a comment</div>
+                    <span class="dash-notif-time">12h</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Friend Suggestions -->
+              <div class="dash-section">
+                <div class="dash-section-header">
+                  <h2>People to Follow</h2>
+                  <a href="#">See All</a>
+                </div>
+                <div class="dash-suggest">
+                  <div class="suggest-avatar post-avatar-2">AK</div>
+                  <div class="dash-suggest-info">
+                    <div class="dash-suggest-name">Aisha Khan</div>
+                    <div class="dash-suggest-meta">Founder &amp; CEO at
+                      Connectly</div>
+                  </div>
+                  <button class="suggest-btn" type="button">Follow</button>
+                </div>
+                <div class="dash-suggest">
+                  <div class="suggest-avatar post-avatar-6">MS</div>
+                  <div class="dash-suggest-info">
+                    <div class="dash-suggest-name">Marcus Silva</div>
+                    <div class="dash-suggest-meta">Head of Engineering</div>
+                  </div>
+                  <button class="suggest-btn" type="button">Follow</button>
+                </div>
+                <div class="dash-suggest">
+                  <div class="suggest-avatar post-avatar-4">EN</div>
+                  <div class="dash-suggest-info">
+                    <div class="dash-suggest-name">Elena Novak</div>
+                    <div class="dash-suggest-meta">Head of Design</div>
+                  </div>
+                  <button class="suggest-btn" type="button">Follow</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    {{>footer}}
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

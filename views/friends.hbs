@@ -1,0 +1,348 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connectly — Friends</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ===== Navbar ===== -->
+    {{>header}}
+
+    <!-- ===== Friends Page ===== -->
+    <main class="friends-page">
+      <div class="friends-container">
+        <div class="page-header">
+          <h1>Friends &amp; Connections</h1>
+          <p>Manage your friend requests, suggestions, and connections.</p>
+        </div>
+
+        <!-- Friend Requests -->
+        <section class="friends-section">
+          <div class="section-title-bar">
+            <h2>Friend Requests</h2>
+            <span class="badge badge-primary" id="requestsCount">3</span>
+          </div>
+          <div class="friend-cards-grid" id="requestsGrid">
+            <!-- Request 1 -->
+            <div class="friend-card">
+              <a
+                href="profile.html"
+                class="friend-avatar avatar-placeholder"
+              >EM</a>
+              <div class="friend-info">
+                <a href="profile.html" class="friend-name">Emma Martinez</a>
+                <span class="friend-username">@emmamartinez</span>
+                <span class="friend-mutual">5 mutual friends</span>
+              </div>
+              <div class="friend-actions">
+                <button
+                  class="btn-primary btn-sm js-accept"
+                  type="button"
+                >Accept</button>
+                <button
+                  class="btn-outline btn-sm btn-danger js-reject"
+                  type="button"
+                >Reject</button>
+              </div>
+            </div>
+            <!-- Request 2 -->
+            <div class="friend-card">
+              <a
+                href="profile.html"
+                class="friend-avatar avatar-placeholder post-avatar-2"
+              >CB</a>
+              <div class="friend-info">
+                <a href="profile.html" class="friend-name">Chris Brown</a>
+                <span class="friend-username">@chrisbrown</span>
+                <span class="friend-mutual">2 mutual friends</span>
+              </div>
+              <div class="friend-actions">
+                <button
+                  class="btn-primary btn-sm js-accept"
+                  type="button"
+                >Accept</button>
+                <button
+                  class="btn-outline btn-sm btn-danger js-reject"
+                  type="button"
+                >Reject</button>
+              </div>
+            </div>
+            <!-- Request 3 -->
+            <div class="friend-card">
+              <a
+                href="profile.html"
+                class="friend-avatar avatar-placeholder post-avatar-3"
+              >SK</a>
+              <div class="friend-info">
+                <a href="profile.html" class="friend-name">Sophie Kim</a>
+                <span class="friend-username">@sophiekim</span>
+                <span class="friend-mutual">8 mutual friends</span>
+              </div>
+              <div class="friend-actions">
+                <button
+                  class="btn-primary btn-sm js-accept"
+                  type="button"
+                >Accept</button>
+                <button
+                  class="btn-outline btn-sm btn-danger js-reject"
+                  type="button"
+                >Reject</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Suggested Friends -->
+        <section class="friends-section">
+          <div class="section-title-bar">
+            <h2>Suggested Friends</h2>
+            <span class="badge badge-neutral" id="suggestionsCount">4</span>
+          </div>
+          <div class="friend-cards-grid" id="suggestionsGrid">
+            <!-- Suggestion 1 -->
+            <div class="friend-card">
+              <a
+                href="profile.html"
+                class="friend-avatar avatar-placeholder post-avatar-4"
+              >RW</a>
+              <div class="friend-info">
+                <a href="profile.html" class="friend-name">Ryan Walker</a>
+                <span class="friend-username">@ryanwalker</span>
+                <span class="friend-mutual">12 mutual friends</span>
+              </div>
+              <div class="friend-actions">
+                <button class="btn-primary btn-sm js-add" type="button">Add
+                  Friend</button>
+                <button
+                  class="btn-outline btn-sm js-dismiss"
+                  type="button"
+                >Dismiss</button>
+              </div>
+            </div>
+            <!-- Suggestion 2 -->
+            <div class="friend-card">
+              <a
+                href="profile.html"
+                class="friend-avatar avatar-placeholder"
+              >OL</a>
+              <div class="friend-info">
+                <a href="profile.html" class="friend-name">Olivia Lee</a>
+                <span class="friend-username">@olivialee</span>
+                <span class="friend-mutual">3 mutual friends</span>
+              </div>
+              <div class="friend-actions">
+                <button class="btn-primary btn-sm js-add" type="button">Add
+                  Friend</button>
+                <button
+                  class="btn-outline btn-sm js-dismiss"
+                  type="button"
+                >Dismiss</button>
+              </div>
+            </div>
+            <!-- Suggestion 3 -->
+            <div class="friend-card">
+              <a
+                href="profile.html"
+                class="friend-avatar avatar-placeholder post-avatar-2"
+              >DH</a>
+              <div class="friend-info">
+                <a href="profile.html" class="friend-name">Daniel Hayes</a>
+                <span class="friend-username">@danielhayes</span>
+                <span class="friend-mutual">6 mutual friends</span>
+              </div>
+              <div class="friend-actions">
+                <button class="btn-primary btn-sm js-add" type="button">Add
+                  Friend</button>
+                <button
+                  class="btn-outline btn-sm js-dismiss"
+                  type="button"
+                >Dismiss</button>
+              </div>
+            </div>
+            <!-- Suggestion 4 -->
+            <div class="friend-card">
+              <a
+                href="profile.html"
+                class="friend-avatar avatar-placeholder post-avatar-3"
+              >AN</a>
+              <div class="friend-info">
+                <a href="profile.html" class="friend-name">Ava Nguyen</a>
+                <span class="friend-username">@avanguyen</span>
+                <span class="friend-mutual">1 mutual friend</span>
+              </div>
+              <div class="friend-actions">
+                <button class="btn-primary btn-sm js-add" type="button">Add
+                  Friend</button>
+                <button
+                  class="btn-outline btn-sm js-dismiss"
+                  type="button"
+                >Dismiss</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sent Requests -->
+        <section class="friends-section">
+          <div class="section-title-bar">
+            <h2>Sent Requests</h2>
+            <span class="badge badge-neutral" id="sentCount">2</span>
+          </div>
+          <div class="friend-cards-grid" id="sentGrid">
+            <div class="friend-card">
+              <a
+                href="profile.html"
+                class="friend-avatar avatar-placeholder post-avatar-4"
+              >TG</a>
+              <div class="friend-info">
+                <a href="profile.html" class="friend-name">Tyler Green</a>
+                <span class="friend-username">@tylergreen</span>
+                <span class="friend-mutual">Pending response</span>
+              </div>
+              <div class="friend-actions">
+                <button
+                  class="btn-outline btn-sm btn-danger js-cancel"
+                  type="button"
+                >Cancel Request</button>
+              </div>
+            </div>
+            <div class="friend-card">
+              <a
+                href="profile.html"
+                class="friend-avatar avatar-placeholder"
+              >LP</a>
+              <div class="friend-info">
+                <a href="profile.html" class="friend-name">Lily Parker</a>
+                <span class="friend-username">@lilyparker</span>
+                <span class="friend-mutual">Pending response</span>
+              </div>
+              <div class="friend-actions">
+                <button
+                  class="btn-outline btn-sm btn-danger js-cancel"
+                  type="button"
+                >Cancel Request</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Accepted Friends -->
+        <section class="friends-section">
+          <div class="section-title-bar">
+            <h2>Your Friends</h2>
+            <span class="badge badge-primary" id="friendsCount">5</span>
+          </div>
+          <div class="friend-cards-grid" id="friendsGrid">
+            <!-- Friend 1 -->
+            <div class="friend-card">
+              <a
+                href="profile.html"
+                class="friend-avatar avatar-placeholder"
+              >AS</a>
+              <div class="friend-info">
+                <a href="profile.html" class="friend-name">Alex Silva</a>
+                <span class="friend-username">@alexsilva</span>
+                <span class="friend-mutual">Friends since Jan 2026</span>
+              </div>
+              <div class="friend-actions">
+                <a href="messages.html" class="btn-outline btn-sm">Message</a>
+                <button
+                  class="btn-outline btn-sm btn-danger js-unfriend"
+                  type="button"
+                >Unfriend</button>
+              </div>
+            </div>
+            <!-- Friend 2 -->
+            <div class="friend-card">
+              <a
+                href="profile.html"
+                class="friend-avatar avatar-placeholder post-avatar-2"
+              >MK</a>
+              <div class="friend-info">
+                <a href="profile.html" class="friend-name">Maya Kapoor</a>
+                <span class="friend-username">@mayakapoor</span>
+                <span class="friend-mutual">Friends since Dec 2025</span>
+              </div>
+              <div class="friend-actions">
+                <a href="messages.html" class="btn-outline btn-sm">Message</a>
+                <button
+                  class="btn-outline btn-sm btn-danger js-unfriend"
+                  type="button"
+                >Unfriend</button>
+              </div>
+            </div>
+            <!-- Friend 3 -->
+            <div class="friend-card">
+              <a
+                href="profile.html"
+                class="friend-avatar avatar-placeholder post-avatar-3"
+              >JT</a>
+              <div class="friend-info">
+                <a href="profile.html" class="friend-name">Jordan Tate</a>
+                <span class="friend-username">@jordantate</span>
+                <span class="friend-mutual">Friends since Nov 2025</span>
+              </div>
+              <div class="friend-actions">
+                <a href="messages.html" class="btn-outline btn-sm">Message</a>
+                <button
+                  class="btn-outline btn-sm btn-danger js-unfriend"
+                  type="button"
+                >Unfriend</button>
+              </div>
+            </div>
+            <!-- Friend 4 -->
+            <div class="friend-card">
+              <a
+                href="profile.html"
+                class="friend-avatar avatar-placeholder post-avatar-4"
+              >RL</a>
+              <div class="friend-info">
+                <a href="profile.html" class="friend-name">Riley Lee</a>
+                <span class="friend-username">@rileylee</span>
+                <span class="friend-mutual">Friends since Oct 2025</span>
+              </div>
+              <div class="friend-actions">
+                <a href="messages.html" class="btn-outline btn-sm">Message</a>
+                <button
+                  class="btn-outline btn-sm btn-danger js-unfriend"
+                  type="button"
+                >Unfriend</button>
+              </div>
+            </div>
+            <!-- Friend 5 -->
+            <div class="friend-card">
+              <a
+                href="profile.html"
+                class="friend-avatar avatar-placeholder"
+              >SR</a>
+              <div class="friend-info">
+                <a href="profile.html" class="friend-name">Sam Reed</a>
+                <span class="friend-username">@samreed</span>
+                <span class="friend-mutual">Friends since Sep 2025</span>
+              </div>
+              <div class="friend-actions">
+                <a href="messages.html" class="btn-outline btn-sm">Message</a>
+                <button
+                  class="btn-outline btn-sm btn-danger js-unfriend"
+                  type="button"
+                >Unfriend</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    {{>footer}}
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,167 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connectly — Videos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ===== Navbar ===== -->
+    {{>header}}
+
+    <!-- ===== Videos Page ===== -->
+    <main class="media-page">
+      <div class="media-container">
+        <!-- Header -->
+        <div class="media-header">
+          <div class="media-header-text">
+            <h1>Videos</h1>
+            <p>Watch videos shared by you and your network.</p>
+          </div>
+          <a href="create-post.html" class="btn-primary">+ Upload Video</a>
+        </div>
+
+        <!-- Tabs -->
+        <div class="media-filters">
+          <button class="feed-tab active" type="button" data-vfilter="all">All
+            Videos</button>
+          <button class="feed-tab" type="button" data-vfilter="shared">Shared by
+            You</button>
+          <button
+            class="feed-tab"
+            type="button"
+            data-vfilter="tagged"
+          >Tagged</button>
+          <button
+            class="feed-tab"
+            type="button"
+            data-vfilter="saved"
+          >Saved</button>
+        </div>
+
+        <!-- Stats Row -->
+        <div class="media-stats-row">
+          <div class="media-stat-item">
+            <span class="media-stat-num">42</span>
+            <span class="media-stat-label">Total Videos</span>
+          </div>
+          <div class="media-stat-item">
+            <span class="media-stat-num">12.8K</span>
+            <span class="media-stat-label">Total Views</span>
+          </div>
+          <div class="media-stat-item">
+            <span class="media-stat-num">3.2K</span>
+            <span class="media-stat-label">Total Likes</span>
+          </div>
+        </div>
+
+        <!-- Video Grid -->
+        <div class="video-grid">
+          <div class="video-grid-item">
+            <div class="video-thumb video-bg-1">
+              <span class="video-play-icon">&#9658;</span>
+              <span class="video-duration">3:42</span>
+            </div>
+            <div class="video-grid-info">
+              <h3>Design Systems Talk</h3>
+              <span class="video-grid-meta">1.2K views &middot; 2 days ago</span>
+              <div class="video-grid-author">
+                <div class="suggest-avatar">AS</div>
+                <span>Alex Silva</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-grid-item">
+            <div class="video-thumb video-bg-2">
+              <span class="video-play-icon">&#9658;</span>
+              <span class="video-duration">5:18</span>
+            </div>
+            <div class="video-grid-info">
+              <h3>Hiking Highlights</h3>
+              <span class="video-grid-meta">2.4K views &middot; 5 days ago</span>
+              <div class="video-grid-author">
+                <div class="suggest-avatar post-avatar-2">MK</div>
+                <span>Maya Kapoor</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-grid-item">
+            <div class="video-thumb video-bg-3">
+              <span class="video-play-icon">&#9658;</span>
+              <span class="video-duration">2:05</span>
+            </div>
+            <div class="video-grid-info">
+              <h3>Portfolio Walkthrough</h3>
+              <span class="video-grid-meta">3.8K views &middot; 1 week ago</span>
+              <div class="video-grid-author">
+                <div class="suggest-avatar post-avatar-3">JT</div>
+                <span>Jordan Tate</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-grid-item">
+            <div class="video-thumb video-bg-4">
+              <span class="video-play-icon">&#9658;</span>
+              <span class="video-duration">8:30</span>
+            </div>
+            <div class="video-grid-info">
+              <h3>Morning Routine Vlog</h3>
+              <span class="video-grid-meta">1.9K views &middot; 1 week ago</span>
+              <div class="video-grid-author">
+                <div class="suggest-avatar post-avatar-5">EW</div>
+                <span>Emma Wilson</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-grid-item">
+            <div class="video-thumb video-bg-5">
+              <span class="video-play-icon">&#9658;</span>
+              <span class="video-duration">4:12</span>
+            </div>
+            <div class="video-grid-info">
+              <h3>30-Day Fitness Recap</h3>
+              <span class="video-grid-meta">2.1K views &middot; 2 weeks ago</span>
+              <div class="video-grid-author">
+                <div class="suggest-avatar post-avatar-6">CM</div>
+                <span>Carlos Mendez</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-grid-item">
+            <div class="video-thumb video-bg-6">
+              <span class="video-play-icon">&#9658;</span>
+              <span class="video-duration">6:45</span>
+            </div>
+            <div class="video-grid-info">
+              <h3>Coding Tutorial: CSS Grid</h3>
+              <span class="video-grid-meta">1.4K views &middot; 2 weeks ago</span>
+              <div class="video-grid-author">
+                <div class="suggest-avatar post-avatar-4">RL</div>
+                <span>Riley Lee</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="load-more-wrap">
+          <button class="load-more-btn" type="button">Load more videos</button>
+        </div>
+      </div>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    {{>footer}}
+    <script src="js/main.js"></script>
+  </body>
+</html>

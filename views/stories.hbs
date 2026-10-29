@@ -1,0 +1,193 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connectly — Stories</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ===== Navbar ===== -->
+    {{>header}}
+
+    <!-- ===== Stories Page ===== -->
+    <main class="stories-page">
+      <div class="stories-container">
+        <div class="stories-header">
+          <h1>Stories</h1>
+          <p>See what your friends are up to right now. Stories disappear after
+            24 hours.</p>
+        </div>
+
+        <div class="stories-create-section">
+          <div class="stories-create-card" id="createStoryCard">
+            <div class="stories-create-avatar">
+              <div class="avatar-placeholder">JD</div>
+              <span class="stories-create-plus">+</span>
+            </div>
+            <div class="stories-create-text">
+              <strong>Create Story</strong>
+              <span>Share a moment that lasts 24 hours</span>
+            </div>
+          </div>
+
+          <div class="stories-create-form" id="storiesCreateForm">
+            <h3>Create a New Story</h3>
+            <div class="cp-field">
+              <label for="storyText" class="sr-only">Story text</label>
+              <textarea
+                id="storyText"
+                class="cp-textarea"
+                placeholder="Share a thought, a moment, or an update..."
+                rows="3"
+                maxlength="280"
+              ></textarea>
+            </div>
+            <div class="composer-bottom">
+              <div class="composer-tools">
+                <button class="composer-tool" type="button"><span
+                    class="composer-tool-icon"
+                  >&#128247;</span>
+                  Photo</button>
+                <button class="composer-tool" type="button"><span
+                    class="composer-tool-icon"
+                  >&#127909;</span>
+                  Video</button>
+                <button class="composer-tool" type="button"><span
+                    class="composer-tool-icon"
+                  >&#127912;</span>
+                  Color</button>
+              </div>
+            </div>
+            <div class="cp-bottom-row">
+              <select class="audience-select">
+                <option>&#127760; Public</option>
+                <option>&#128101; Friends</option>
+                <option>&#128274; Only Me</option>
+              </select>
+              <button
+                class="btn-primary"
+                id="storyPublishBtn"
+                type="button"
+              >Share Story</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="stories-section">
+          <div class="stories-section-header">
+            <h2>Recent Stories</h2>
+            <span class="stories-live-badge">&#128994; Live now</span>
+          </div>
+          <div class="stories-grid-page">
+            <div class="story-viewer-card">
+              <div class="story-viewer-ring"><div
+                  class="story-viewer-inner post-avatar-2"
+                >MK</div></div>
+              <div class="story-viewer-info"><strong>Maya Kapoor</strong><span
+                >2h ago</span></div>
+              <p class="story-viewer-preview">"Caught the most incredible sunset
+                on my hike today &#128420;"</p>
+              <div class="story-viewer-gradient story-gradient-1"></div>
+            </div>
+            <div class="story-viewer-card">
+              <div class="story-viewer-ring"><div
+                  class="story-viewer-inner post-avatar-3"
+                >JT</div></div>
+              <div class="story-viewer-info"><strong>Jordan Tate</strong><span
+                >4h ago</span></div>
+              <p class="story-viewer-preview">"Just shipped my portfolio site!
+                So happy with the result &#127881;"</p>
+              <div class="story-viewer-gradient story-gradient-2"></div>
+            </div>
+            <div class="story-viewer-card">
+              <div class="story-viewer-ring"><div
+                  class="story-viewer-inner post-avatar-4"
+                >RL</div></div>
+              <div class="story-viewer-info"><strong>Riley Lee</strong><span>6h
+                  ago</span></div>
+              <p class="story-viewer-preview">"Morning coding session at my
+                favorite cafe &#9749;&#128187;"</p>
+              <div class="story-viewer-gradient story-gradient-3"></div>
+            </div>
+            <div class="story-viewer-card">
+              <div class="story-viewer-ring"><div
+                  class="story-viewer-inner post-avatar-5"
+                >EW</div></div>
+              <div class="story-viewer-info"><strong>Emma Wilson</strong><span
+                >8h ago</span></div>
+              <p class="story-viewer-preview">"Working on something exciting!
+                Can't wait to share more soon &#128521;"</p>
+              <div class="story-viewer-gradient story-gradient-4"></div>
+            </div>
+            <div class="story-viewer-card">
+              <div class="story-viewer-ring"><div
+                  class="story-viewer-inner post-avatar-6"
+                >CM</div></div>
+              <div class="story-viewer-info"><strong>Carlos Mendez</strong><span
+                >12h ago</span></div>
+              <p class="story-viewer-preview">"Day 30 of the fitness challenge
+                complete! &#127942; Never felt better"</p>
+              <div class="story-viewer-gradient story-gradient-5"></div>
+            </div>
+            <div class="story-viewer-card">
+              <div class="story-viewer-ring"><div
+                  class="story-viewer-inner"
+                >AS</div></div>
+              <div class="story-viewer-info"><strong>Alex Silva</strong><span
+                >16h ago</span></div>
+              <p class="story-viewer-preview">"Reading by the window on this
+                rainy afternoon &#128214;&#127800;"</p>
+              <div class="story-viewer-gradient story-gradient-6"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stories-section">
+          <div class="stories-section-header">
+            <h2>Your Story Archive</h2>
+          </div>
+          <div class="stories-archive-grid">
+            <div class="story-archive-item">
+              <div class="story-archive-thumb story-gradient-1"><span
+                  class="story-archive-icon"
+                >&#128247;</span></div>
+              <span class="story-archive-date">Oct 7</span>
+              <span class="story-archive-views">42 views</span>
+            </div>
+            <div class="story-archive-item">
+              <div class="story-archive-thumb story-gradient-3"><span
+                  class="story-archive-icon"
+                >&#128187;</span></div>
+              <span class="story-archive-date">Oct 5</span>
+              <span class="story-archive-views">68 views</span>
+            </div>
+            <div class="story-archive-item">
+              <div class="story-archive-thumb story-gradient-5"><span
+                  class="story-archive-icon"
+                >&#127942;</span></div>
+              <span class="story-archive-date">Oct 2</span>
+              <span class="story-archive-views">103 views</span>
+            </div>
+            <div class="story-archive-item">
+              <div class="story-archive-thumb story-gradient-2"><span
+                  class="story-archive-icon"
+                >&#127881;</span></div>
+              <span class="story-archive-date">Sep 28</span>
+              <span class="story-archive-views">89 views</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ===== Footer ===== -->
+   {{>footer}}
+    <script src="js/main.js"></script>
+  </body>
+</html>

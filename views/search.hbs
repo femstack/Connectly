@@ -1,0 +1,237 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connectly — Search</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ===== Navbar ===== -->
+    {{>header}}
+
+    <!-- ===== Search Page ===== -->
+    <main class="search-page">
+      <div class="search-container">
+        <div class="search-header">
+          <h1>Search</h1>
+          <div class="search-bar-large">
+            <span class="nav-search-icon search-bar-icon">&#128269;</span>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search people, posts, groups, hashtags..."
+              class="search-bar-input"
+            />
+            <button
+              class="btn-primary search-bar-btn"
+              type="button"
+            >Search</button>
+          </div>
+        </div>
+
+        <div class="search-filters">
+          <button
+            class="feed-tab active"
+            type="button"
+            data-filter="all"
+          >All</button>
+          <button
+            class="feed-tab"
+            type="button"
+            data-filter="people"
+          >People</button>
+          <button
+            class="feed-tab"
+            type="button"
+            data-filter="posts"
+          >Posts</button>
+          <button
+            class="feed-tab"
+            type="button"
+            data-filter="groups"
+          >Groups</button>
+          <button
+            class="feed-tab"
+            type="button"
+            data-filter="hashtags"
+          >Hashtags</button>
+        </div>
+
+        <div class="search-section">
+          <div class="search-section-header">
+            <h2>Recent Searches</h2>
+            <a href="#">Clear history</a>
+          </div>
+          <div class="recent-search-tags">
+            <a href="#" class="recent-search-tag">&#128269; design systems</a>
+            <a href="#" class="recent-search-tag">&#128269; Maya Kapoor</a>
+            <a href="#" class="recent-search-tag">&#128269; #photography</a>
+            <a href="#" class="recent-search-tag">&#128269; web design meetup</a>
+            <a href="#" class="recent-search-tag">&#128269; remote work</a>
+          </div>
+        </div>
+
+        <div class="search-section">
+          <div class="search-section-header">
+            <h2>Trending Now</h2>
+          </div>
+          <div class="search-trending-grid">
+            <a href="#" class="search-trend-card">
+              <span class="search-trend-category">Technology</span>
+              <span class="search-trend-tag">#DesignSystems</span>
+              <span class="search-trend-count">2,847 posts</span>
+            </a>
+            <a href="#" class="search-trend-card">
+              <span class="search-trend-category">Lifestyle</span>
+              <span class="search-trend-tag">#RemoteWork</span>
+              <span class="search-trend-count">5,102 posts</span>
+            </a>
+            <a href="#" class="search-trend-card">
+              <span class="search-trend-category">Travel</span>
+              <span class="search-trend-tag">#MountainHiking</span>
+              <span class="search-trend-count">1,356 posts</span>
+            </a>
+            <a href="#" class="search-trend-card">
+              <span class="search-trend-category">Food &amp; Drink</span>
+              <span class="search-trend-tag">#MorningCoffee</span>
+              <span class="search-trend-count">3,421 posts</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="search-section">
+          <div class="search-section-header">
+            <h2>People</h2>
+            <a href="#">See all</a>
+          </div>
+          <div class="conn-grid">
+            <div class="conn-card">
+              <div class="suggest-avatar post-avatar-2">MK</div>
+              <div class="conn-card-info">
+                <a href="profile.html" class="conn-name">Maya Kapoor</a>
+                <span class="conn-meta">@mayakapoor &middot; Photographer
+                  &middot; 3 mutual</span>
+              </div>
+              <div class="conn-card-actions">
+                <button
+                  class="btn-primary conn-btn"
+                  type="button"
+                >Follow</button>
+              </div>
+            </div>
+            <div class="conn-card">
+              <div class="suggest-avatar post-avatar-5">EW</div>
+              <div class="conn-card-info">
+                <a href="profile.html" class="conn-name">Emma Wilson</a>
+                <span class="conn-meta">@emmawilson &middot; Content Creator
+                  &middot; 5 mutual</span>
+              </div>
+              <div class="conn-card-actions">
+                <button
+                  class="btn-primary conn-btn"
+                  type="button"
+                >Follow</button>
+              </div>
+            </div>
+            <div class="conn-card">
+              <div class="suggest-avatar post-avatar-3">SC</div>
+              <div class="conn-card-info">
+                <a href="profile.html" class="conn-name">Sophie Chen</a>
+                <span class="conn-meta">@sophiechen &middot; Data Analyst
+                  &middot; 2 mutual</span>
+              </div>
+              <div class="conn-card-actions">
+                <button
+                  class="btn-outline conn-btn"
+                  type="button"
+                >Following</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="search-section">
+          <div class="search-section-header">
+            <h2>Posts</h2>
+            <a href="#">See all</a>
+          </div>
+          <div class="search-posts-list">
+            <a href="post.html" class="search-post-item">
+              <div class="suggest-avatar">AS</div>
+              <div class="search-post-info">
+                <span class="search-post-author">Alex Silva</span>
+                <span class="search-post-text">Just finished reading an
+                  incredible book on design systems. It's amazing how much
+                  consistency improves the user experience...</span>
+                <span class="search-post-meta">2 hours ago &middot; 24 likes
+                  &middot; 8 comments</span>
+              </div>
+            </a>
+            <a href="post.html" class="search-post-item">
+              <div class="suggest-avatar post-avatar-3">JT</div>
+              <div class="search-post-info">
+                <span class="search-post-author">Jordan Tate</span>
+                <span class="search-post-text">Excited to share that I just
+                  launched my new portfolio website. It's been a long journey
+                  but I'm really proud of how it turned out...</span>
+                <span class="search-post-meta">Yesterday &middot; 112 likes
+                  &middot; 32 comments</span>
+              </div>
+            </a>
+            <a href="post.html" class="search-post-item">
+              <div class="suggest-avatar post-avatar-5">EW</div>
+              <div class="search-post-info">
+                <span class="search-post-author">Emma Wilson</span>
+                <span class="search-post-text">Working from a cozy cafe today
+                  and it's the best productivity boost. Sometimes a change of
+                  scenery is all you need...</span>
+                <span class="search-post-meta">3 days ago &middot; 67 likes
+                  &middot; 19 comments</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="search-section">
+          <div class="search-section-header">
+            <h2>Groups</h2>
+            <a href="groups.html">See all</a>
+          </div>
+          <div class="search-groups-grid">
+            <a href="groups.html" class="search-group-card">
+              <div class="search-group-icon">&#127912;</div>
+              <div class="search-group-info">
+                <span class="search-group-name">Design Enthusiasts</span>
+                <span class="search-group-meta">12,400 members &middot; Public</span>
+              </div>
+            </a>
+            <a href="groups.html" class="search-group-card">
+              <div class="search-group-icon">&#128247;</div>
+              <div class="search-group-info">
+                <span class="search-group-name">Photography Club</span>
+                <span class="search-group-meta">8,230 members &middot; Public</span>
+              </div>
+            </a>
+            <a href="groups.html" class="search-group-card">
+              <div class="search-group-icon">&#128187;</div>
+              <div class="search-group-info">
+                <span class="search-group-name">Web Developers</span>
+                <span class="search-group-meta">23,100 members &middot; Public</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    {{>footer}}
+    <script src="js/main.js"></script>
+  </body>
+</html>

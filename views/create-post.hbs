@@ -1,0 +1,261 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connectly — Create Post</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ===== Navbar ===== -->
+ {{>header
+ }}
+
+    <!-- ===== Create Post Page ===== -->
+    <main class="create-post-page">
+      <div class="create-post-container">
+        <!-- Page Header -->
+        <div class="create-post-header">
+          <h1>Create Post</h1>
+          <p>Share your thoughts, photos, and moments with your friends.</p>
+        </div>
+
+        <!-- Post Composer Card -->
+        <form
+          class="create-post-form"
+          id="createPostForm"
+          action="/create-post"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <!-- User Info Banner -->
+          <div class="cp-user-banner">
+            <div class="cp-user-avatar">JD</div>
+            <div class="cp-user-info">
+              <span class="cp-user-name">{{currentuser.fullname}}</span>
+              <span class="cp-user-username">@{{currentuser.username}}</span>
+            </div>
+          </div>
+
+          <!-- Validation Error Banner -->
+          <div class="cp-error-banner" id="cpErrorBanner"></div>
+
+          <!-- Success Banner -->
+          <div class="cp-success-banner" id="cpSuccessBanner">
+            Your post has been published! Redirecting to feed...
+          </div>
+
+          <!-- Text Area -->
+          <div class="cp-section">
+            <label for="cpTextContent" class="cp-label">
+              What's on your mind?
+            </label>
+            <textarea
+              class="cp-textarea"
+              id="cpTextContent"
+              name="textContent"
+              placeholder="Write something..."
+              maxlength="2000"
+              rows="6"
+            ></textarea>
+            <div class="cp-char-counter">
+              <span id="cpCharCount">0</span>
+              / 2000
+            </div>
+          </div>
+
+          <!-- Media Upload Section -->
+          <div class="cp-section">
+            <span class="cp-label">Add to your post</span>
+            <div class="cp-media-tools">
+              <button class="cp-media-btn" id="cpPhotoBtn" type="button">
+                <span class="cp-media-icon">&#128247;</span>
+                <span>Photo</span>
+              </button>
+              <button class="cp-media-btn" id="cpVideoBtn" type="button">
+                <span class="cp-media-icon">&#127909;</span>
+                <span>Video</span>
+              </button>
+              <button class="cp-media-btn" id="cpFeelingBtn" type="button">
+                <span class="cp-media-icon">&#128526;</span>
+                <span>Feeling / Activity</span>
+              </button>
+            </div>
+
+            <!-- Hidden file inputs -->
+            <input
+              type="file"
+              id="cpPhotoInput"
+              name="media"
+              accept="image/jpeg,image/jpg,image/png,image/webp"
+              multiple
+              hidden
+            />
+            <input
+              type="file"
+              id="cpVideoInput"
+              name="video"
+              accept="video/mp4,video/webm"
+              hidden
+            />
+          </div>
+
+          <!-- Image Previews -->
+          <div
+            class="cp-previews"
+            id="cpImagePreviews"
+            style="display:none;"
+          ></div>
+
+          <!-- Video Preview -->
+          <div
+            class="cp-video-preview-wrap"
+            id="cpVideoPreviewWrap"
+            style="display:none;"
+          >
+            <div class="cp-preview-header">
+              <span>&#127909; Video selected</span>
+              <button
+                type="button"
+                class="cp-remove-btn"
+                id="cpRemoveVideo"
+              >&times; Remove</button>
+            </div>
+            <video
+              id="cpVideoPreview"
+              class="cp-video-element"
+              controls
+            ></video>
+          </div>
+
+          <!-- Feeling Selector -->
+          <div
+            class="cp-feeling-section"
+            id="cpFeelingSection"
+            style="display:none;"
+          >
+            <div class="cp-preview-header">
+              <span>&#128526; How are you feeling?</span>
+              <button
+                type="button"
+                class="cp-remove-btn"
+                id="cpCloseFeeling"
+              >&times; Close</button>
+            </div>
+            <div class="cp-feeling-options" id="cpFeelingOptions">
+              <button
+                type="button"
+                class="cp-feeling-pill"
+                data-feeling="Happy"
+              >
+                &#128512; Happy
+              </button>
+              <button
+                type="button"
+                class="cp-feeling-pill"
+                data-feeling="Excited"
+              >
+                &#129321; Excited
+              </button>
+              <button
+                type="button"
+                class="cp-feeling-pill"
+                data-feeling="Grateful"
+              >
+                &#128591; Grateful
+              </button>
+              <button
+                type="button"
+                class="cp-feeling-pill"
+                data-feeling="Celebrating"
+              >
+                &#127881; Celebrating
+              </button>
+              <button
+                type="button"
+                class="cp-feeling-pill"
+                data-feeling="Watching"
+              >
+                &#128064; Watching
+              </button>
+            </div>
+            <div
+              class="cp-feeling-selected"
+              id="cpFeelingSelected"
+              style="display:none;"
+            >
+              <span>Feeling <strong id="cpFeelingText"></strong></span>
+              <button
+                type="button"
+                class="cp-remove-btn"
+                id="cpClearFeeling"
+              >&times; Clear</button>
+            </div>
+          </div>
+
+          <!-- Audience Selector -->
+          <div class="cp-section cp-audience-section">
+            <label for="cpAudience" class="cp-label">
+              Who can see this post?
+            </label>
+            <select class="cp-audience-select" id="cpAudience" name="audience">
+              <option value="Public">&#127760; Public — Anyone on Connectly</option>
+              <option value="Friends">&#128101; Friends — Only your friends</option>
+              <option value="Only Me">&#128274; Only Me — Just you</option>
+            </select>
+            <p class="cp-audience-note" id="cpAudienceNote">
+              Note: Audience privacy is not enforced in this demo. All posts are
+              visible.
+            </p>
+          </div>
+
+          <!-- Submit Buttons -->
+          <div class="cp-actions">
+            <a href="feed.html" class="btn-outline cp-cancel-btn">
+              Cancel
+            </a>
+            <button
+              type="submit"
+              class="btn-primary cp-publish-btn"
+              id="cpPublishBtn"
+            >
+              Publish Post
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <!-- ===== Footer ===== -->
+   
+   {{>footer}}
+
+    <script src="js/main.js"></script>
+
+ <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+  const success = "{{success}}".trim();
+  const error = "{{error}}".trim();
+
+  if (success) {
+    Swal.fire({
+      title: "Success!",
+      text: success,
+      icon: "success"
+    });
+  } else if (error) {
+    Swal.fire({
+      title: "Error!",
+      text: error,
+      icon: "error"
+    });
+  }
+  </script>
+  </body>
+</html>

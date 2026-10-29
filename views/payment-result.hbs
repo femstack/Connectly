@@ -1,0 +1,167 @@
+{{!-- <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    {{>header}}
+
+<main class="payment-result-page">
+  <div class="payment-result-container">
+    <div class="result-card result-{{statusClass}}">
+      <!-- Status Icon -->
+      <div class="result-status-icon result-icon-{{statusClass}}">
+        {{#if success}}
+          &#10003;
+        {{else if cancelled}}
+          &#10007;
+        {{else if pending}}
+          &#9203;
+        {{else}}
+          &#9888;
+        {{/if}}
+      </div>
+
+      <!-- Heading & Message -->
+      <h1>{{heading}}</h1>
+      <p class="result-message">{{message}}</p>
+
+      <!-- Transaction Details -->
+      {{#if reference}}
+        <div class="result-details">
+          <div class="result-detail-row">
+            <span class="result-detail-label">Transaction Reference</span>
+            <span class="result-detail-value">{{reference}}</span>
+          </div>
+          {{#if amount}}
+            <div class="result-detail-row">
+              <span class="result-detail-label">Amount</span>
+              <span class="result-detail-value">&#8358;{{amount}} {{currency}}</span>
+            </div>
+          {{/if}}
+          {{#if plan}}
+            <div class="result-detail-row">
+              <span class="result-detail-label">Plan</span>
+              <span class="result-detail-value">{{plan}}</span>
+            </div>
+          {{/if}}
+          {{#if date}}
+            <div class="result-detail-row">
+              <span class="result-detail-label">Date</span>
+              <span class="result-detail-value">{{date}}</span>
+            </div>
+          {{/if}}
+        </div>
+      {{/if}}
+
+      <!-- Action Buttons -->
+      <div class="result-actions">
+        <a href="/feed" class="btn-primary">Go to Feed</a>
+        <a href="/payment-history" class="btn-outline">Payment History</a>
+        {{#if canRetry}}
+          <a href="/checkout" class="btn-outline">Retry Payment</a>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</main>
+
+{{>footer}}
+    <script src="js/main.js"></script>
+  </body>
+</html> --}}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Payment Result | Connectly</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    {{>header}}
+
+    <main class="payment-result-page">
+
+        <div class="payment-result-card">
+
+            {{#if paymentSuccess}}
+
+                <div class="payment-result-icon success-icon">
+                    ✓
+                </div>
+
+                <h1>Payment Successful!</h1>
+
+                <p>
+                    Your payment has been verified successfully.
+                    Welcome to Connectly Premium!
+                </p>
+
+                <div class="payment-result-details">
+
+                    <div>
+                        <span>Plan</span>
+                        <strong>Annual Premium</strong>
+                    </div>
+
+                    <div>
+                        <span>Amount Paid</span>
+                        <strong>₦{{amount}}</strong>
+                    </div>
+
+                    <div>
+                        <span>Transaction Reference</span>
+                        <strong>{{reference}}</strong>
+                    </div>
+
+                </div>
+
+                <a href="/premium" class="btn-primary">
+                    Go to Premium
+                </a>
+
+            {{else}}
+
+                <div class="payment-result-icon failure-icon">
+                    !
+                </div>
+
+                <h1>Payment Not Confirmed</h1>
+
+                <p>
+                    {{message}}
+                </p>
+
+                <p>
+                    If money was deducted from your account,
+                    please check your payment history before
+                    trying again.
+                </p>
+
+                <a href="/payment-history" class="btn-primary">
+                    View Payment History
+                </a>
+
+                <a href="/checkout" class="btn-secondary">
+                    Return to Checkout
+                </a>
+
+            {{/if}}
+
+        </div>
+
+    </main>
+
+    {{>footer}}
+
+</body>
+</html>

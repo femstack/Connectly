@@ -1,0 +1,252 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connectly — Explore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ===== Navbar ===== -->
+    {{>header}}
+
+    <!-- ===== Explore Page ===== -->
+    <main class="explore-page">
+      <div class="explore-container">
+        <div class="page-header">
+          <h1>Explore</h1>
+          <p>Discover trending topics, popular content, and new people to
+            follow.</p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="explore-search">
+          <form action="/explore/search" method="GET" class="search-form">
+            <input
+              type="search"
+              name="q"
+              placeholder="Search for people, topics, hashtags..."
+              aria-label="Search"
+            />
+            <button type="submit" class="btn-primary">Search</button>
+          </form>
+        </div>
+
+        <!-- Content Categories -->
+        <div class="category-pills" id="categoryPills">
+          <button class="category-pill active" type="button">All</button>
+          <button class="category-pill" type="button">Technology</button>
+          <button class="category-pill" type="button">Design</button>
+          <button class="category-pill" type="button">Travel</button>
+          <button class="category-pill" type="button">Food</button>
+          <button class="category-pill" type="button">Music</button>
+          <button class="category-pill" type="button">Fitness</button>
+          <button class="category-pill" type="button">Photography</button>
+        </div>
+
+        <!-- Trending Topics -->
+        <section class="explore-section">
+          <h2>Trending Topics</h2>
+          <div class="trending-grid">
+            <a href="explore.html" class="trending-card">
+              <span class="trending-rank">#1</span>
+              <strong>#DesignSystems</strong>
+              <span class="trending-posts">2,341 posts</span>
+              <p>Trending in Design — How consistent design scales across teams</p>
+            </a>
+            <a href="explore.html" class="trending-card">
+              <span class="trending-rank">#2</span>
+              <strong>#RemoteWork</strong>
+              <span class="trending-posts">1,876 posts</span>
+              <p>Trending in Technology — Tips, tools, and stories from working
+                anywhere</p>
+            </a>
+            <a href="explore.html" class="trending-card">
+              <span class="trending-rank">#3</span>
+              <strong>#MountainHikes</strong>
+              <span class="trending-posts">1,204 posts</span>
+              <p>Trending in Travel — Best trails and breathtaking views around
+                the world</p>
+            </a>
+            <a href="explore.html" class="trending-card">
+              <span class="trending-rank">#4</span>
+              <strong>#MorningCoffee</strong>
+              <span class="trending-posts">987 posts</span>
+              <p>Trending in Food — Brews, beans, and routines that start the
+                day right</p>
+            </a>
+            <a href="explore.html" class="trending-card">
+              <span class="trending-rank">#5</span>
+              <strong>#IndieMusic</strong>
+              <span class="trending-posts">742 posts</span>
+              <p>Trending in Music — Discover independent artists and new sounds</p>
+            </a>
+            <a href="explore.html" class="trending-card">
+              <span class="trending-rank">#6</span>
+              <strong>#StreetPhotography</strong>
+              <span class="trending-posts">631 posts</span>
+              <p>Trending in Photography — Urban moments captured in everyday
+                life</p>
+            </a>
+          </div>
+        </section>
+
+        <!-- Popular Posts -->
+        <section class="explore-section">
+          <h2>Popular Posts</h2>
+          <div class="popular-posts-grid">
+            <article class="post-card explore-post-card">
+              <div class="post-header">
+                <div class="post-avatar post-avatar-3">JT</div>
+                <div class="post-meta">
+                  <a href="profile.html" class="post-author">Jordan Tate</a>
+                  <span class="post-username">@jordantate</span>
+                  <span class="post-time">3 hrs ago</span>
+                </div>
+              </div>
+              <div class="post-content">
+                <p>Excited to share that I just launched my new portfolio
+                  website! It's been a long journey but I'm really proud of how
+                  it turned out. Check it out and let me know what you think!</p>
+              </div>
+              <div class="post-actions">
+                <span class="post-action"><span>&#10084;</span> 312 Likes</span>
+                <span class="post-action"><span>&#128172;</span>
+                  48 Comments</span>
+              </div>
+            </article>
+
+            <article class="post-card explore-post-card">
+              <div class="post-header">
+                <div class="post-avatar post-avatar-2">MK</div>
+                <div class="post-meta">
+                  <a href="profile.html" class="post-author">Maya Kapoor</a>
+                  <span class="post-username">@mayakapoor</span>
+                  <span class="post-time">6 hrs ago</span>
+                </div>
+              </div>
+              <div class="post-content">
+                <p>10 lessons from 10 years of hiking. #1: The best views come
+                  after the hardest climbs. Nature has a way of putting
+                  everything into perspective. Full thread below!</p>
+              </div>
+              <div class="post-actions">
+                <span class="post-action"><span>&#10084;</span> 256 Likes</span>
+                <span class="post-action"><span>&#128172;</span>
+                  33 Comments</span>
+              </div>
+            </article>
+
+            <article class="post-card explore-post-card">
+              <div class="post-header">
+                <div class="post-avatar">AS</div>
+                <div class="post-meta">
+                  <a href="profile.html" class="post-author">Alex Silva</a>
+                  <span class="post-username">@alexsilva</span>
+                  <span class="post-time">8 hrs ago</span>
+                </div>
+              </div>
+              <div class="post-content">
+                <p>My top 5 design principles for building products people love:
+                  1. Clarity over cleverness 2. Consistency builds trust 3.
+                  Feedback at every step 4. Accessibility is not optional 5.
+                  Less, but better. What would you add?</p>
+              </div>
+              <div class="post-actions">
+                <span class="post-action"><span>&#10084;</span> 198 Likes</span>
+                <span class="post-action"><span>&#128172;</span>
+                  27 Comments</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- Suggested People -->
+        <section class="explore-section">
+          <h2>Suggested People to Follow</h2>
+          <div class="friend-cards-grid">
+            <div class="friend-card">
+              <a
+                href="profile.html"
+                class="friend-avatar avatar-placeholder post-avatar-4"
+              >RW</a>
+              <div class="friend-info">
+                <a href="profile.html" class="friend-name">Ryan Walker</a>
+                <span class="friend-username">@ryanwalker</span>
+                <span class="friend-mutual">Photographer &amp; traveler</span>
+              </div>
+              <div class="friend-actions">
+                <button
+                  class="btn-primary btn-sm js-follow"
+                  type="button"
+                >Follow</button>
+              </div>
+            </div>
+            <div class="friend-card">
+              <a
+                href="profile.html"
+                class="friend-avatar avatar-placeholder post-avatar-2"
+              >OL</a>
+              <div class="friend-info">
+                <a href="profile.html" class="friend-name">Olivia Lee</a>
+                <span class="friend-username">@olivialee</span>
+                <span class="friend-mutual">Food blogger &amp; recipe creator</span>
+              </div>
+              <div class="friend-actions">
+                <button
+                  class="btn-primary btn-sm js-follow"
+                  type="button"
+                >Follow</button>
+              </div>
+            </div>
+            <div class="friend-card">
+              <a
+                href="profile.html"
+                class="friend-avatar avatar-placeholder post-avatar-3"
+              >DH</a>
+              <div class="friend-info">
+                <a href="profile.html" class="friend-name">Daniel Hayes</a>
+                <span class="friend-username">@danielhayes</span>
+                <span class="friend-mutual">Indie musician &amp; producer</span>
+              </div>
+              <div class="friend-actions">
+                <button
+                  class="btn-primary btn-sm js-follow"
+                  type="button"
+                >Follow</button>
+              </div>
+            </div>
+            <div class="friend-card">
+              <a
+                href="profile.html"
+                class="friend-avatar avatar-placeholder"
+              >AN</a>
+              <div class="friend-info">
+                <a href="profile.html" class="friend-name">Ava Nguyen</a>
+                <span class="friend-username">@avanguyen</span>
+                <span class="friend-mutual">Fitness coach &amp; wellness
+                  advocate</span>
+              </div>
+              <div class="friend-actions">
+                <button
+                  class="btn-primary btn-sm js-follow"
+                  type="button"
+                >Follow</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    {{>footer}}
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
