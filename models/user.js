@@ -41,12 +41,10 @@ const userSchema = new mongoose.Schema(
     coverphoto: {
       type: String,
       default: "",
-      required: true,
     },
     profilephoto: {
       type: String,
       default: "",
-      required: true,
     },
     bio: {
       type: String,
